@@ -24,19 +24,22 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border bg-cream/95 backdrop-blur"
+          ? "border-b border-border/60 bg-cream/90 shadow-[0_4px_24px_rgba(11,31,74,0.06)] backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
       }`}
     >
       <nav className="mx-auto flex h-20 max-w-container items-center justify-between px-5 lg:px-12">
         <Link
           href="#top"
-          className="font-display text-3xl font-semibold text-navy"
+          className="flex items-center gap-2.5"
           aria-label="Levo — accueil"
         >
-          Levo
+          <span className="flex h-7 w-7 items-center justify-center rounded-[7px] bg-navy">
+            <span className="font-display text-sm font-bold text-cream">L</span>
+          </span>
+          <span className="font-display text-xl font-semibold text-navy">Levo</span>
         </Link>
 
         <div className="hidden items-center gap-10 md:flex">
@@ -54,9 +57,9 @@ export function Nav() {
           </ul>
           <Link
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-[12px] border-2 border-navy bg-navy px-6 py-2.5 font-body text-sm font-semibold tracking-[0.02em] text-cream transition-colors hover:bg-navy-mid hover:border-navy-mid"
+            className="rounded-[10px] bg-navy px-5 py-2.5 font-body text-sm font-semibold text-cream transition-all hover:-translate-y-px hover:bg-navy-mid hover:shadow-[0_4px_16px_rgba(11,31,74,0.20)]"
           >
-            Discutons de votre projet
+            Discutons
           </Link>
         </div>
 
