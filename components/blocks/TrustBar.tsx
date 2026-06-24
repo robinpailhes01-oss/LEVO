@@ -9,12 +9,23 @@ const metrics = [
 
 export function TrustBar() {
   return (
-    <section className="border-y border-border/60">
+    <section
+      className="border-b border-border/60"
+      style={{ background: "var(--cream)" }}
+    >
       <div className="mx-auto max-w-container px-5 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4">
           {metrics.map((m, i) => (
             <ScrollReveal key={m.label} delay={i * 60}>
-              <div className={`px-6 py-12 lg:py-16 ${i < metrics.length - 1 ? "border-r border-border/60" : ""} ${i >= 2 ? "border-t border-border/60 lg:border-t-0" : ""}`}>
+              <div
+                className={[
+                  "px-6 py-12 lg:py-16",
+                  i < metrics.length - 1 ? "border-r border-border/60" : "",
+                  i >= 2 ? "border-t border-border/60 lg:border-t-0" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+              >
                 <p className="font-display text-[2.8rem] font-bold leading-none tracking-[-0.03em] text-navy">
                   {m.value}
                 </p>
