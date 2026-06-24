@@ -1,9 +1,10 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 const metrics = [
   { value: "100%", label: "Sur-mesure", note: "Jamais de template" },
   { value: "40h+", label: "Économisées/mois", note: "Par client en moyenne" },
-  { value: "< 30s", label: "Réponse agent", note: "En production" },
+  { value: "30s", label: "Réponse agent", note: "En production" },
   { value: "0", label: "Demandes oubliées", note: "Grâce à l'automatisation" },
 ];
 
@@ -25,7 +26,7 @@ export function TrustBar() {
                   className="font-display text-[2.6rem] font-bold leading-none tracking-[-0.03em]"
                   style={{ color: "#0b1f4a" }}
                 >
-                  {m.value}
+                  <AnimatedCounter value={m.value} />
                 </p>
                 <p className="mt-3 font-body text-sm font-semibold" style={{ color: "#0b1f4a" }}>
                   {m.label}

@@ -1,4 +1,8 @@
+"use client";
+
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { TiltCard } from "@/components/ui/TiltCard";
+import { WordReveal } from "@/components/ui/WordReveal";
 
 const testimonials = [
   {
@@ -33,21 +37,22 @@ export function TestimonialsSection() {
       <div className="mx-auto max-w-container px-5 lg:px-12">
         <ScrollReveal className="mb-16">
           <p className="section-label">Ils nous font confiance</p>
-          <h2
+          <WordReveal
+            text="Des clients qui gagnent du temps"
+            as="h2"
             className="heading mt-5 text-4xl sm:text-5xl"
             style={{ color: "#0b1f4a" }}
-          >
-            Des clients
-            <br />qui gagnent du temps
-          </h2>
+            delay={0.05}
+          />
         </ScrollReveal>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-3" style={{ perspective: "1200px" }}>
           {testimonials.map((t, i) => (
             <ScrollReveal key={t.name} delay={i * 100}>
-              <div
-                className="card flex h-full flex-col p-8"
-                style={{ background: "#ffffff" }}
+              <TiltCard
+                className="flex h-full flex-col rounded-[16px] border bg-white p-8"
+                style={{ border: "1px solid #e2d9c8" }}
+                intensity={5}
               >
                 {/* Stars */}
                 <div className="flex gap-1" aria-label="5 étoiles">
@@ -99,7 +104,7 @@ export function TestimonialsSection() {
                     {t.result}
                   </span>
                 </div>
-              </div>
+              </TiltCard>
             </ScrollReveal>
           ))}
         </div>

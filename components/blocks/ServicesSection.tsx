@@ -1,5 +1,9 @@
+"use client";
+
 import { Bot, Workflow, LineChart } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { TiltCard } from "@/components/ui/TiltCard";
+import { WordReveal } from "@/components/ui/WordReveal";
 
 const services = [
   {
@@ -34,19 +38,23 @@ export function ServicesSection() {
       <div className="mx-auto max-w-container px-5 lg:px-12">
         <ScrollReveal className="mb-20">
           <p className="section-label">Ce qu&apos;on construit</p>
-          <h2
+          <WordReveal
+            text="Des outils pensés autour de vous"
+            as="h2"
             className="heading mt-5 max-w-xl text-4xl sm:text-5xl"
             style={{ color: "#0b1f4a" }}
-          >
-            Des outils pensés
-            <br />autour de vous
-          </h2>
+            delay={0.05}
+          />
         </ScrollReveal>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-3" style={{ perspective: "1200px" }}>
           {services.map((s, i) => (
             <ScrollReveal key={s.title} delay={i * 100}>
-              <div className="card group relative h-full overflow-hidden p-8">
+              <TiltCard
+                className="relative h-full overflow-hidden rounded-[16px] border bg-white p-8 transition-shadow duration-300 hover:shadow-[0_12px_40px_rgba(11,31,74,0.10)]"
+                style={{ border: "1px solid #e2d9c8" }}
+                intensity={6}
+              >
                 {/* Number watermark */}
                 <span
                   aria-hidden
@@ -76,10 +84,7 @@ export function ServicesSection() {
                   <s.icon size={20} strokeWidth={1.5} style={{ color: "#005fff" }} aria-hidden />
                 </div>
 
-                <h3
-                  className="heading relative mt-6 text-[1.25rem]"
-                  style={{ color: "#0b1f4a" }}
-                >
+                <h3 className="heading relative mt-6 text-[1.25rem]" style={{ color: "#0b1f4a" }}>
                   {s.title}
                 </h3>
                 <p
@@ -89,12 +94,12 @@ export function ServicesSection() {
                   {s.description}
                 </p>
 
-                {/* Bottom line on hover */}
+                {/* Reveal line on hover */}
                 <div
-                  className="mt-8 h-px opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{ background: "#005fff" }}
+                  className="mt-8 h-px transition-all duration-500 group-hover:opacity-100"
+                  style={{ background: "linear-gradient(90deg, #005fff, transparent)" }}
                 />
-              </div>
+              </TiltCard>
             </ScrollReveal>
           ))}
         </div>

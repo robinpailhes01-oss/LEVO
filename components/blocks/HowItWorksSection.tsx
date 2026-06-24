@@ -1,4 +1,7 @@
+"use client";
+
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { WordReveal } from "@/components/ui/WordReveal";
 
 const steps = [
   {
@@ -23,11 +26,7 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section
-      id="process"
-      className="py-28 sm:py-36"
-      style={{ background: "#f0ebe0" }}
-    >
+    <section id="process" className="py-28 sm:py-36" style={{ background: "#f0ebe0" }}>
       <div className="mx-auto max-w-container px-5 lg:px-12">
         <ScrollReveal className="mb-20">
           <div
@@ -36,18 +35,15 @@ export function HowItWorksSection() {
           >
             <div>
               <p className="section-label">Notre méthode</p>
-              <h2
+              <WordReveal
+                text="Trois étapes, zéro jargon"
+                as="h2"
                 className="heading mt-5 text-4xl sm:text-5xl"
                 style={{ color: "#0b1f4a" }}
-              >
-                Trois étapes,
-                <br />zéro jargon
-              </h2>
+                delay={0.05}
+              />
             </div>
-            <p
-              className="hidden max-w-xs font-body text-[15px] lg:block"
-              style={{ color: "#4a5568" }}
-            >
+            <p className="hidden max-w-xs font-body text-[15px] lg:block" style={{ color: "#4a5568" }}>
               Une approche simple et transparente, du premier échange à la livraison — et au-delà.
             </p>
           </div>
@@ -71,16 +67,10 @@ export function HowItWorksSection() {
                   {s.num}
                 </span>
                 <div className="mt-4 h-[2px] w-10" style={{ background: "#005fff" }} />
-                <h3
-                  className="heading mt-6 text-2xl"
-                  style={{ color: "#0b1f4a" }}
-                >
+                <h3 className="heading mt-6 text-2xl" style={{ color: "#0b1f4a" }}>
                   {s.title}
                 </h3>
-                <p
-                  className="mt-3 font-body text-[15px] leading-relaxed"
-                  style={{ color: "#4a5568" }}
-                >
+                <p className="mt-3 font-body text-[15px] leading-relaxed" style={{ color: "#4a5568" }}>
                   {s.description}
                 </p>
               </div>
