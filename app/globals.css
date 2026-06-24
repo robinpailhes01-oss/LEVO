@@ -3,41 +3,28 @@
 @tailwind utilities;
 
 /* ===========================================
-   LEVO — Design Tokens (dark mode)
+   LEVO — Design Tokens
    =========================================== */
 
 :root {
   --cream:          #faf7f0;
   --cream-dark:     #f0ebe0;
+  --cream-mid:      #e8e1d4;
   --navy:           #0b1f4a;
   --navy-mid:       #1e3a6e;
-  --navy-deep:      #060f24;
   --electric:       #005fff;
   --electric-light: #4d8fff;
-  --teal:           #00c2ff;
-  --border:         #e2d9c8;
   --text-primary:   #0b1f4a;
   --text-secondary: #4a5568;
-  --text-muted:     #9aa5b4;
-
-  /* Dark surface tokens */
-  --surface-0:  #060f24;
-  --surface-1:  #0a1628;
-  --surface-2:  #0d1b35;
-  --surface-3:  #101f3d;
-  --dark-text:  #f8f4ed;
-  --dark-60:    rgba(248, 244, 237, 0.60);
-  --dark-40:    rgba(248, 244, 237, 0.40);
-  --dark-25:    rgba(248, 244, 237, 0.25);
-  --dark-10:    rgba(248, 244, 237, 0.10);
-  --dark-border: rgba(255, 255, 255, 0.08);
-  --dark-border-strong: rgba(255, 255, 255, 0.14);
+  --text-muted:     #8a96a8;
+  --border:         #e2d9c8;
+  --border-mid:     #cfc5b0;
 }
 
 @layer base {
   body {
-    background-color: var(--surface-0);
-    color: var(--dark-text);
+    background-color: var(--cream);
+    color: var(--text-primary);
     font-family: var(--font-body), system-ui, sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -47,18 +34,6 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
-  }
-
-  /* Grain texture */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    pointer-events: none;
-    opacity: 0.032;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    background-size: 128px 128px;
   }
 }
 
@@ -77,51 +52,28 @@
     letter-spacing: -0.02em;
   }
 
-  /* Dark section label (eyebrow) */
   .section-label {
     font-family: var(--font-body), system-ui, sans-serif;
     font-weight: 600;
     font-size: 0.7rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(77, 143, 255, 0.85);
+    color: var(--electric);
   }
 
-  /* Dark glass card */
-  .glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  .card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
   }
 
-  .glass-card:hover {
-    border-color: rgba(255, 255, 255, 0.14);
-    box-shadow: 0 24px 64px rgba(0, 95, 255, 0.08);
-    transform: translateY(-4px);
+  .card:hover {
+    border-color: var(--border-mid);
+    box-shadow: 0 12px 40px rgba(11, 31, 74, 0.08);
+    transform: translateY(-3px);
   }
 }
-
-/* ── Animated blobs ── */
-@keyframes blob-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%       { transform: translate(60px, -40px) scale(1.12); }
-  66%       { transform: translate(-30px, 50px) scale(0.9); }
-}
-@keyframes blob-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%       { transform: translate(-50px, 30px) scale(1.1); }
-  66%       { transform: translate(40px, -60px) scale(0.95); }
-}
-@keyframes blob-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%       { transform: translate(30px, 50px) scale(1.15); }
-}
-
-.blob { border-radius: 50%; filter: blur(80px); will-change: transform; }
-.blob-1 { animation: blob-1 14s ease-in-out infinite; }
-.blob-2 { animation: blob-2 18s ease-in-out infinite; }
-.blob-3 { animation: blob-3 22s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

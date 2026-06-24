@@ -9,28 +9,28 @@ const metrics = [
 
 export function TrustBar() {
   return (
-    <section style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+    <section style={{ background: "#faf7f0", borderBottom: "1px solid #e2d9c8" }}>
       <div className="mx-auto max-w-container px-5 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4">
           {metrics.map((m, i) => (
             <ScrollReveal key={m.label} delay={i * 60}>
               <div
-                className="px-6 py-14 lg:py-16"
+                className="px-6 py-12 lg:py-16"
                 style={{
-                  borderRight: i < metrics.length - 1 ? "1px solid rgba(255,255,255,0.08)" : undefined,
-                  borderTop: i >= 2 ? "1px solid rgba(255,255,255,0.08)" : undefined,
+                  borderRight: i < metrics.length - 1 ? "1px solid #e2d9c8" : undefined,
+                  borderTop: i >= 2 ? "1px solid #e2d9c8" : undefined,
                 }}
               >
                 <p
-                  className="font-display text-[2.8rem] font-bold leading-none tracking-[-0.03em]"
-                  style={{ color: "#f8f4ed" }}
+                  className="font-display text-[2.6rem] font-bold leading-none tracking-[-0.03em]"
+                  style={{ color: "#0b1f4a" }}
                 >
                   {m.value}
                 </p>
-                <p className="mt-3 font-body text-sm font-semibold" style={{ color: "rgba(248,244,237,0.65)" }}>
+                <p className="mt-3 font-body text-sm font-semibold" style={{ color: "#0b1f4a" }}>
                   {m.label}
                 </p>
-                <p className="mt-1 font-body text-xs" style={{ color: "rgba(248,244,237,0.35)" }}>
+                <p className="mt-1 font-body text-xs" style={{ color: "#8a96a8" }}>
                   {m.note}
                 </p>
               </div>
