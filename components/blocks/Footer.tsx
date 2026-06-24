@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const links = [
+const nav = [
   { href: "#services", label: "Services" },
   { href: "#process", label: "Méthode" },
   { href: "#cas", label: "Réalisations" },
@@ -10,9 +10,10 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-cream">
+    <footer className="border-t border-border/60 bg-cream">
       <div className="mx-auto max-w-container px-5 py-16 lg:px-12">
-        <div className="flex flex-col justify-between gap-10 md:flex-row md:items-start">
+        <div className="grid gap-12 md:grid-cols-[1fr_auto_auto] md:gap-20">
+          {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5">
               <span className="flex h-7 w-7 items-center justify-center rounded-[7px] bg-navy">
@@ -20,21 +21,18 @@ export function Footer() {
               </span>
               <span className="font-display text-xl font-semibold text-navy">Levo</span>
             </div>
-            <p className="mt-3 font-body text-sm text-text-secondary">
-              Agence IA sur-mesure · Montpellier, France
-            </p>
-            <p className="mt-1.5 font-body text-xs text-text-muted">
-              Solutions artisanales, construites avec soin
-              <br />dans le Sud de la France.
+            <p className="mt-4 max-w-[220px] font-body text-sm leading-relaxed text-text-muted">
+              Solutions IA artisanales, construites avec soin dans le Sud de la France.
             </p>
           </div>
 
+          {/* Nav */}
           <div>
-            <p className="font-body text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
+            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.12em] text-text-muted">
               Navigation
             </p>
-            <ul className="mt-4 space-y-2.5">
-              {links.map((l) => (
+            <ul className="mt-5 space-y-3">
+              {nav.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
@@ -47,29 +45,28 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <p className="font-body text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
+            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.12em] text-text-muted">
               Contact
             </p>
-            <a
-              href="mailto:harmonieyacht@gmail.com"
-              className="mt-4 block font-body text-sm text-text-secondary transition-colors hover:text-navy"
-            >
-              harmonieyacht@gmail.com
-            </a>
-            <p className="mt-1.5 font-body text-xs text-text-muted">
-              On répond sous 24h ouvrées
-            </p>
+            <div className="mt-5">
+              <a
+                href="mailto:harmonieyacht@gmail.com"
+                className="block font-body text-sm text-text-secondary transition-colors hover:text-navy"
+              >
+                harmonieyacht@gmail.com
+              </a>
+              <p className="mt-2 font-body text-xs text-text-muted">Réponse sous 24h ouvrées</p>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 sm:flex-row sm:items-center">
+        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-border/60 pt-8 sm:flex-row sm:items-center">
           <p className="font-body text-xs text-text-muted">
-            © {new Date().getFullYear()} Levo. Tous droits réservés.
+            © {new Date().getFullYear()} Levo · Agence IA sur-mesure
           </p>
-          <p className="font-body text-xs text-text-muted">
-            Fait avec soin à Montpellier 🌊
-          </p>
+          <p className="font-body text-xs text-text-muted">Montpellier, France</p>
         </div>
       </div>
     </footer>

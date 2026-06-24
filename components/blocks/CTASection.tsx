@@ -1,84 +1,62 @@
-import { Mail, ArrowRight, CalendarDays } from "lucide-react";
-import { Reveal } from "@/components/ui/Reveal";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const EMAIL = "harmonieyacht@gmail.com";
 
 export function CTASection() {
   return (
-    <section id="contact" className="py-24 sm:py-32">
+    <section id="contact" className="py-28 sm:py-36">
       <div className="mx-auto max-w-container px-5 lg:px-12">
-        <Reveal>
-          <div className="relative overflow-hidden rounded-[28px] bg-navy px-8 py-16 text-center sm:px-12 sm:py-24">
-            {/* Background effects */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0"
-            >
+        <ScrollReveal>
+          <div className="relative overflow-hidden rounded-[28px] bg-navy px-8 py-20 sm:px-16 sm:py-28">
+            {/* Animated mesh inside the card */}
+            <div aria-hidden className="pointer-events-none absolute inset-0">
               <div
-                className="absolute -bottom-20 -left-20 h-96 w-96 rounded-full opacity-20"
-                style={{ background: "radial-gradient(circle, #005FFF 0%, transparent 60%)" }}
+                className="blob blob-1 absolute -bottom-32 -right-32 h-[500px] w-[500px] opacity-[0.18]"
+                style={{ background: "radial-gradient(circle, #005FFF, transparent 60%)" }}
               />
               <div
-                className="absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-10"
-                style={{ background: "radial-gradient(circle, #4D8FFF 0%, transparent 60%)" }}
+                className="blob blob-3 absolute -left-16 -top-16 h-[300px] w-[300px] opacity-[0.08]"
+                style={{ background: "radial-gradient(circle, #4D8FFF, transparent 60%)" }}
               />
               <div
-                className="absolute inset-0 opacity-[0.03]"
+                className="absolute inset-0 opacity-[0.04]"
                 style={{
                   backgroundImage: "radial-gradient(rgba(250,247,240,0.8) 1px, transparent 1px)",
-                  backgroundSize: "24px 24px",
+                  backgroundSize: "28px 28px",
                 }}
               />
             </div>
 
-            <div className="relative">
-              <span
-                className="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/5 px-4 py-1.5 font-body text-xs font-semibold uppercase tracking-[0.1em] text-cream/60"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-electric-light" />
+            <div className="relative max-w-2xl">
+              <p className="font-body text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-cream/40">
                 Parlons de votre projet
-              </span>
-
-              <h2 className="mt-7 font-display text-4xl font-bold leading-tight text-cream sm:text-5xl lg:text-[3.5rem]">
+              </p>
+              <h2 className="mt-6 font-display text-4xl font-bold leading-tight tracking-[-0.025em] text-cream sm:text-5xl lg:text-[3.5rem]">
                 Votre projet mérite
-                <br />
-                une vraie conversation
+                <br />une vraie conversation
               </h2>
-
-              <p className="mx-auto mt-6 max-w-xl font-body text-lg text-cream/60">
+              <p className="mt-7 max-w-lg font-body text-lg leading-relaxed text-cream/55">
                 Un café, une visio, ou quelques lignes par mail : on prend le temps
                 de comprendre votre besoin avant de proposer quoi que ce soit.
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <div className="mt-12 flex flex-wrap items-center gap-4">
                 <a
                   href={`mailto:${EMAIL}?subject=Projet%20avec%20Levo`}
-                  className="inline-flex items-center gap-2 rounded-[12px] bg-cream px-7 py-3.5 font-body text-sm font-semibold tracking-[0.02em] text-navy transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
+                  className="group relative inline-flex items-center overflow-hidden rounded-[12px] bg-cream px-8 py-4 font-body text-sm font-semibold text-navy transition-all duration-300 hover:-translate-y-px hover:bg-white hover:shadow-[0_16px_48px_rgba(0,0,0,0.25)]"
                 >
-                  <Mail size={17} strokeWidth={2} aria-hidden />
                   Écrire à Levo
                 </a>
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="inline-flex items-center gap-2 rounded-[12px] border border-cream/20 bg-cream/5 px-7 py-3.5 font-body text-sm font-semibold text-cream/80 backdrop-blur-sm transition-all hover:border-cream/40 hover:bg-cream/10 hover:text-cream"
-                >
-                  <CalendarDays size={17} strokeWidth={2} aria-hidden />
-                  Planifier un échange
-                </a>
-              </div>
-
-              <p className="mt-8 font-body text-sm text-cream/40">
-                Ou répondez simplement à{" "}
-                <a
-                  href={`mailto:${EMAIL}`}
-                  className="text-cream/60 underline underline-offset-2 hover:text-cream/80 transition-colors"
+                  className="font-body text-sm text-cream/40 underline underline-offset-4 transition-colors hover:text-cream/70"
                 >
                   {EMAIL}
                 </a>
-              </p>
+              </div>
             </div>
           </div>
-        </Reveal>
+        </ScrollReveal>
       </div>
     </section>
   );
