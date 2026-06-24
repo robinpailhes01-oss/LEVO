@@ -10,7 +10,7 @@ const metrics = [
 
 export function TrustBar() {
   return (
-    <section style={{ background: "#faf7f0", borderBottom: "1px solid #e2d9c8" }}>
+    <section style={{ background: "#f4f3ef", borderTop: "1px solid rgba(17,17,17,0.10)", borderBottom: "1px solid rgba(17,17,17,0.10)" }}>
       <div className="mx-auto max-w-container px-5 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4">
           {metrics.map((m, i) => (
@@ -18,22 +18,15 @@ export function TrustBar() {
               <div
                 className="px-6 py-12 lg:py-16"
                 style={{
-                  borderRight: i < metrics.length - 1 ? "1px solid #e2d9c8" : undefined,
-                  borderTop: i >= 2 ? "1px solid #e2d9c8" : undefined,
+                  borderRight: i < metrics.length - 1 ? "1px solid rgba(17,17,17,0.10)" : undefined,
+                  borderTop: i >= 2 ? "1px solid rgba(17,17,17,0.10)" : undefined,
                 }}
               >
-                <p
-                  className="font-display text-[2.6rem] font-bold leading-none tracking-[-0.03em]"
-                  style={{ color: "#0b1f4a" }}
-                >
+                <p className="font-display text-[2.6rem] font-bold leading-none tracking-[-0.03em]" style={{ color: "#111111" }}>
                   <AnimatedCounter value={m.value} />
                 </p>
-                <p className="mt-3 font-body text-sm font-semibold" style={{ color: "#0b1f4a" }}>
-                  {m.label}
-                </p>
-                <p className="mt-1 font-body text-xs" style={{ color: "#8a96a8" }}>
-                  {m.note}
-                </p>
+                <p className="mt-3 font-body text-sm font-semibold" style={{ color: "#111111" }}>{m.label}</p>
+                <p className="mt-1 font-body text-xs" style={{ color: "rgba(17,17,17,0.40)" }}>{m.note}</p>
               </div>
             </ScrollReveal>
           ))}
