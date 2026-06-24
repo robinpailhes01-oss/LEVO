@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================
+   LEVO — Design Tokens (from styles/tokens.css)
+   NOTE: --font-display / --font-body are injected by next/font
+   in app/layout.tsx, so they are intentionally NOT redefined here.
+   =========================================== */
+
+:root {
+  /* ── Colors ── */
+  --cream: #faf7f0;
+  --cream-dark: #f0ebe0;
+  --white: #ffffff;
+
+  --navy: #0b1f4a;
+  --navy-mid: #1e3a6e;
+  --navy-light: #2d5299;
+
+  --electric: #005fff;
+  --electric-light: #4d8fff;
+  --electric-glow: rgba(0, 95, 255, 0.15);
+
+  --text-primary: #0b1f4a;
+  --text-secondary: #4a5568;
+  --text-muted: #9aa5b4;
+
+  --border: #e2d9c8;
+  --border-strong: #c9bfa8;
+  --shadow-color: rgba(11, 31, 74, 0.08);
+
+  /* ── Typography scale ── */
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-loose: 1.8;
+
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.02em;
+  --tracking-widest: 0.12em;
+
+  /* ── Radius ── */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 3px var(--shadow-color);
+  --shadow-md: 0 4px 16px var(--shadow-color);
+  --shadow-lg: 0 8px 32px var(--shadow-color);
+  --shadow-xl: 0 16px 64px var(--shadow-color);
+
+  /* ── Transitions ── */
+  --t-fast: 150ms ease-out;
+  --t-base: 300ms ease-out;
+  --t-slow: 500ms ease-out;
+  --t-hero: 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  body {
+    background-color: var(--cream);
+    color: var(--text-primary);
+    font-family: var(--font-body), system-ui, sans-serif;
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Smooth anchor scrolling for the one-page nav */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--navy);
+  }
+
+  .heading {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    color: var(--navy);
+  }
+
+  .label {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
