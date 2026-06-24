@@ -31,8 +31,8 @@ export function Nav() {
         borderBottom: scrolled ? "1px solid rgba(17,17,17,0.08)" : "1px solid transparent",
       }}
     >
-      <nav className="mx-auto flex h-16 max-w-container items-center justify-between px-5 lg:px-12">
-        <Link href="#top" className="font-display text-xl font-bold tracking-[-0.02em]" style={{ color: "#111111" }}>
+      <nav aria-label="Navigation principale" className="mx-auto flex h-16 max-w-container items-center justify-between px-5 lg:px-12">
+        <Link href="#top" className="font-display text-xl font-bold tracking-[-0.02em]" style={{ color: "#111111" }} aria-label="Levo — retour en haut de page">
           Levo
         </Link>
 

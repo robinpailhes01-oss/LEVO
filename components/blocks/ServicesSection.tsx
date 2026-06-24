@@ -41,10 +41,10 @@ export function ServicesSection() {
           />
         </ScrollReveal>
 
-        <div className="grid gap-px md:grid-cols-3" style={{ background: "rgba(17,17,17,0.10)" }}>
+        <ul aria-label="Nos services" className="grid gap-px md:grid-cols-3 list-none" style={{ background: "rgba(17,17,17,0.10)" }}>
           {services.map((s, i) => (
-            <ScrollReveal key={s.title} delay={i * 80}>
-              <div className="group relative h-full overflow-hidden p-10 transition-colors duration-300 hover:bg-white" style={{ background: "#f4f3ef" }}>
+            <ScrollReveal key={s.title} delay={i * 80} as="li">
+              <article className="group relative h-full overflow-hidden p-10 transition-colors duration-300 hover:bg-white" style={{ background: "#f4f3ef" }}>
                 {/* Number */}
                 <span className="font-body text-xs font-semibold tracking-[0.12em]" style={{ color: "rgba(17,17,17,0.30)" }}>
                   0{i + 1}
@@ -66,10 +66,10 @@ export function ServicesSection() {
                 <span className="mt-8 inline-block rounded-full px-3 py-1 font-body text-[11px]" style={{ background: "rgba(17,17,17,0.07)", color: "rgba(17,17,17,0.50)" }}>
                   {s.tag}
                 </span>
-              </div>
+              </article>
             </ScrollReveal>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

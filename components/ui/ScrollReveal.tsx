@@ -3,20 +3,25 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+type Tag = "div" | "li" | "section" | "article" | "header" | "footer";
+
 interface Props {
   children: React.ReactNode;
   className?: string;
   delay?: number;
   y?: number;
+  as?: Tag;
 }
 
-export function ScrollReveal({ children, className, delay = 0, y = 32 }: Props) {
-  const ref = useRef<HTMLDivElement>(null);
+export function ScrollReveal({ children, className, delay = 0, y = 32, as = "div" }: Props) {
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
+  const MotionTag = motion[as] as typeof motion.div;
+
   return (
-    <motion.div
-      ref={ref}
+    <MotionTag
+      ref={ref as React.RefObject<HTMLDivElement>}
       className={className}
       initial={{ opacity: 0, y }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -27,6 +32,6 @@ export function ScrollReveal({ children, className, delay = 0, y = 32 }: Props) 
       }}
     >
       {children}
-    </motion.div>
+    </MotionTag>
   );
 }

@@ -39,12 +39,16 @@ export function HowItWorksSection() {
           />
         </ScrollReveal>
 
-        <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-4" style={{ background: "rgba(17,17,17,0.10)" }}>
+        <ol
+          aria-label="Étapes de notre méthode"
+          className="grid gap-px sm:grid-cols-2 lg:grid-cols-4 list-none"
+          style={{ background: "rgba(17,17,17,0.10)" }}
+        >
           {steps.map((s, i) => (
-            <ScrollReveal key={s.num} delay={i * 80}>
+            <ScrollReveal key={s.num} delay={i * 80} as="li">
               <div className="h-full p-10" style={{ background: "#eceae4" }}>
-                {/* Numbered badge */}
                 <span
+                  aria-hidden="true"
                   className="inline-flex h-9 w-9 items-center justify-center rounded-full font-body text-xs font-semibold"
                   style={{ border: "1px solid rgba(17,17,17,0.20)", color: "rgba(17,17,17,0.60)" }}
                 >
@@ -60,7 +64,7 @@ export function HowItWorksSection() {
               </div>
             </ScrollReveal>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
