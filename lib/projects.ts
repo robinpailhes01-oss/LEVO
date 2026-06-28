@@ -52,7 +52,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "cabinet-conseil",
-    client: "Cabinet de conseil (exemple)",
+    client: "Cabinet de conseil",
     sector: "Services aux entreprises",
     example: true,
     accent: "#1A7F37",
@@ -76,7 +76,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "ecommerce-artisan",
-    client: "Marque artisanale (exemple)",
+    client: "Marque artisanale",
     sector: "E-commerce / Retail",
     example: true,
     accent: "#B8860B",
@@ -100,7 +100,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "cabinet-sante",
-    client: "Cabinet de santé (exemple)",
+    client: "Cabinet de santé",
     sector: "Santé / Bien-être",
     example: true,
     accent: "#0B6E63",
