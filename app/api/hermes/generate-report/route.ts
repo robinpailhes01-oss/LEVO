@@ -41,6 +41,11 @@ async function sendEmail(subject: string, html: string): Promise<boolean> {
   }
 }
 
+// Alias GET pour le Vercel Cron (lundi 8h) — voir vercel.json.
+export async function GET() {
+  return POST();
+}
+
 export async function POST() {
   const started = Date.now();
   const supabase = getSupabaseAdmin();
