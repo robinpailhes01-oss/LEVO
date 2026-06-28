@@ -30,18 +30,33 @@ export function ServicesSection() {
   return (
     <section id="services" className="py-28 sm:py-36" style={{ background: "#f4f3ef" }}>
       <div className="mx-auto max-w-container px-5 lg:px-12">
-        <ScrollReveal className="mb-20">
-          <p className="section-label">Ce qu&apos;on construit</p>
+        <ScrollReveal className="mb-12">
+          <p className="section-label">Notre approche</p>
           <WordReveal
-            text="Des outils pensés autour de vous"
+            text="Un écosystème automatisé, propre à votre entreprise"
             as="h2"
-            className="heading mt-6 max-w-xl text-4xl sm:text-5xl"
+            className="heading mt-6 max-w-2xl text-4xl sm:text-5xl"
             style={{ color: "#111111" }}
             delay={0.05}
           />
+          <p
+            className="mt-6 max-w-xl font-body text-lg leading-relaxed"
+            style={{ color: "rgba(17,17,17,0.60)" }}
+          >
+            On ne vend pas des outils sur étagère. On construit, pour chaque client, un
+            écosystème sur-mesure où vos agents, vos automatisations et vos données
+            travaillent ensemble — façonné autour de votre métier, pas l&apos;inverse.
+          </p>
         </ScrollReveal>
 
-        <ul aria-label="Nos services" className="grid gap-px md:grid-cols-3 list-none" style={{ background: "rgba(17,17,17,0.10)" }}>
+        <p
+          className="mb-6 font-body text-xs font-semibold uppercase tracking-[0.14em]"
+          style={{ color: "rgba(17,17,17,0.40)" }}
+        >
+          Quelques briques que l&apos;on assemble
+        </p>
+
+        <ul aria-label="Exemples de briques de l'écosystème" className="grid gap-px md:grid-cols-3 list-none" style={{ background: "rgba(17,17,17,0.10)" }}>
           {services.map((s, i) => (
             <ScrollReveal key={s.title} delay={i * 80} as="li">
               <article className="group relative h-full overflow-hidden p-10 transition-colors duration-300 hover:bg-white" style={{ background: "#f4f3ef" }}>

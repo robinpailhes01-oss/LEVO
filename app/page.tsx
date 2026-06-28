@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/blocks/HeroSection";
 import { TrustBar } from "@/components/blocks/TrustBar";
 import { ServicesSection } from "@/components/blocks/ServicesSection";
 import { HowItWorksSection } from "@/components/blocks/HowItWorksSection";
-import { CasesSection } from "@/components/blocks/CasesSection";
+import { PortfolioSection } from "@/components/blocks/PortfolioSection";
 import { AboutSection } from "@/components/blocks/AboutSection";
 import { TestimonialsSection } from "@/components/blocks/TestimonialsSection";
 import { CTASection } from "@/components/blocks/CTASection";
@@ -38,7 +38,7 @@ export default function Home() {
         <TrustBar />
         <ServicesSection />
         <HowItWorksSection />
-        <CasesSection />
+        <PortfolioSection />
         <AboutSection />
         <TestimonialsSection />
         <CTASection />
