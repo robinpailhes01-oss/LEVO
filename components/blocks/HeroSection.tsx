@@ -68,7 +68,7 @@ export function HeroSection() {
             ))}
             <span className="inline-block overflow-hidden">
               <motion.em
-                className="inline-block"
+                className="inline-block font-serif"
                 style={{ color: "#005fff", fontStyle: "italic" }}
                 initial={{ y: "110%" }}
                 animate={{ y: "0%" }}

@@ -19,8 +19,12 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
+        // Unification typo : tout le site en sans moderne.
+        // `display` pointe désormais sur le sans ; `serif` reste le Cormorant,
+        // appliqué uniquement au logo et au mot-signature « ressemblent. ».
+        display: ["var(--font-body)", "system-ui", "sans-serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
+        serif: ["var(--font-display)", "Georgia", "serif"],
       },
       maxWidth: {
         container: "1200px",
