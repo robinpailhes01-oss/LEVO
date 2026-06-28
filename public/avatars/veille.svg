@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <radialGradient id="g-veille" cx="35%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#FFC94D"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </radialGradient>
+    <filter id="s-veille" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#B8860B" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <circle cx="60" cy="60" r="52" fill="url(#g-veille)" filter="url(#s-veille)"/>
+  <circle cx="44" cy="42" r="16" fill="#ffffff" opacity="0.18"/>
+  <text x="60" y="76" font-family="Georgia, serif" font-size="46" font-weight="700"
+        text-anchor="middle" fill="#ffffff">V</text>
+</svg>
