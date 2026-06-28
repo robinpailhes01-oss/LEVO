@@ -15,7 +15,7 @@ const AGENTS = [
   {
     name: "LUNA",
     role: "Création de contenu",
-    avatar: "/avatars/luna.svg",
+    avatar: "/avatars/luna.png",
     accent: "#1A3BFF",
     href: "/dashboard/luna",
     statLabel: "posts cette semaine",
@@ -24,7 +24,7 @@ const AGENTS = [
   {
     name: "ORION",
     role: "Acquisition client",
-    avatar: "/avatars/orion.svg",
+    avatar: "/avatars/orion.png",
     accent: "#CC3A00",
     href: "/dashboard/orion",
     statLabel: "leads chauds",
@@ -33,7 +33,7 @@ const AGENTS = [
   {
     name: "HERMES",
     role: "Analytics & reporting",
-    avatar: "/avatars/hermes.svg",
+    avatar: "/avatars/hermes.png",
     accent: "#0B6E63",
     href: "/dashboard/hermes",
     statLabel: "rapport hebdo",
@@ -42,7 +42,7 @@ const AGENTS = [
   {
     name: "VEILLE",
     role: "Veille de contenu (LUNA)",
-    avatar: "/avatars/veille.svg",
+    avatar: "/avatars/veille.png",
     accent: "#B8860B",
     href: "/dashboard/luna",
     statLabel: "idées en attente",
