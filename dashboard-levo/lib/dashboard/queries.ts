@@ -21,6 +21,33 @@ async function safe<T>(fn: () => Promise<T>, fallback: T): Promise<T> {
   }
 }
 
+export interface Audit {
+  id: string;
+  created_at: string;
+  prenom: string | null;
+  nom: string | null;
+  email: string;
+  entreprise: string | null;
+  secteur: string | null;
+  taches: string[] | null;
+  horizon: string | null;
+  perte_mensuelle_estimee: number | null;
+  heures_perdues_semaine: number | null;
+}
+
+export async function getAudits(): Promise<Audit[]> {
+  return safe(async () => {
+    const supabase = getSupabaseAdmin();
+    const { data } = await supabase
+      .from("audits")
+      .select(
+        "id,created_at,prenom,nom,email,entreprise,secteur,taches,horizon,perte_mensuelle_estimee,heures_perdues_semaine",
+      )
+      .order("created_at", { ascending: false });
+    return (data ?? []) as Audit[];
+  }, []);
+}
+
 export async function getKpis() {
   return safe(
     async () => {

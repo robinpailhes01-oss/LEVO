@@ -9,6 +9,7 @@ import {
   LineChart,
   Users,
   Settings,
+  ClipboardCheck,
   LogOut,
 } from "lucide-react";
 
@@ -17,6 +18,7 @@ const nav = [
   { href: "/dashboard/luna", label: "LUNA — Contenu", icon: Sparkles },
   { href: "/dashboard/orion", label: "ORION — Acquisition", icon: Target },
   { href: "/dashboard/hermes", label: "HERMES — Analytics", icon: LineChart },
+  { href: "/dashboard/audits", label: "Audits", icon: ClipboardCheck },
   { href: "/dashboard/clients", label: "Clients", icon: Users },
   { href: "/dashboard/settings", label: "Paramètres", icon: Settings },
 ];
