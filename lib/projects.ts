@@ -18,6 +18,7 @@ export interface Project {
   ecosystem: string[]; // les briques de l'écosystème mises en place
   kpis: ProjectKpi[];
   stack: string[];
+  flow: string[]; // mini-schéma : étapes de l'écosystème (4 nœuds)
   quote?: { text: string; author: string };
 }
 
@@ -45,6 +46,7 @@ export const PROJECTS: Project[] = [
       { value: "0", label: "demande oubliée" },
     ],
     stack: ["Agent IA", "n8n", "Supabase", "Dashboard"],
+    flow: ["Demande", "Qualification", "Devis", "Relance"],
     quote: {
       text: "Moins de demandes oubliées, plus de temps pour nos clients.",
       author: "Camille R., Direction Harmonie Yacht",
@@ -73,6 +75,7 @@ export const PROJECTS: Project[] = [
       { value: "x2", label: "demandes traitées" },
     ],
     stack: ["Agent IA", "n8n", "CRM", "Dashboard"],
+    flow: ["Email", "Tri", "Proposition", "Suivi"],
   },
   {
     id: "ecommerce-artisan",
@@ -97,6 +100,7 @@ export const PROJECTS: Project[] = [
       { value: "<2min", label: "temps de réponse" },
     ],
     stack: ["Agent IA", "n8n", "Shopify", "Dashboard"],
+    flow: ["Message", "Réponse", "Livraison", "Avis"],
   },
   {
     id: "cabinet-sante",
@@ -121,5 +125,6 @@ export const PROJECTS: Project[] = [
       { value: "15h", label: "secrétariat libéré/sem." },
     ],
     stack: ["Agent vocal", "n8n", "Agenda", "Dashboard"],
+    flow: ["Appel", "RDV", "Rappel", "Dossier"],
   },
 ];

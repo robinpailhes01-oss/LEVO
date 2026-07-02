@@ -95,6 +95,37 @@ export function PortfolioSection() {
                       {p.tagline}
                     </p>
 
+                    {/* Mini-schéma de flux de l'écosystème */}
+                    <div className="mt-6 flex items-center">
+                      {p.flow.map((step, idx) => (
+                        <div key={step} className="flex flex-1 items-center last:flex-none">
+                          <div className="flex flex-col items-center gap-1.5">
+                            <span
+                              className="h-2.5 w-2.5 rounded-full"
+                              style={{
+                                background: p.accent,
+                                boxShadow: `0 0 0 3px ${p.accent}1f`,
+                              }}
+                            />
+                            <span
+                              className="whitespace-nowrap font-body text-[10px] font-medium"
+                              style={{ color: "rgba(17,17,17,0.50)" }}
+                            >
+                              {step}
+                            </span>
+                          </div>
+                          {idx < p.flow.length - 1 && (
+                            <span
+                              className="mx-1 -mt-4 h-px flex-1"
+                              style={{
+                                background: `linear-gradient(90deg, ${p.accent}55, ${p.accent}22)`,
+                              }}
+                            />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+
                     {/* KPIs — sans tabulaire */}
                     <div
                       className="mt-7 grid grid-cols-3 gap-2 rounded-2xl py-4"

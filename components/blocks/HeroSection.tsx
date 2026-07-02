@@ -10,8 +10,25 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import { Bot, User } from "lucide-react";
+import {
+  MessagesSquare,
+  Bell,
+  FileText,
+  ReceiptText,
+  PenLine,
+  Search,
+  Check,
+} from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+
+const TASKS = [
+  { icon: MessagesSquare, label: "Demandes clients", status: "Qualifiées & routées", accent: "#1A3BFF" },
+  { icon: Bell, label: "Relances", status: "Envoyées à J+2 / J+7", accent: "#B8860B" },
+  { icon: FileText, label: "Devis", status: "Générés en < 2 min", accent: "#1A7F37" },
+  { icon: ReceiptText, label: "Factures", status: "Émises automatiquement", accent: "#0B6E63" },
+  { icon: PenLine, label: "Création de contenu", status: "Rédigée & planifiée", accent: "#7B2FBE" },
+  { icon: Search, label: "SEO / GEO", status: "Optimisé en continu", accent: "#005fff" },
+];
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -61,7 +78,7 @@ export function HeroSection() {
         {/* Centered hero copy */}
         <div className="mx-auto max-w-4xl text-center">
           <motion.p {...fadeUp(0)} className="section-label mx-auto mb-8 justify-center">
-            Levo · Montpellier → Sud de la France
+            Agence IA · Écosystèmes sur-mesure
           </motion.p>
 
           {/* Massive staggered headline */}
@@ -70,7 +87,7 @@ export function HeroSection() {
             style={{ fontSize: "clamp(3.2rem, 8vw, 6rem)", color: "#111111" }}
           >
             {["Des", "solutions", "IA,"].map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.25em]">
+              <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] mr-[0.25em]">
                 <motion.span
                   className="inline-block"
                   initial={{ y: "110%" }}
@@ -83,7 +100,7 @@ export function HeroSection() {
             ))}
             <br />
             {["qui", "vous"].map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.25em]">
+              <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] mr-[0.25em]">
                 <motion.span
                   className="inline-block"
                   initial={{ y: "110%" }}
@@ -94,7 +111,7 @@ export function HeroSection() {
                 </motion.span>
               </span>
             ))}
-            <span className="inline-block overflow-hidden">
+            <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em]">
               <motion.em
                 className="inline-block font-serif"
                 style={{ color: "#005fff", fontStyle: "italic" }}
@@ -112,8 +129,9 @@ export function HeroSection() {
             className="mx-auto mt-8 max-w-lg font-body text-lg leading-relaxed"
             style={{ color: "rgba(17,17,17,0.60)" }}
           >
-            On automatise vos tâches répétitives avec des agents et workflows sur-mesure.
-            Construits avec soin, accompagnés humainement.
+            On automatise vos tâches répétitives <em className="font-serif not-italic" style={{ fontStyle: "italic", color: "#111111" }}>et</em> on décuple votre
+            efficacité. Un écosystème IA qui travaille pendant que vous vous concentrez
+            sur l&apos;essentiel.
           </motion.p>
 
           {/* Pill CTAs */}
@@ -131,7 +149,7 @@ export function HeroSection() {
             {...fadeUp(0.7)}
             className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
           >
-            {["SUR-MESURE", "40H+ ÉCONOMISÉES", "SANS ENGAGEMENT", "RÉSULTATS CONCRETS"].map((item) => (
+            {["TÂCHES AUTOMATISÉES", "PLUS D'EFFICACITÉ", "SUR-MESURE", "SANS ENGAGEMENT"].map((item) => (
               <span
                 key={item}
                 className="flex items-center gap-2 font-body text-[11px] font-semibold tracking-[0.12em]"
@@ -181,116 +199,72 @@ export function HeroSection() {
                   repeatDelay: 7,
                 }}
               />
-              {/* Browser chrome */}
+              {/* En-tête de la console */}
               <div
-                className="flex items-center gap-3 px-4 py-3"
+                className="flex items-center justify-between px-5 py-4"
                 style={{ background: "#f0ede6", borderBottom: "1px solid rgba(17,17,17,0.08)" }}
               >
-                <div className="flex items-center gap-1.5">
-                  <div className="h-3 w-3 rounded-full" style={{ background: "#ff5f57" }} />
-                  <div className="h-3 w-3 rounded-full" style={{ background: "#febc2e" }} />
-                  <div className="h-3 w-3 rounded-full" style={{ background: "#28c840" }} />
+                <div className="flex items-center gap-2.5">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-lg" style={{ background: "#111111" }}>
+                    <span className="font-serif text-sm font-bold text-white">L</span>
+                  </div>
+                  <span className="font-body text-sm font-semibold" style={{ color: "#111111" }}>
+                    Votre écosystème Levo
+                  </span>
                 </div>
-                <div className="flex flex-1 items-center gap-2 rounded-md px-3 py-1" style={{ background: "rgba(17,17,17,0.06)" }}>
-                  <div className="h-1.5 w-1.5 rounded-full" style={{ background: "#28c840" }} />
-                  <span className="font-body text-xs" style={{ color: "rgba(17,17,17,0.40)" }}>
-                    app.levo.ai / agent / léa
+                <div className="flex items-center gap-1.5">
+                  <motion.span
+                    className="inline-block h-1.5 w-1.5 rounded-full"
+                    style={{ background: "#28c840" }}
+                    animate={{ opacity: [1, 0.3, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  />
+                  <span className="font-body text-[10px]" style={{ color: "rgba(17,17,17,0.45)" }}>
+                    Actif 24/7
                   </span>
                 </div>
               </div>
 
-              {/* Chat UI */}
-              <div className="space-y-4 p-6">
-                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1px solid rgba(17,17,17,0.07)" }}>
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full" style={{ background: "#111111" }}>
-                    <Bot size={16} className="text-white" />
-                  </div>
-                  <div>
-                    <p className="font-body text-sm font-semibold" style={{ color: "#111111" }}>Léa — Agent IA</p>
-                    <div className="flex items-center gap-1.5">
-                      <motion.span
-                        className="inline-block h-1.5 w-1.5 rounded-full"
-                        style={{ background: "#28c840" }}
-                        animate={{ opacity: [1, 0.3, 1] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      />
-                      <span className="font-body text-[10px]" style={{ color: "rgba(17,17,17,0.40)" }}>
-                        En ligne · répond en &lt; 5s
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.9 }}
-                  className="flex gap-3"
-                >
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full" style={{ background: "rgba(17,17,17,0.07)" }}>
-                    <Bot size={13} style={{ color: "#111111" }} />
-                  </div>
-                  <div className="max-w-sm rounded-2xl rounded-tl-none px-4 py-3" style={{ background: "#f0ede6" }}>
-                    <p className="font-body text-xs leading-relaxed" style={{ color: "rgba(17,17,17,0.70)" }}>
-                      Bonjour ! Je suis Léa, votre assistante Harmonie Yacht. 🛥️<br /><br />
-                      Pour préparer votre devis, pouvez-vous me donner vos dates ?
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.2 }}
-                  className="flex justify-end gap-3"
-                >
-                  <div className="max-w-sm rounded-2xl rounded-tr-none px-4 py-3" style={{ background: "#111111" }}>
-                    <p className="font-body text-xs leading-relaxed text-white">
-                      Du 15 au 22 juillet, pour 6 personnes. Budget ~8 000€.
-                    </p>
-                  </div>
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full" style={{ background: "rgba(17,17,17,0.07)" }}>
-                    <User size={13} style={{ color: "#111111" }} />
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.5 }}
-                  className="flex gap-3"
-                >
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full" style={{ background: "rgba(17,17,17,0.07)" }}>
-                    <Bot size={13} style={{ color: "#111111" }} />
-                  </div>
-                  <div className="max-w-sm rounded-2xl rounded-tl-none px-4 py-3" style={{ background: "#f0ede6" }}>
-                    <p className="font-body text-xs leading-relaxed" style={{ color: "rgba(17,17,17,0.70)" }}>
-                      Parfait ! 3 options disponibles dans votre budget. Devis envoyé par e-mail. ✅
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.8 }}
-                  className="flex gap-2 pt-1"
-                >
-                  {["Voir les yachts disponibles", "Modifier les dates"].map((label) => (
-                    <button
-                      key={label}
-                      className="rounded-full px-3 py-1.5 font-body text-[10px] font-medium"
-                      style={{ border: "1px solid rgba(17,17,17,0.15)", color: "rgba(17,17,17,0.55)" }}
+              {/* Flux des tâches automatisées */}
+              <div className="divide-y" style={{ borderColor: "rgba(17,17,17,0.06)" }}>
+                {TASKS.map((task, i) => (
+                  <motion.div
+                    key={task.label}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.7 + i * 0.18, ease: EASE }}
+                    className="flex items-center gap-3 px-5 py-3"
+                  >
+                    <div
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
+                      style={{ background: `${task.accent}14` }}
                     >
-                      {label}
-                    </button>
-                  ))}
-                </motion.div>
+                      <task.icon size={16} strokeWidth={1.8} style={{ color: task.accent }} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="font-body text-sm font-semibold" style={{ color: "#111111" }}>
+                        {task.label}
+                      </p>
+                      <p className="font-body text-[11px]" style={{ color: "rgba(17,17,17,0.45)" }}>
+                        {task.status}
+                      </p>
+                    </div>
+                    <motion.span
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.9 + i * 0.18, ease: EASE }}
+                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                      style={{ background: task.accent }}
+                    >
+                      <Check size={11} strokeWidth={3} className="text-white" />
+                    </motion.span>
+                  </motion.div>
+                ))}
               </div>
             </div>
 
             <p className="mt-5 text-center font-body text-xs" style={{ color: "rgba(17,17,17,0.35)" }}>
-              Agent Léa — Harmonie Yacht · 40h économisées par mois
+              Un écosystème qui gère demandes, devis, relances, contenu — en continu.
             </p>
           </motion.div>
         </motion.div>

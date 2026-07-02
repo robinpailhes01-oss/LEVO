@@ -8,21 +8,21 @@ const services = [
     icon: Bot,
     title: "Agents conversationnels",
     description: "Des assistants IA qui pré-qualifient vos demandes, répondent à vos clients et préparent le travail — dans votre ton, avec vos règles.",
-    tag: "IA conversationnelle",
+    tag: "Répond à votre place",
   },
   {
     num: "02",
     icon: Workflow,
     title: "Automatisation de workflows",
     description: "Devis, relances, synthèses, onboarding : on connecte vos outils pour que les tâches répétitives se fassent toutes seules.",
-    tag: "n8n · Zapier",
+    tag: "Zéro tâche manuelle",
   },
   {
     num: "03",
     icon: LineChart,
     title: "Tableaux de bord",
     description: "Un dashboard clair pour suivre vos demandes et vos résultats en temps réel, construit sur-mesure autour de votre activité.",
-    tag: "Supabase · Next.js",
+    tag: "Suivi en temps réel",
   },
 ];
 

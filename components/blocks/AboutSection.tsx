@@ -3,7 +3,7 @@ import { WordReveal } from "@/components/ui/WordReveal";
 
 const values = [
   { label: "Ancrés en région", body: "Basés à Montpellier, proches de nos clients du Sud de la France. Disponibles, réactifs, présents." },
-  { label: "Excellence discrète", body: "La qualité se voit dans les détails, pas dans les grandes déclarations. On soigne chaque solution." },
+  { label: "Simple et clair", body: "Pas de jargon, pas d'usine à gaz. Des solutions qui marchent, que vous comprenez et gardez sous contrôle." },
   { label: "Pédagogie", body: "On explique, on accompagne, on vous fait monter en compétences. L'IA reste un outil, vous gardez la main." },
 ];
 
@@ -29,7 +29,30 @@ export function AboutSection() {
               Notre conviction : la meilleure technologie est celle qui se fait oublier.
               Elle vous libère du temps, sans vous compliquer la vie.
             </p>
-            <div className="mt-10 inline-flex items-center gap-2">
+            {/* Fondateur */}
+            <div
+              className="mt-10 flex items-start gap-4 rounded-2xl p-5"
+              style={{ background: "#ffffff", border: "1px solid rgba(17,17,17,0.08)" }}
+            >
+              <span
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-serif text-lg font-bold text-white"
+                style={{ background: "#111111" }}
+              >
+                R
+              </span>
+              <div>
+                <p className="font-body text-sm font-semibold" style={{ color: "#111111" }}>
+                  Robin — Fondateur
+                </p>
+                <p className="mt-1.5 font-body text-[14px] leading-relaxed" style={{ color: "rgba(17,17,17,0.55)" }}>
+                  Avant de lancer Levo, Robin a implémenté l&apos;IA dans sa propre société de
+                  location de yachts, Harmonie Yacht. Il n&apos;installe rien qu&apos;il n&apos;ait
+                  d&apos;abord éprouvé chez lui.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 inline-flex items-center gap-2">
               <span className="h-1 w-1 rounded-full" style={{ background: "rgba(17,17,17,0.40)" }} />
               <span className="font-body text-sm" style={{ color: "rgba(17,17,17,0.45)" }}>Montpellier, Sud de la France</span>
             </div>

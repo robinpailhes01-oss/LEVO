@@ -22,7 +22,11 @@ export function WordReveal({ text, className, style, delay = 0, as: Tag = "h2" }
     // @ts-expect-error dynamic tag
     <Tag ref={ref} className={className} style={style} aria-label={text}>
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden" aria-hidden>
+        <span
+          key={i}
+          className="inline-block overflow-hidden pb-[0.18em] -mb-[0.18em] align-bottom"
+          aria-hidden
+        >
           <motion.span
             className="inline-block"
             initial={{ y: "110%", opacity: 0 }}
