@@ -36,7 +36,7 @@ export function PortfolioSection() {
         <div className="grid gap-6 lg:grid-cols-2">
           {PROJECTS.map((p, i) => (
             <ScrollReveal key={p.id} delay={i * 70}>
-              <TiltCard intensity={4} className="h-full" style={{ borderRadius: 24 }}>
+              <TiltCard intensity={4} glare className="h-full" style={{ borderRadius: 24 }}>
                 <button
                   type="button"
                   onClick={() => setActive(p)}

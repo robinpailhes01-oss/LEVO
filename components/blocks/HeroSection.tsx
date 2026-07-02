@@ -1,9 +1,17 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useMotionValue,
+  useMotionTemplate,
+} from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import { Bot, User } from "lucide-react";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -22,13 +30,33 @@ export function HeroSection() {
   const mockupY = useSpring(rawY, { stiffness: 60, damping: 20 });
   const mockupOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
+  // Spotlight subtil qui suit la souris derrière le headline.
+  const spotX = useMotionValue(50);
+  const spotY = useMotionValue(30);
+  const spotXs = useSpring(spotX, { stiffness: 60, damping: 20 });
+  const spotYs = useSpring(spotY, { stiffness: 60, damping: 20 });
+  const spotlight = useMotionTemplate`radial-gradient(600px circle at ${spotXs}% ${spotYs}%, rgba(0,95,255,0.055), transparent 70%)`;
+
+  function onHeroMouseMove(e: React.MouseEvent<HTMLElement>) {
+    const rect = sectionRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    spotX.set(((e.clientX - rect.left) / rect.width) * 100);
+    spotY.set(((e.clientY - rect.top) / rect.height) * 100);
+  }
+
   return (
     <section
       ref={sectionRef}
       id="top"
+      onMouseMove={onHeroMouseMove}
       className="relative pt-32 pb-20 sm:pt-40 sm:pb-28"
       style={{ background: "#f4f3ef" }}
     >
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{ background: spotlight }}
+      />
       <div className="mx-auto max-w-container px-5 lg:px-12">
         {/* Centered hero copy */}
         <div className="mx-auto max-w-4xl text-center">
@@ -90,12 +118,12 @@ export function HeroSection() {
 
           {/* Pill CTAs */}
           <motion.div {...fadeUp(0.6)} className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Link href="#contact" className="btn-primary">
+            <MagneticButton href="#contact" className="btn-primary" strength={0.25}>
               Discutons de votre projet →
-            </Link>
-            <Link href="#cas" className="btn-secondary">
+            </MagneticButton>
+            <MagneticButton href="#cas" className="btn-secondary" strength={0.25}>
               Voir nos réalisations
-            </Link>
+            </MagneticButton>
           </motion.div>
 
           {/* Bullet strip */}
@@ -127,13 +155,32 @@ export function HeroSection() {
             transition={{ duration: 1, ease: EASE, delay: 0.75 }}
           >
             <div
-              className="overflow-hidden rounded-[20px]"
+              className="relative overflow-hidden rounded-[20px]"
               style={{
                 background: "#ffffff",
                 border: "1px solid rgba(17,17,17,0.10)",
                 boxShadow: "0 32px 80px rgba(17,17,17,0.10), 0 4px 16px rgba(17,17,17,0.05)",
               }}
             >
+              {/* Reflet de verre — balayage lent et discret */}
+              <motion.div
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 z-10 w-1/3"
+                style={{
+                  background:
+                    "linear-gradient(100deg, transparent, rgba(255,255,255,0.35) 50%, transparent)",
+                  filter: "blur(2px)",
+                }}
+                initial={{ x: "-150%" }}
+                animate={{ x: "450%" }}
+                transition={{
+                  duration: 2.4,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: 2.2,
+                  repeat: Infinity,
+                  repeatDelay: 7,
+                }}
+              />
               {/* Browser chrome */}
               <div
                 className="flex items-center gap-3 px-4 py-3"
