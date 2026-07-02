@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { useAudit } from "@/hooks/useAudit";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -14,6 +15,7 @@ const links = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { openAudit } = useAudit();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -53,6 +55,14 @@ export function Nav() {
         </ul>
 
         <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => openAudit()}
+            className="hidden items-center gap-1.5 rounded-full text-sm font-semibold text-white transition-transform hover:-translate-y-px md:inline-flex"
+            style={{ padding: "0.6rem 1.25rem", fontSize: "0.82rem", background: "#1A3BFF" }}
+          >
+            Audit gratuit →
+          </button>
           <Link href="#contact" className="btn-primary hidden text-sm md:inline-flex" style={{ padding: "0.6rem 1.25rem", fontSize: "0.82rem" }}>
             Discutons →
           </Link>
@@ -99,6 +109,19 @@ export function Nav() {
             </li>
           ))}
           <li className="mt-8">
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                openAudit();
+              }}
+              className="flex w-full items-center justify-center rounded-full py-3.5 font-body text-sm font-semibold text-white"
+              style={{ background: "#1A3BFF" }}
+            >
+              Audit gratuit →
+            </button>
+          </li>
+          <li className="mt-3">
             <Link
               href="#contact"
               onClick={() => setOpen(false)}

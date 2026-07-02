@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { AuditProvider } from "@/components/AuditProvider";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -107,7 +108,7 @@ export default function RootLayout({
       </head>
       <body>
         <JsonLd />
-        {children}
+        <AuditProvider>{children}</AuditProvider>
       </body>
     </html>
   );

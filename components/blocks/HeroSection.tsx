@@ -20,6 +20,7 @@ import {
   Check,
 } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { useAudit } from "@/hooks/useAudit";
 
 const TASKS = [
   { icon: MessagesSquare, label: "Demandes clients", status: "Qualifiées & routées", accent: "#1A3BFF" },
@@ -38,6 +39,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 export function HeroSection() {
+  const { openAudit } = useAudit();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -143,6 +145,17 @@ export function HeroSection() {
               Voir nos réalisations
             </MagneticButton>
           </motion.div>
+
+          {/* Lien discret vers l'audit */}
+          <motion.button
+            {...fadeUp(0.68)}
+            type="button"
+            onClick={() => openAudit()}
+            className="mt-5 font-body text-sm underline-offset-4 hover:underline"
+            style={{ color: "#1A3BFF" }}
+          >
+            Ou commencez par un audit gratuit →
+          </motion.button>
 
           {/* Bullet strip */}
           <motion.div
