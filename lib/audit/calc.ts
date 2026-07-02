@@ -31,6 +31,43 @@ export const TACHE_OPTIONS: { key: string; label: string }[] = [
 
 export const HEURES_OPTIONS = [1, 2, 4, 6, 10];
 
+// Ce que devient chaque tâche une fois automatisée par Levo — sert à montrer
+// l'écosystème IA sur-mesure à l'étape résultat.
+export const INFRA_MAP: Record<string, { brique: string; detail: string }> = {
+  reponses_clients: {
+    brique: "Agent conversationnel",
+    detail: "Répond et pré-qualifie vos clients 24/7, dans votre ton.",
+  },
+  devis: {
+    brique: "Devis automatiques",
+    detail: "Générés et envoyés en moins de 2 minutes.",
+  },
+  relances: {
+    brique: "Relances intelligentes",
+    detail: "Déclenchées seules à J+2 et J+7, sans oubli.",
+  },
+  facturation: {
+    brique: "Facturation automatisée",
+    detail: "Émises et suivies sans saisie manuelle.",
+  },
+  contenu: {
+    brique: "Studio de contenu",
+    detail: "Posts et visuels rédigés puis planifiés pour vous.",
+  },
+  seo: {
+    brique: "Moteur SEO / GEO",
+    detail: "Votre visibilité locale optimisée en continu.",
+  },
+  prise_rdv: {
+    brique: "Agent de rendez-vous",
+    detail: "Prend, confirme et rappelle les rendez-vous.",
+  },
+  admin: {
+    brique: "Automatisation administrative",
+    detail: "La saisie et les tâches répétitives disparaissent.",
+  },
+};
+
 // Valeurs représentatives pour convertir les fourchettes en nombres.
 const CLIENTS_PERDUS_REP: Record<string, number> = {
   "0": 0,

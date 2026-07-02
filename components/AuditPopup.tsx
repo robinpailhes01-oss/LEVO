@@ -63,10 +63,10 @@ export function AuditPopup() {
             {variant === "exit" && (
               <div className="mb-6 mt-2 border-b pb-6" style={{ borderColor: "rgba(26,26,26,0.08)" }}>
                 <p className="section-label" style={{ color: "#1A3BFF" }}>Avant de partir</p>
-                <h2 className="mt-3 font-serif text-2xl font-bold leading-tight" style={{ color: "#1A1A1A" }}>
+                <h2 className="mt-3 font-body text-2xl font-bold leading-tight tracking-[-0.02em]" style={{ color: "#111111" }}>
                   Obtenez votre audit gratuit
                 </h2>
-                <p className="mt-2 font-body text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.6)" }}>
+                <p className="mt-2 font-body text-sm leading-relaxed" style={{ color: "rgba(17,17,17,0.6)" }}>
                   Découvrez combien vous perdez chaque mois en tâches non automatisées.
                 </p>
               </div>
