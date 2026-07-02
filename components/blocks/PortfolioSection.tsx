@@ -36,11 +36,11 @@ export function PortfolioSection() {
         <div className="grid gap-6 lg:grid-cols-2">
           {PROJECTS.map((p, i) => (
             <ScrollReveal key={p.id} delay={i * 70}>
-              <TiltCard intensity={4} glare className="h-full" style={{ borderRadius: 24 }}>
+              <TiltCard intensity={4} glare sweep gyro className="h-full" style={{ borderRadius: 24 }}>
                 <button
                   type="button"
                   onClick={() => setActive(p)}
-                  className="group relative flex h-full w-full flex-col items-start overflow-hidden text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(17,17,17,0.12)]"
+                  className="group relative flex h-full w-full flex-col items-start overflow-hidden text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(17,17,17,0.12)] active:scale-[0.98]"
                   style={{
                     background: "#ffffff",
                     border: "1px solid rgba(17,17,17,0.08)",

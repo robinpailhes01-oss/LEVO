@@ -96,6 +96,19 @@
     transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
+  /* Press tactile — compression douce au toucher/clic */
+  .btn-primary:active,
+  .btn-secondary:active {
+    transform: scale(0.96);
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Balayage lumineux périodique (visible sans hover — mobile) */
+  .btn-sheen-auto::after {
+    animation: sheen-sweep 9s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    animation-delay: 3s;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .btn-primary::after {
       display: none;
@@ -128,6 +141,16 @@
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 16px;
+  }
+}
+
+@keyframes sheen-sweep {
+  0%,
+  86% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
   }
 }
 

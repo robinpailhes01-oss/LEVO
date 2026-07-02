@@ -118,7 +118,7 @@ export function HeroSection() {
 
           {/* Pill CTAs */}
           <motion.div {...fadeUp(0.6)} className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <MagneticButton href="#contact" className="btn-primary" strength={0.25}>
+            <MagneticButton href="#contact" className="btn-primary btn-sheen-auto" strength={0.25}>
               Discutons de votre projet →
             </MagneticButton>
             <MagneticButton href="#cas" className="btn-secondary" strength={0.25}>
