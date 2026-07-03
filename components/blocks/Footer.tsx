@@ -16,7 +16,7 @@ export function Footer() {
       <div className="mx-auto max-w-container px-5 py-14 lg:px-12">
         <div className="flex flex-col items-start justify-between gap-10 sm:flex-row sm:items-center">
           <div>
-            <span className="font-display text-2xl font-bold" style={{ color: "#ffffff" }}>Levo</span>
+            <span className="font-display text-2xl font-bold" style={{ color: "#ffffff" }}>Luma</span>
             <p className="mt-2 font-body text-sm" style={{ color: "rgba(255,255,255,0.35)" }}>
               Agence IA sur-mesure · Montpellier
             </p>
@@ -41,7 +41,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 pt-8 sm:flex-row sm:items-center" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
           <p className="font-body text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
-            © {new Date().getFullYear()} Levo · Tous droits réservés
+            © {new Date().getFullYear()} Luma · Tous droits réservés
           </p>
           <a
             href="mailto:harmonieyacht@gmail.com"

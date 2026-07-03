@@ -1,4 +1,4 @@
-# LEVO — Carousel Design System
+# LUMA — Carousel Design System
 **Version 1.0 — Validé le 25 juin 2026**
 
 ---
@@ -19,11 +19,11 @@ Chaque slide suit cette hiérarchie :
 
 | Rôle | Nom | Hex |
 |------|-----|-----|
-| Fond principal | Crème Levo | `#F0EDE6` |
+| Fond principal | Crème Luma | `#F0EDE6` |
 | Fond sombre 1 | Vert forêt | `#1A2E1A` |
 | Fond sombre 2 | Navy nuit | `#0D1117` |
 | Texte principal | Noir profond | `#1A1A1A` |
-| Accent primaire | Bleu Levo | `#1A3BFF` |
+| Accent primaire | Bleu Luma | `#1A3BFF` |
 | Texte secondaire | Gris | `#888888` |
 | Texte clair | Blanc | `#FFFFFF` |
 
@@ -134,7 +134,7 @@ Structure :
 
 ---
 
-## 5. Les 6 Éléments de Signature Levo
+## 5. Les 6 Éléments de Signature Luma
 
 Présents sur 100% des slides.
 
@@ -144,17 +144,17 @@ Présents sur 100% des slides.
 | **Flèche →** | Bleu #1A3BFF, 28pt, medium | Bas gauche, au-dessus du footer |
 | **Pill tag** | Border 0.5px #1A3BFF, no fill, 10pt caps | Catégorie du slide top-left |
 | **Séparateur** | Ligne 0.5px #1A3BFF, 48-80px | Entre titre et corps de texte |
-| **Footer** | Barre #1A1A1A 48px, ● Levo / Suite → | Identique sur tous les slides |
+| **Footer** | Barre #1A1A1A 48px, ● Luma / Suite → | Identique sur tous les slides |
 | **Numéro éditorial** | 12pt, 20-40% opacité, top-right | Sur les slides 02, 03, 04... |
 
 ### Spec Footer
 ```
 Barre : #1A1A1A, hauteur 48px, pleine largeur
 Gauche (48px marge) : 
-  Cercle ● rempli #1A3BFF, 6px + "Levo" blanc 13pt regular
+  Cercle ● rempli #1A3BFF, 6px + "Luma" blanc 13pt regular
 Droite (48px marge) : 
   "Suite →" blanc 13pt regular
-Note : "Levo" en mixed case — pas "LEVO"
+Note : "Luma" en mixed case — pas "LUMA"
 ```
 
 ---
@@ -207,7 +207,7 @@ Jamais argent sur fond clair (pas assez de contraste)
 │                                         │
 │ →                                       │ ← Flèche : 28pt
 ├────────────────────────────────────────┤
-│ ● Levo                       Suite →   │ ← Footer : 48px
+│ ● Luma                       Suite →   │ ← Footer : 48px
 └────────────────────────────────────────┘
 ```
 
@@ -312,10 +312,10 @@ Corps: "Sans embaucher. / Sans changer leurs outils."
 Sépar: Ligne 0.5px #1A3BFF, 48px
 Attrib: "Harmonie Yacht — cas client 2025"
 Flèche: → #1A3BFF 28pt, bas gauche
-Footer: ● Levo / Suite →
+Footer: ● Luma / Suite →
 ```
 
-**Ce slide est la référence de qualité minimum pour tout contenu Levo.**
+**Ce slide est la référence de qualité minimum pour tout contenu Luma.**
 
 ---
 
@@ -343,4 +343,4 @@ Footer: ● Levo / Suite →
 - Ajustements selon les retours terrain
 
 ---
-*LEVO Brand System v1.0 — Document vivant — Mis à jour à chaque session*
+*LUMA Brand System v1.0 — Document vivant — Mis à jour à chaque session*

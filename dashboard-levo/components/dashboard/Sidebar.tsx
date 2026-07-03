@@ -37,7 +37,7 @@ export function Sidebar() {
           className="font-display text-2xl font-bold"
           style={{ color: "#0B1F4A" }}
         >
-          Levo
+          Luma
         </Link>
         <nav className="mt-8 flex flex-col gap-1">
           {nav.map((item) => {

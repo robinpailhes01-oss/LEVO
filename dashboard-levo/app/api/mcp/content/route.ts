@@ -1,7 +1,7 @@
 import { checkMcpAuth, mcpOk, mcpError } from "@/lib/mcp/guard";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
 
-// MCP Levo — outils LUNA (contenu).
+// MCP Luma — outils LUNA (contenu).
 // POST { tool: string, input: object }
 
 export async function POST(req: Request) {

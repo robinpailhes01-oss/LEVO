@@ -31,7 +31,7 @@ export const TACHE_OPTIONS: { key: string; label: string }[] = [
 
 export const HEURES_OPTIONS = [1, 2, 4, 6, 10];
 
-// Ce que devient chaque tâche une fois automatisée par Levo — sert à montrer
+// Ce que devient chaque tâche une fois automatisée par Luma — sert à montrer
 // l'écosystème IA sur-mesure à l'étape résultat.
 export const INFRA_MAP: Record<string, { brique: string; detail: string }> = {
   reponses_clients: {

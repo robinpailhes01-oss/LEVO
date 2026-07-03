@@ -44,7 +44,7 @@ function LoginForm() {
           className="font-display text-3xl font-bold"
           style={{ color: "#0B1F4A" }}
         >
-          Levo
+          Luma
         </p>
         <p className="mt-1 font-body text-sm" style={{ color: "#4A5568" }}>
           Dashboard agence — accès privé

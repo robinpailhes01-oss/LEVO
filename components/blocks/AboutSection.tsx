@@ -13,7 +13,7 @@ export function AboutSection() {
       <div className="mx-auto max-w-container px-5 lg:px-12">
         <div className="grid gap-20 lg:grid-cols-2 lg:gap-32">
           <ScrollReveal>
-            <p className="section-label">À propos de Levo</p>
+            <p className="section-label">À propos de Luma</p>
             <WordReveal
               text="L'humain derrière l'IA"
               as="h2"
@@ -22,7 +22,7 @@ export function AboutSection() {
               delay={0.05}
             />
             <p className="mt-8 font-body text-lg leading-relaxed" style={{ color: "rgba(17,17,17,0.60)" }}>
-              Levo est une agence IA artisanale. On ne vend pas de produits sur étagère :
+              Luma est une agence IA artisanale. On ne vend pas de produits sur étagère :
               on construit, pour chaque client, des outils qui ressemblent à son métier.
             </p>
             <p className="mt-5 font-body text-base leading-relaxed" style={{ color: "rgba(17,17,17,0.45)" }}>
@@ -45,7 +45,7 @@ export function AboutSection() {
                   Robin — Fondateur
                 </p>
                 <p className="mt-1.5 font-body text-[14px] leading-relaxed" style={{ color: "rgba(17,17,17,0.55)" }}>
-                  Avant de lancer Levo, Robin a implémenté l&apos;IA dans sa propre société de
+                  Avant de lancer Luma, Robin a implémenté l&apos;IA dans sa propre société de
                   location de yachts, Harmonie Yacht. Il n&apos;installe rien qu&apos;il n&apos;ait
                   d&apos;abord éprouvé chez lui.
                 </p>

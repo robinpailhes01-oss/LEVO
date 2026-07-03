@@ -1,5 +1,5 @@
 -- Table des audits gratuits (formulaire popup du site vitrine).
--- À exécuter dans le SQL Editor du projet Supabase Levo.
+-- À exécuter dans le SQL Editor du projet Supabase Luma.
 
 CREATE TABLE IF NOT EXISTS audits (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

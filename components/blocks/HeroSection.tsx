@@ -222,7 +222,7 @@ export function HeroSection() {
                     <span className="font-serif text-sm font-bold text-white">L</span>
                   </div>
                   <span className="font-body text-sm font-semibold" style={{ color: "#111111" }}>
-                    Votre écosystème Levo
+                    Votre écosystème Luma
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5">

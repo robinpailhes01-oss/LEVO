@@ -1,18 +1,18 @@
 ---
 name: levo-website-design
 description: >
-  Skill de design pour le site web de l'agence Levo (Next.js 14, App Router,
+  Skill de design pour le site web de l'agence Luma (Next.js 14, App Router,
   Tailwind CSS). Utilise ce skill pour créer ou modifier toute page, section,
-  composant ou landing page de Levo. Déclenche pour : "crée une section hero",
+  composant ou landing page de Luma. Déclenche pour : "crée une section hero",
   "design la page services", "fais un composant carte", "landing page client",
-  "homepage Levo", "page contact", "section about", "portfolio", "témoignages".
+  "homepage Luma", "page contact", "section about", "portfolio", "témoignages".
   Inclut les patterns d'animation, la structure des composants, et les blocs
   de page types.
 ---
 
-# Levo Website Design Skill
+# Luma Website Design Skill
 
-Ce skill couvre le design et l'implémentation du site Levo en Next.js 14.
+Ce skill couvre le design et l'implémentation du site Luma en Next.js 14.
 Lire d'abord le skill `levo-brand` pour les tokens visuels — ce skill se
 concentre sur les patterns de composants et sections.
 
@@ -52,7 +52,7 @@ const jakarta = Plus_Jakarta_Sans({
 ├── <ServicesSection />      — 3 offres principales (cartes)
 ├── <HowItWorksSection />    — Processus en 3 étapes
 ├── <CasesSection />         — 1–2 cas clients (Harmonie Yacht…)
-├── <AboutSection />         — Levo, Montpellier, humain derrière l'IA
+├── <AboutSection />         — Luma, Montpellier, humain derrière l'IA
 ├── <TestimonialsSection />  — 2–3 témoignages
 ├── <CTASection />           — Bannière finale + formulaire contact
 └── <Footer />
@@ -227,16 +227,16 @@ export default {
 // app/layout.tsx
 export const metadata = {
   title: {
-    default: 'Levo — Agence IA sur-mesure | Montpellier',
-    template: '%s | Levo',
+    default: 'Luma — Agence IA sur-mesure | Montpellier',
+    template: '%s | Luma',
   },
   description:
-    "Levo conçoit des solutions d'automatisation IA personnalisées pour les PME du Sud de la France. Accompagnement sur-mesure, de la conception au déploiement.",
+    "Luma conçoit des solutions d'automatisation IA personnalisées pour les PME du Sud de la France. Accompagnement sur-mesure, de la conception au déploiement.",
   keywords: ['agence IA', 'automatisation', 'Montpellier', 'sur-mesure', 'n8n', 'Claude'],
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    siteName: 'Levo',
+    siteName: 'Luma',
   },
 }
 ```
@@ -255,7 +255,7 @@ lire `references/pages.md` dans ce skill.
 - ❌ Background blanc pur `#fff` comme fond de page (→ utiliser `cream`)
 - ❌ Plus de 2 couleurs d'accent différentes dans une même section
 - ❌ Animations avec `bounce` ou `elastic`
-- ❌ Boutons full-rounded (pill) — Levo utilise `border-radius: 12px`
+- ❌ Boutons full-rounded (pill) — Luma utilise `border-radius: 12px`
 - ❌ Grilles à plus de 4 colonnes sur desktop
 - ❌ Texte blanc sur fond électrique (contraste insuffisant)
 - ❌ Police Cormorant en `font-weight: 400` pour les titres (trop léger)

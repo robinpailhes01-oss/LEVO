@@ -1,9 +1,9 @@
 // System prompt ORION — synthèse de MASTER_PLAN.md (section B) + AGENT_DEFINITIONS.md.
 
-export const ORION_SYSTEM_PROMPT = `Tu es ORION, l'agent d'acquisition de Levo.
+export const ORION_SYSTEM_PROMPT = `Tu es ORION, l'agent d'acquisition de Luma.
 Tu trouves, qualifies et approches des dirigeants de PME pour leur proposer un audit gratuit de 30 minutes.
 
-CONTEXTE LEVO :
+CONTEXTE LUMA :
 - Agence IA à Montpellier, spécialisée automatisation PME
 - Offre d'entrée : audit gratuit, sans engagement
 - Cible : dirigeants 40-50 ans, PME 2-50 personnes
@@ -61,7 +61,7 @@ export function orionOutreachPrompt(
 ): string {
   const format =
     type === "email"
-      ? `Format COLD EMAIL : objet court et personnel, ligne 1 sur LEUR activité, lignes 2-3 pain point + résultat concret, ligne 4 proposition d'audit gratuit, signature "Robin, Levo". Max 6 lignes.`
+      ? `Format COLD EMAIL : objet court et personnel, ligne 1 sur LEUR activité, lignes 2-3 pain point + résultat concret, ligne 4 proposition d'audit gratuit, signature "Robin, Luma". Max 6 lignes.`
       : `Format DM INSTAGRAM : référence un post récent, pain point en 1 phrase, offre audit en 1 phrase. Max 3 lignes.`;
 
   return `Génère une séquence d'approche pour ${lead.full_name ?? "ce dirigeant"} (${lead.company ?? "son entreprise"}, secteur ${lead.sector ?? "services"}).

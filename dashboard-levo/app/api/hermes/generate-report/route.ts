@@ -134,13 +134,13 @@ export async function POST() {
       .single();
     if (saveErr) throw saveErr;
 
-    const html = `<h2>Rapport hebdo Levo</h2>
+    const html = `<h2>Rapport hebdo Luma</h2>
 <p>${report.summary}</p>
 <h3>Top 3 actions</h3>
 <ul>${report.top_actions
       .map((a) => `<li>${a.urgency} <b>${a.action}</b> → ${a.impact}</li>`)
       .join("")}</ul>`;
-    const emailed = await sendEmail("Rapport hebdo Levo — HERMES", html);
+    const emailed = await sendEmail("Rapport hebdo Luma — HERMES", html);
 
     await logAgentAction({
       agent: "HERMES",

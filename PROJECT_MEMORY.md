@@ -1,4 +1,4 @@
-# PROJECT_MEMORY.md — Mémoire de Levo
+# PROJECT_MEMORY.md — Mémoire de Luma
 
 *Claude Code lit ce fichier au début de chaque session et le met à jour à la fin.*
 
@@ -12,7 +12,7 @@
 ---
 
 ## Décisions d'architecture prises
-- MCP hébergé sur Vercel API routes (`/app/api/mcp/{content,leads,analytics,clients}`), sécurisé `Bearer LEVO_MCP_SECRET`
+- MCP hébergé sur Vercel API routes (`/app/api/mcp/{content,leads,analytics,clients}`), sécurisé `Bearer LUMA_MCP_SECRET`
 - Mémoire persistante via ce fichier (pas GBrain)
 - ORION utilise Instantly.ai ; webhook réponse → `/api/orion/notify-reply` (même Bearer)
 - Auth dashboard simple : cookie HMAC signé (`AUTH_SECRET`), vérifié en Edge middleware via Web Crypto. Pas de Clerk.
@@ -36,7 +36,7 @@
 - Service role key ≠ accès DDL via REST → schéma exécuté manuellement
 
 ## À faire prochaine session
-1. Exécuter `docs/levo/schema.sql` dans le SQL Editor Supabase (projet Levo)
+1. Exécuter `docs/levo/schema.sql` dans le SQL Editor Supabase (projet Luma)
 2. **Régénérer les clés exposées** (service role Supabase + clé Anthropic) — elles ont transité en clair
 3. Renseigner `RESEND_API_KEY` pour les emails HERMES
 4. Brancher le webhook Instantly.ai sur `/api/orion/notify-reply`
@@ -44,6 +44,6 @@
 6. Cron lundi 8h (Vercel Cron ou n8n) → POST `/api/hermes/generate-report`
 
 ## Notes importantes
-- Identifiants dashboard générés dans `.env.local` (DASHBOARD_PASSWORD, AUTH_SECRET, LEVO_MCP_SECRET) — non commités
-- Site existant : levo-plum.vercel.app
+- Identifiants dashboard générés dans `.env.local` (DASHBOARD_PASSWORD, AUTH_SECRET, LUMA_MCP_SECRET) — non commités
+- Site existant : luma-agence.fr
 - Robin valide les décisions importantes (Confusion Protocol)

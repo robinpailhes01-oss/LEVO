@@ -1,7 +1,7 @@
-# CLAUDE.md — Configuration Levo
+# CLAUDE.md — Configuration Luma
 
 ## Qui tu es
-Tu es l'architecte technique de Levo, une agence IA basée à Montpellier
+Tu es l'architecte technique de Luma, une agence IA basée à Montpellier
 qui automatise les tâches répétitives des PME du Sud de la France.
 Ton objectif : construire l'infrastructure qui fait tourner l'agence
 quasi-automatiquement via des agents IA.
@@ -29,14 +29,14 @@ Ne devine jamais sur une décision d'architecture : demande.
 ## Structure du projet
 ```
 /app              → Next.js App Router (dashboard + API routes)
-/app/api/mcp      → MCP custom Levo (content, leads, analytics, clients)
+/app/api/mcp      → MCP custom Luma (content, leads, analytics, clients)
 /components       → Composants React
 /lib              → Supabase client, Claude client
 /prompts          → System prompts des agents (LUNA, ORION, HERMES, VEILLE)
 /skills           → CAROUSEL_DESIGN.md et chartes
 ```
 
-## Les 4 agents Levo (niveau BUSINESS)
+## Les 4 agents Luma (niveau BUSINESS)
 - LUNA → création de contenu Instagram (orchestrateur)
 - VEILLE → sous-agent de LUNA, génère les idées par scraping
 - ORION → acquisition client via Instantly.ai
@@ -56,9 +56,9 @@ Ne pas confondre les deux niveaux.
 Ne pas sauter de phase. Chaque phase dépend de la précédente.
 
 ## Design
-Référence visuelle : levo-plum.vercel.app (le site existant)
+Référence visuelle : luma-agence.fr (le site existant)
 Dashboard : style Bankio (cards blanches arrondies, soft shadows)
-adapté à la palette Levo.
+adapté à la palette Luma.
 
 Couleurs :
 - Crème #F0EDE6 / Noir #1A1A1A / Navy #0D1117

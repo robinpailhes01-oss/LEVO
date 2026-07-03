@@ -4,7 +4,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { AuditContextProvider, useAudit } from "@/hooks/useAudit";
 import { AuditPopup } from "@/components/AuditPopup";
 
-const EXIT_KEY = "levo_audit_exit_shown";
+const EXIT_KEY = "luma_audit_exit_shown";
 const MIN_DELAY_MS = 30_000; // 30 s minimum avant l'exit-intent
 
 function ExitIntent() {

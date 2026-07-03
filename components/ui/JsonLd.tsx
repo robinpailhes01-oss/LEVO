@@ -1,18 +1,18 @@
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://levo.fr/#organization",
-  name: "Levo",
-  url: "https://levo.fr",
+  "@id": "https://luma-agence.fr/#organization",
+  name: "Luma",
+  url: "https://luma-agence.fr",
   logo: {
     "@type": "ImageObject",
-    url: "https://levo.fr/brand/logo.png",
+    url: "https://luma-agence.fr/brand/logo.png",
     width: 200,
     height: 60,
   },
   description:
-    "Levo est une agence IA artisanale basée à Montpellier. Elle conçoit des agents conversationnels et des automatisations sur-mesure pour les PME du Sud de la France.",
-  email: "contact@levo.fr",
+    "Luma est une agence IA artisanale basée à Montpellier. Elle conçoit des agents conversationnels et des automatisations sur-mesure pour les PME du Sud de la France.",
+  email: "contact@luma-agence.fr",
   foundingDate: "2024",
   areaServed: [
     { "@type": "City", name: "Montpellier" },
@@ -33,13 +33,13 @@ const organizationSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://levo.fr/#localbusiness",
-  name: "Levo",
+  "@id": "https://luma-agence.fr/#localbusiness",
+  name: "Luma",
   description:
     "Agence IA sur-mesure à Montpellier — agents conversationnels, automatisation de workflows et tableaux de bord pour PME et startups.",
-  url: "https://levo.fr",
+  url: "https://luma-agence.fr",
   telephone: "",
-  email: "contact@levo.fr",
+  email: "contact@luma-agence.fr",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Montpellier",
@@ -62,7 +62,7 @@ const localBusinessSchema = {
   priceRange: "€€",
   currenciesAccepted: "EUR",
   paymentAccepted: "Virement bancaire",
-  image: "https://levo.fr/og-image.png",
+  image: "https://luma-agence.fr/og-image.png",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Services IA sur-mesure",
@@ -101,16 +101,16 @@ const localBusinessSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://levo.fr/#website",
-  url: "https://levo.fr",
-  name: "Levo — Agence IA sur-mesure",
+  "@id": "https://luma-agence.fr/#website",
+  url: "https://luma-agence.fr",
+  name: "Luma — Agence IA sur-mesure",
   description: "Agents IA et automatisations sur-mesure pour PME · Montpellier",
-  publisher: { "@id": "https://levo.fr/#organization" },
+  publisher: { "@id": "https://luma-agence.fr/#organization" },
   inLanguage: "fr-FR",
   potentialAction: {
     "@type": "ContactAction",
-    target: "mailto:contact@levo.fr",
-    name: "Contacter Levo",
+    target: "mailto:contact@luma-agence.fr",
+    name: "Contacter Luma",
   },
 };
 

@@ -1,7 +1,7 @@
-# Levo — Site vitrine
+# Luma — Site vitrine
 
-Landing page premium one-page de l'agence IA **Levo** (Montpellier).
-Next.js 14 (App Router) · TypeScript strict · Tailwind CSS · charte Levo
+Landing page premium one-page de l'agence IA **Luma** (Montpellier).
+Next.js 14 (App Router) · TypeScript strict · Tailwind CSS · charte Luma
 (crème / navy / électrique, Cormorant Garamond + Plus Jakarta Sans).
 
 ## Développement local
@@ -25,7 +25,7 @@ pnpm lint         # ESLint (next/core-web-vitals)
 app/
   layout.tsx              # fonts (next/font) + metadata SEO FR
   page.tsx                # assemble les 10 sections
-  globals.css             # tokens Levo + Tailwind
+  globals.css             # tokens Luma + Tailwind
 components/
   ui/                     # Button, Card, Reveal (fade-up au scroll)
   blocks/                 # Nav, Hero, TrustBar, Services, HowItWorks,
@@ -42,7 +42,7 @@ Aucune variable d'environnement n'est requise (site vitrine, sans backend).
 
 ### Option A — Dashboard (recommandé)
 
-1. Connectez le repo GitHub `robinpailhes01-oss/LEVO` sur [vercel.com/new](https://vercel.com/new).
+1. Connectez le repo GitHub `robinpailhes01-oss/LUMA` sur [vercel.com/new](https://vercel.com/new).
 2. Framework Preset : **Next.js** (auto-détecté).
 3. Build Command : `pnpm build` · Install Command : `pnpm install` · Output : `.next` (auto).
 4. Déployez. Chaque PR génère ensuite une **preview deployment**.

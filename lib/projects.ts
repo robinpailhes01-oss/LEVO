@@ -1,4 +1,4 @@
-// Portfolio Levo — projets / études de cas.
+// Portfolio Luma — projets / études de cas.
 // `example: true` = écosystème illustratif (pas un client réel).
 
 export interface ProjectKpi {

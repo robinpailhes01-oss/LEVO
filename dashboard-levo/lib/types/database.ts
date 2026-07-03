@@ -1,4 +1,4 @@
-// Types de la base Levo — miroir de docs/levo/schema.sql.
+// Types de la base Luma — miroir de docs/levo/schema.sql.
 // TypeScript strict : aucun `any`.
 
 export type ClientStatus = "active" | "churned" | "prospect";

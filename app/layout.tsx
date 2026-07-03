@@ -21,16 +21,16 @@ const jakarta = Plus_Jakarta_Sans({
   preload: true,
 });
 
-const BASE_URL = "https://levo.fr";
+const BASE_URL = "https://luma-agence.fr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Levo — Agence IA sur-mesure | Montpellier",
-    template: "%s | Levo",
+    default: "Luma — Agence IA sur-mesure | Montpellier",
+    template: "%s | Luma",
   },
   description:
-    "Levo conçoit des agents IA et des automatisations sur-mesure pour les PME du Sud de la France. Accompagnement humain, déployé en 3 semaines, 40h économisées par mois.",
+    "Luma conçoit des agents IA et des automatisations sur-mesure pour les PME du Sud de la France. Accompagnement humain, déployé en 3 semaines, 40h économisées par mois.",
   keywords: [
     "agence IA Montpellier",
     "automatisation IA PME",
@@ -42,11 +42,11 @@ export const metadata: Metadata = {
     "solutions IA artisanales",
     "assistant IA entreprise",
     "gain de temps automatisation",
-    "Levo agence",
+    "Luma agence",
   ],
-  authors: [{ name: "Levo", url: BASE_URL }],
-  creator: "Levo",
-  publisher: "Levo",
+  authors: [{ name: "Luma", url: BASE_URL }],
+  creator: "Luma",
+  publisher: "Luma",
   robots: {
     index: true,
     follow: true,
@@ -66,8 +66,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: BASE_URL,
-    siteName: "Levo",
-    title: "Levo — Agence IA sur-mesure | Montpellier",
+    siteName: "Luma",
+    title: "Luma — Agence IA sur-mesure | Montpellier",
     description:
       "Des agents IA et automatisations construits avec soin pour les PME du Sud de la France. Résultats concrets, accompagnement humain.",
     images: [
@@ -75,17 +75,17 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Levo — Agence IA sur-mesure, Montpellier",
+        alt: "Luma — Agence IA sur-mesure, Montpellier",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Levo — Agence IA sur-mesure | Montpellier",
+    title: "Luma — Agence IA sur-mesure | Montpellier",
     description:
       "Des agents IA et automatisations construits avec soin pour les PME du Sud de la France.",
     images: ["/og-image.png"],
-    creator: "@levo_ia",
+    creator: "@luma_ia",
   },
   category: "technology",
 };

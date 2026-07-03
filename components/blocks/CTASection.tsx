@@ -27,11 +27,11 @@ export function CTASection() {
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
             <a
-              href={`mailto:${EMAIL}?subject=Projet%20avec%20Levo`}
+              href={`mailto:${EMAIL}?subject=Projet%20avec%20Luma`}
               className="inline-flex items-center rounded-full px-8 py-4 font-body text-sm font-semibold transition-all duration-200 hover:-translate-y-px hover:opacity-90"
               style={{ background: "#ffffff", color: "#111111" }}
             >
-              Écrire à Levo →
+              Écrire à Luma →
             </a>
             <a
               href={`mailto:${EMAIL}`}

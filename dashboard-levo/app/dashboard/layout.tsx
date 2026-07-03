@@ -3,7 +3,7 @@ import { Sidebar } from "@/components/dashboard/Sidebar";
 import { MobileNav } from "@/components/dashboard/MobileNav";
 
 export const metadata = {
-  title: "Dashboard Levo",
+  title: "Dashboard Luma",
   robots: { index: false, follow: false },
 };
 

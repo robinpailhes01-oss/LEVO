@@ -1,5 +1,5 @@
-# LEVO — Méthodes de Construction
-**Concepts extraits de gstack (Garry Tan / YC), adaptés à Levo**
+# LUMA — Méthodes de Construction
+**Concepts extraits de gstack (Garry Tan / YC), adaptés à Luma**
 **Pour Claude Code — Façon de travailler, pas outils à installer**
 
 ---
@@ -8,7 +8,7 @@
 
 gstack est un système de 23 outils créé par le CEO de Y Combinator.
 On n'installe rien. On extrait uniquement les MÉTHODES qui rendent
-le développement plus robuste, et on les applique à Levo.
+le développement plus robuste, et on les applique à Luma.
 
 Claude Code doit suivre ces principes de travail.
 
@@ -16,7 +16,7 @@ Claude Code doit suivre ces principes de travail.
 
 ## PRINCIPE 1 — Le Cycle de Construction
 
-Pour CHAQUE feature de Levo (un agent, une page dashboard, une API),
+Pour CHAQUE feature de Luma (un agent, une page dashboard, une API),
 Claude Code suit ce cycle, sans sauter d'étape :
 
 ```
@@ -125,7 +125,7 @@ Cette méthode s'applique à :
 **Le problème :** Claude Code oublie tout entre les sessions.
 Quand Robin revient coder ORION après LUNA, il faut tout réexpliquer.
 
-**La solution Levo (sans installer GBrain) :**
+**La solution Luma (sans installer GBrain) :**
 Maintenir un fichier `PROJECT_MEMORY.md` à la racine du projet
 que Claude Code lit au début de chaque session et met à jour à la fin.
 
@@ -139,7 +139,7 @@ Contenu de PROJECT_MEMORY.md :
 - [Décision] → [Pourquoi]
 
 ## Patterns établis
-- [Pattern de code utilisé partout dans Levo]
+- [Pattern de code utilisé partout dans Luma]
 
 ## Pièges rencontrés
 - [Bug ou difficulté] → [Solution]
@@ -196,5 +196,5 @@ Inspiré de /qa. Pour toute interface :
 
 ---
 
-*Méthodes extraites de gstack — Adaptées à Levo*
+*Méthodes extraites de gstack — Adaptées à Luma*
 *Aucune installation requise — Ce sont des principes de travail*

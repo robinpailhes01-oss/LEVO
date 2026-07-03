@@ -1,4 +1,4 @@
-# LEVO — Fiches Définition Agents
+# LUMA — Fiches Définition Agents
 **Version 1.0 — 26 juin 2026 — Validé par Robin**
 
 ---
@@ -124,7 +124,7 @@ Dashboard vue "Idées VEILLE" :
 ### Output — Brief complet pour LUNA
 ```
 Sujet       : [Titre du post]
-Angle       : [Point de vue Levo]
+Angle       : [Point de vue Luma]
 Accroche S1 : [Hook slide 1 proposé]
 Données     : [Chiffres ou faits clés]
 Structure   : [Nombre slides + plan]

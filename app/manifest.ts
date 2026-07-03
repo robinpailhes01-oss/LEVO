@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Levo — Agence IA sur-mesure",
-    short_name: "Levo",
+    name: "Luma — Agence IA sur-mesure",
+    short_name: "Luma",
     description:
       "Agents IA et automatisations sur-mesure pour PME · Montpellier, Sud de la France",
     start_url: "/",

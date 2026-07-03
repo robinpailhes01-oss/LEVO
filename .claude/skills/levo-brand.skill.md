@@ -1,15 +1,15 @@
 ---
 name: levo-brand
 description: >
-  Charte de marque complète de l'agence Levo. Utilise ce skill pour tout output
-  visuel, textuel ou de design qui doit respecter l'identité Levo. Déclenche
+  Charte de marque complète de l'agence Luma. Utilise ce skill pour tout output
+  visuel, textuel ou de design qui doit respecter l'identité Luma. Déclenche
   systématiquement pour : logo, couleurs, typographie, ton de voix, templates,
   présentations, composants UI, posts réseaux, landing pages, pitchs clients.
-  Si le mot "Levo", "branding", "charte", "identité", "couleurs de l'agence"
+  Si le mot "Luma", "branding", "charte", "identité", "couleurs de l'agence"
   apparaît — utilise ce skill avant de produire quoi que ce soit.
 ---
 
-# Levo — Brand Identity Skill
+# Luma — Brand Identity Skill
 
 Agence IA sur-mesure basée à Montpellier, spécialisée dans l'automatisation
 personnalisée pour les PME et startups du Sud de la France.
@@ -87,7 +87,7 @@ CTA button         → Plus Jakarta Sans 600, 15px, letter-spacing 0.02em
 ## Logo & Iconographie
 
 ### Logotype
-- Wordmark "Levo" en Cormorant Garamond 600
+- Wordmark "Luma" en Cormorant Garamond 600
 - Couleurs autorisées: Navy sur fond crème / Crème sur fond navy / Electric sur fond crème
 - Interdit: Déformation, rotation, effets drop-shadow lourds
 

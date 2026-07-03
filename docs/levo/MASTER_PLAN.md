@@ -1,4 +1,4 @@
-# LEVO — Master Build Plan
+# LUMA — Master Build Plan
 **Pour Claude Code — Plan d'exécution complet**
 **Version 1.0 — 26 juin 2026**
 
@@ -6,12 +6,12 @@
 
 ## CONTEXTE
 
-Levo est une agence IA basée à Montpellier qui automatise les tâches répétitives des PME.
+Luma est une agence IA basée à Montpellier qui automatise les tâches répétitives des PME.
 L'objectif est que l'agence tourne quasi-autonomement via des agents IA.
 
 **Stack technique :** Next.js 14 App Router · Supabase · n8n · Vercel · Claude API
 **Repo GitHub :** à connecter
-**Domaine :** levo-plum.vercel.app (existant, à faire évoluer)
+**Domaine :** luma-agence.fr (existant, à faire évoluer)
 
 ---
 
@@ -196,15 +196,15 @@ INSERT INTO settings (key, value) VALUES
 ('orion_daily_limit', '10'),
 ('hermes_report_day', '"monday"'),
 ('target_mrr', '5000'),
-('agency_name', '"Levo"'),
+('agency_name', '"Luma"'),
 ('agency_location', '"Montpellier"');
 ```
 
 ---
 
-## 1B. MCP Levo Personnalisé
+## 1B. MCP Luma Personnalisé
 
-Créer un serveur MCP custom en Node.js (TypeScript) qui expose les données Levo à tous les agents Claude.
+Créer un serveur MCP custom en Node.js (TypeScript) qui expose les données Luma à tous les agents Claude.
 
 **Localisation :** `/levo-mcp/` (repo séparé ou dans le monorepo)
 
@@ -325,7 +325,7 @@ levo-mcp/
 ## Structure Next.js
 
 ```
-levo-dashboard/
+luma-dashboard/
 ├── app/
 │   ├── layout.tsx
 │   ├── page.tsx                    # Redirect vers /dashboard
@@ -492,7 +492,7 @@ Deux modes depuis le dashboard :
 
 ## System Prompt ORION
 
-ORION est l'agent d'acquisition de Levo. Il trouve, qualifie et approche des prospects PME.
+ORION est l'agent d'acquisition de Luma. Il trouve, qualifie et approche des prospects PME.
 
 **Offre d'entrée :** Audit gratuit, 30 minutes, sans engagement.
 
@@ -580,7 +580,7 @@ ORION est l'agent d'acquisition de Levo. Il trouve, qualifie et approche des pro
 
 ## System Prompt HERMES
 
-HERMES est l'agent analytique de Levo. Il lit les données Supabase, détecte les tendances, et produit des rapports actionnables.
+HERMES est l'agent analytique de Luma. Il lit les données Supabase, détecte les tendances, et produit des rapports actionnables.
 
 **Rapport hebdomadaire (lundi 8h) :**
 ```
@@ -610,17 +610,17 @@ Trigger: Cron lundi 8h
 ## CLAUDE.md (racine du projet)
 
 ```markdown
-# LEVO — Configuration Claude Code
+# LUMA — Configuration Claude Code
 
 ## Identité
-Tu travailles sur Levo, une agence IA à Montpellier.
+Tu travailles sur Luma, une agence IA à Montpellier.
 Stack: Next.js 14, Supabase, n8n, Vercel, Claude API.
 
 ## Structure du projet
 /app → Next.js App Router
 /components → Composants React
 /lib → Utilitaires (Supabase client, Claude client)
-/levo-mcp → MCP custom Levo
+/levo-mcp → MCP custom Luma
 
 ## Conventions
 - TypeScript strict
@@ -646,7 +646,7 @@ NEXT_PUBLIC_APP_URL=
 - Couleurs: crème #F0EDE6 / noir #1A1A1A / bleu #1A3BFF / navy #0D1117
 - Fonts: Cormorant Garamond (display) + Inter (body)
 - Style: minimal, épuré, premium B2B
-- Référence: levo-plum.vercel.app
+- Référence: luma-agence.fr
 ```
 
 ## Structure des dossiers Skills
@@ -660,7 +660,7 @@ NEXT_PUBLIC_APP_URL=
 
 /skills/
 ├── CAROUSEL_DESIGN.md    # Charte design carrousels
-├── brand-guidelines.md   # Identité visuelle Levo
+├── brand-guidelines.md   # Identité visuelle Luma
 └── tone-of-voice.md      # Règles rédactionnelles
 ```
 
@@ -737,7 +737,7 @@ N8N_API_KEY=
 
 2. **Les appels Claude API se font côté serveur** — jamais exposer ANTHROPIC_API_KEY dans le navigateur. Toujours via des API routes Next.js.
 
-3. **Design fidèle au site** — levo-plum.vercel.app est la référence visuelle. Le dashboard doit avoir le même ADN : crème, noir, bleu #1A3BFF, Inter, Cormorant Garamond.
+3. **Design fidèle au site** — luma-agence.fr est la référence visuelle. Le dashboard doit avoir le même ADN : crème, noir, bleu #1A3BFF, Inter, Cormorant Garamond.
 
 4. **TypeScript strict** — pas de `any`, typer toutes les réponses Supabase.
 
@@ -749,7 +749,7 @@ N8N_API_KEY=
 
 ---
 
-*Levo Master Plan v1.0 — Document vivant*
+*Luma Master Plan v1.0 — Document vivant*
 *Mis à jour après chaque session avec Robin*
 
 
@@ -761,7 +761,7 @@ N8N_API_KEY=
 
 **Choix retenu : Vercel API Routes (déjà dans la stack)**
 
-Le MCP Levo est hébergé directement dans le projet Next.js sur Vercel.
+Le MCP Luma est hébergé directement dans le projet Next.js sur Vercel.
 Pas de service séparé. Zéro coût. Déploiement automatique via git push.
 
 ```
@@ -772,8 +772,8 @@ Pas de service séparé. Zéro coût. Déploiement automatique via git push.
 └── clients/route.ts     # Tools clients
 ```
 
-Sécurisation via header `Authorization: Bearer LEVO_MCP_SECRET`
-La variable LEVO_MCP_SECRET est dans les env vars Vercel.
+Sécurisation via header `Authorization: Bearer LUMA_MCP_SECRET`
+La variable LUMA_MCP_SECRET est dans les env vars Vercel.
 
 **Configuration dans claude_desktop_config.json :**
 ```json
@@ -783,7 +783,7 @@ La variable LEVO_MCP_SECRET est dans les env vars Vercel.
       "type": "http",
       "url": "https://dashboard.levo.ia/api/mcp",
       "headers": {
-        "Authorization": "Bearer LEVO_MCP_SECRET_ICI"
+        "Authorization": "Bearer LUMA_MCP_SECRET_ICI"
       }
     }
   }
@@ -795,11 +795,11 @@ La variable LEVO_MCP_SECRET est dans les env vars Vercel.
 ## B. System Prompt ORION — Complet
 
 ```
-Tu es ORION, l'agent d'acquisition de Levo.
+Tu es ORION, l'agent d'acquisition de Luma.
 Tu trouves, qualifies et approches des dirigeants de PME 
 pour leur proposer un audit gratuit de 30 minutes.
 
-CONTEXTE LEVO :
+CONTEXTE LUMA :
 - Agence IA à Montpellier, spécialisée automatisation PME
 - Offre d'entrée : audit gratuit, sans engagement
 - Cible : dirigeants 40-50 ans, PME 2-50 personnes
@@ -832,10 +832,10 @@ SCORING LEAD (0-100) :
 
 FORMAT COLD EMAIL :
 - Objet : court, personnel, pas commercial
-- Ligne 1 : accroche sur LEUR activité (pas Levo)
+- Ligne 1 : accroche sur LEUR activité (pas Luma)
 - Ligne 2-3 : pain point probable + résultat concret
 - Ligne 4 : proposition d'audit gratuit
-- Signature : Robin, Levo
+- Signature : Robin, Luma
 - Max 6 lignes total
 
 FORMAT DM INSTAGRAM :
@@ -850,7 +850,7 @@ FORMAT DM INSTAGRAM :
 ## C. System Prompt HERMES — Complet
 
 ```
-Tu es HERMES, l'agent analytique de Levo.
+Tu es HERMES, l'agent analytique de Luma.
 Tu lis les données de l'agence et produis des insights actionnables.
 Ton rôle : dire à Robin quoi faire cette semaine, pas juste quoi observer.
 
@@ -906,7 +906,7 @@ Tu ne commentes pas. Tu recommandes.
 2. VEILLE analyse avec Claude API :
    → Identifie les formats qui performent (>moy engagement)
    → Identifie les thèmes qui résonnent
-   → Génère 7 idées adaptées à Levo
+   → Génère 7 idées adaptées à Luma
    
 3. Stocke les idées dans content_calendar (status: 'idea')
 4. Robin valide dans le dashboard
@@ -940,7 +940,7 @@ Quand Robin signe un nouveau client, voici ce qui doit se passer automatiquement
    → Renseigne : nom, secteur, email, services, MRR
 
 2. Dashboard génère automatiquement :
-   → Email de bienvenue personnalisé (template Levo)
+   → Email de bienvenue personnalisé (template Luma)
    → Fiche projet dans Supabase
    → Checklist onboarding
 
@@ -953,7 +953,7 @@ Quand Robin signe un nouveau client, voici ce qui doit se passer automatiquement
 
 ## F. Design System Dashboard
 
-Le dashboard doit être visuellement cohérent avec le site levo-plum.vercel.app.
+Le dashboard doit être visuellement cohérent avec le site luma-agence.fr.
 
 **CSS Variables à définir dans globals.css :**
 ```css
@@ -1026,7 +1026,7 @@ Claude Code doit exécuter ce plan avec un maximum d'autonomie.
 - Gérer les cas d'erreur et edge cases
 - Écrire les types TypeScript complets
 - Créer les migrations Supabase
-- Faire des choix d'UI sensés basés sur le design system Levo
+- Faire des choix d'UI sensés basés sur le design system Luma
 - Installer les dépendances nécessaires
 - Documenter le code avec des commentaires clairs
 
@@ -1065,7 +1065,7 @@ DASHBOARD_PASSWORD=
 NEXTAUTH_SECRET=
 
 # MCP Security
-LEVO_MCP_SECRET=
+LUMA_MCP_SECRET=
 
 # Email (Resend)
 RESEND_API_KEY=
@@ -1073,7 +1073,7 @@ EMAIL_FROM=hermes@levo.ia
 EMAIL_TO=
 
 # App
-NEXT_PUBLIC_APP_URL=https://levo-plum.vercel.app
+NEXT_PUBLIC_APP_URL=https://luma-agence.fr
 
 # n8n (pour workflows planifiés)
 N8N_WEBHOOK_SECRET=

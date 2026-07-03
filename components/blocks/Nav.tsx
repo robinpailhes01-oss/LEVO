@@ -34,8 +34,8 @@ export function Nav() {
       }}
     >
       <nav aria-label="Navigation principale" className="mx-auto flex h-16 max-w-container items-center justify-between px-5 lg:px-12">
-        <Link href="#top" className="font-serif text-xl font-bold tracking-[-0.02em]" style={{ color: "#111111" }} aria-label="Levo — retour en haut de page">
-          Levo
+        <Link href="#top" className="font-serif text-xl font-bold tracking-[-0.02em]" style={{ color: "#111111" }} aria-label="Luma — retour en haut de page">
+          Luma
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -84,7 +84,7 @@ export function Nav() {
         style={{ background: "#f4f3ef" }}
       >
         <div className="flex h-16 items-center justify-between px-5" style={{ borderBottom: "1px solid rgba(17,17,17,0.08)" }}>
-          <span className="font-serif text-xl font-bold" style={{ color: "#111111" }}>Levo</span>
+          <span className="font-serif text-xl font-bold" style={{ color: "#111111" }}>Luma</span>
           <button
             type="button"
             onClick={() => setOpen(false)}

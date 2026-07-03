@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Levo — Agence IA sur-mesure | Montpellier";
+export const alt = "Luma — Agence IA sur-mesure | Montpellier";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -31,7 +31,7 @@ export default function OgImage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Levo
+            Luma
           </span>
           <span
             style={{

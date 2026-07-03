@@ -36,12 +36,12 @@ export async function POST(req: Request) {
   }
 
   const email = (body.email ?? "").trim().toLowerCase();
-  const project = body.project ?? "Projet Levo";
+  const project = body.project ?? "Projet Luma";
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json({ ok: false, error: "Email invalide" }, { status: 400 });
   }
 
-  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL ?? "https://levo-plum.vercel.app";
+  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL ?? "https://luma-agence.fr";
 
   // 1. Enregistre le lead (best-effort, ne bloque pas la démo si Supabase absent)
   const supabase = getSupabaseAdmin();
@@ -63,12 +63,12 @@ export async function POST(req: Request) {
 
   // 2. Email au visiteur avec le lien de démo
   const visitorHtml = `<div style="font-family:system-ui,sans-serif;color:#111">
-    <h2 style="font-weight:700">Votre démo Levo</h2>
+    <h2 style="font-weight:700">Votre démo Luma</h2>
     <p>Merci pour votre intérêt — voici votre accès à la démo :</p>
     <p><a href="${demoUrl}" style="display:inline-block;background:#1A3BFF;color:#fff;padding:12px 20px;border-radius:9999px;text-decoration:none">Découvrir la démo →</a></p>
-    <p style="color:#666;font-size:14px">L'équipe Levo · Montpellier</p>
+    <p style="color:#666;font-size:14px">L'équipe Luma · Montpellier</p>
   </div>`;
-  const visitorSent = await sendEmail(email, "Votre démo Levo", visitorHtml);
+  const visitorSent = await sendEmail(email, "Votre démo Luma", visitorHtml);
 
   // 3. Notification à Robin
   const robinTo = process.env.EMAIL_TO;

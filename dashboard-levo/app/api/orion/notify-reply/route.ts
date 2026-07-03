@@ -4,8 +4,8 @@ import { checkMcpAuth } from "@/lib/mcp/guard";
 import { logAgentAction } from "@/lib/agents/log";
 
 // Webhook Instantly.ai → notifie Robin qu'un lead a répondu.
-// Sécurisé par le même Bearer que le MCP (LEVO_MCP_SECRET) car appelé par un tiers.
-// Instantly doit être configuré avec l'en-tête Authorization: Bearer <LEVO_MCP_SECRET>.
+// Sécurisé par le même Bearer que le MCP (LUMA_MCP_SECRET) car appelé par un tiers.
+// Instantly doit être configuré avec l'en-tête Authorization: Bearer <LUMA_MCP_SECRET>.
 
 interface InstantlyPayload {
   email?: string;

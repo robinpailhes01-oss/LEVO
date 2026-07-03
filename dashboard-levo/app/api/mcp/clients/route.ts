@@ -1,7 +1,7 @@
 import { checkMcpAuth, mcpOk, mcpError } from "@/lib/mcp/guard";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
 
-// MCP Levo — outils clients.
+// MCP Luma — outils clients.
 
 export async function POST(req: Request) {
   const denied = checkMcpAuth(req);

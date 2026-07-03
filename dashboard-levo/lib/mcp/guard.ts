@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 
-// Sécurité commune des routes MCP : Bearer LEVO_MCP_SECRET.
+// Sécurité commune des routes MCP : Bearer LUMA_MCP_SECRET.
 
 export function checkMcpAuth(req: Request): NextResponse | null {
-  const expected = process.env.LEVO_MCP_SECRET;
+  const expected = process.env.LUMA_MCP_SECRET;
   if (!expected) {
     return NextResponse.json(
-      { error: "MCP non configuré (LEVO_MCP_SECRET manquant)" },
+      { error: "MCP non configuré (LUMA_MCP_SECRET manquant)" },
       { status: 500 },
     );
   }

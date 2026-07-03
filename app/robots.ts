@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://levo.fr/sitemap.xml",
-    host: "https://levo.fr",
+    sitemap: "https://luma-agence.fr/sitemap.xml",
+    host: "https://luma-agence.fr",
   };
 }

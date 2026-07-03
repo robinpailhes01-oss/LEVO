@@ -17,8 +17,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dashboard Levo",
-  description: "Console interne de l'agence Levo",
+  title: "Dashboard Luma",
+  description: "Console interne de l'agence Luma",
   robots: { index: false, follow: false },
 };
 

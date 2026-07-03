@@ -1,6 +1,6 @@
 -- ════════════════════════════════════════════════════════════════
--- LEVO — Schéma Supabase complet
--- À exécuter dans le SQL Editor du projet Supabase Levo.
+-- LUMA — Schéma Supabase complet
+-- À exécuter dans le SQL Editor du projet Supabase Luma.
 -- Conforme à MASTER_PLAN.md section "1A. Schéma Supabase".
 -- Idempotent : peut être ré-exécuté sans casser l'existant.
 -- ════════════════════════════════════════════════════════════════
@@ -168,7 +168,7 @@ INSERT INTO settings (key, value) VALUES
   ('orion_daily_limit', '10'),
   ('hermes_report_day', '"monday"'),
   ('target_mrr', '5000'),
-  ('agency_name', '"Levo"'),
+  ('agency_name', '"Luma"'),
   ('agency_location', '"Montpellier"')
 ON CONFLICT (key) DO NOTHING;
 

@@ -3,7 +3,7 @@ import { WordReveal } from "@/components/ui/WordReveal";
 
 const testimonials = [
   {
-    quote: "Levo a compris notre métier avant de parler technique. L'agent gère nos demandes mieux qu'on l'espérait.",
+    quote: "Luma a compris notre métier avant de parler technique. L'agent gère nos demandes mieux qu'on l'espérait.",
     name: "Camille R.",
     role: "Direction, Harmonie Yacht",
     initials: "CR",

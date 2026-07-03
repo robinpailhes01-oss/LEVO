@@ -2,7 +2,7 @@ import { checkMcpAuth, mcpOk, mcpError } from "@/lib/mcp/guard";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
 import type { LeadStatus } from "@/lib/types/database";
 
-// MCP Levo — outils HERMES (analytics).
+// MCP Luma — outils HERMES (analytics).
 
 export async function POST(req: Request) {
   const denied = checkMcpAuth(req);
