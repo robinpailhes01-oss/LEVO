@@ -8,7 +8,28 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 type AuditPayload = AuditData & {
   heures_perdues_semaine: number;
   perte_mensuelle_estimee: number;
+  lead_id?: string;
 };
+
+// Envoie l'événement d'audit au dashboard CRM (projet séparé).
+// Best-effort : jamais bloquant, erreurs ignorées. Ne fait rien sans lead_id.
+async function notifyCrm(
+  leadId: string,
+  answers: Record<string, unknown>,
+): Promise<void> {
+  const url = process.env.LEVO_WEBHOOK_URL;
+  const token = process.env.LEVO_WEBHOOK_TOKEN;
+  if (!url || !token) return; // webhook non configuré → on ignore
+  try {
+    await fetch(`${url}?token=${encodeURIComponent(token)}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ lead_id: leadId, answers }),
+    });
+  } catch (err) {
+    console.error("[audit] webhook CRM échoué (ignoré):", err);
+  }
+}
 
 const TACHE_LABEL: Record<string, string> = Object.fromEntries(
   TACHE_OPTIONS.map((t) => [t.key, t.label]),
@@ -64,6 +85,15 @@ export async function POST(req: Request) {
   const email = (body.email ?? "").trim().toLowerCase();
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json({ success: false, error: "Email invalide" }, { status: 400 });
+  }
+
+  // Webhook CRM (best-effort, indépendant de Supabase) — uniquement si le
+  // visiteur est arrivé via un lien de prospection personnalisé (?lead=…).
+  const leadId = typeof body.lead_id === "string" ? body.lead_id.trim() : "";
+  if (leadId) {
+    const answers = { ...body };
+    delete answers.lead_id;
+    await notifyCrm(leadId, answers);
   }
 
   const supabase = getSupabaseAdmin();

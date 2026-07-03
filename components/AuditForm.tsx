@@ -56,7 +56,7 @@ const PANIER: { value: string; label: string }[] = [
 
 const TOTAL_STEPS = 5;
 
-export function AuditForm({ onDone }: { onDone?: () => void }) {
+export function AuditForm({ onDone, leadId }: { onDone?: () => void; leadId?: string }) {
   const [step, setStep] = useState(1);
   const [data, setData] = useState<AuditData>(emptyData);
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
@@ -89,7 +89,7 @@ export function AuditForm({ onDone }: { onDone?: () => void }) {
       const res = await fetch("/api/audit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, ...result }),
+        body: JSON.stringify({ ...data, ...result, lead_id: leadId }),
       });
       const json = (await res.json()) as { success?: boolean; error?: string };
       if (json.success) setStatus("done");
@@ -119,14 +119,24 @@ export function AuditForm({ onDone }: { onDone?: () => void }) {
           On analyse vos réponses et on vous envoie votre audit personnalisé par
           email sous 24h, avec une démo adaptée à votre activité.
         </p>
-        <button
-          type="button"
-          onClick={onDone}
-          className="mt-6 rounded-full px-6 py-3 font-body text-sm font-semibold text-white"
-          style={{ background: INK }}
-        >
-          Fermer
-        </button>
+        {onDone ? (
+          <button
+            type="button"
+            onClick={onDone}
+            className="mt-6 rounded-full px-6 py-3 font-body text-sm font-semibold text-white"
+            style={{ background: INK }}
+          >
+            Fermer
+          </button>
+        ) : (
+          <a
+            href="/"
+            className="mt-6 inline-block rounded-full px-6 py-3 font-body text-sm font-semibold text-white"
+            style={{ background: INK }}
+          >
+            Retour à l&apos;accueil
+          </a>
+        )}
       </div>
     );
   }
