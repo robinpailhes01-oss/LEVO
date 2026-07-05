@@ -1,49 +1,36 @@
-# PROJECT_MEMORY.md — Mémoire de Luma
+# PROJECT_MEMORY — Luma
 
-*Claude Code lit ce fichier au début de chaque session et le met à jour à la fin.*
+*Lu en début de session, mis à jour en fin.*
 
----
+## Repos
+- **LEVO** (ce repo) : site vitrine `luma-agence.fr` (racine) + `dashboard-levo/` (dashboard interne, projet Vercel séparé, peu utilisé).
+- **LEVO-AGENCE** (repo séparé, non accessible ici) : le vrai dashboard CRM du user.
 
-## État du projet
-- Phase actuelle : **Phases 1 à 6 construites** (infra dashboard complète, build OK)
-- Dernière session : 2026-06-28 — construction de toute l'infra agents en une session
-- Prochaine action : exécuter `docs/levo/schema.sql` dans Supabase, brancher Resend, tester en prod
+## Stack
+Next.js 14 App Router · TS strict · Tailwind · Supabase (service role, serveur only) · Claude `claude-opus-4-8` (serveur only) · Resend · Framer Motion.
 
----
+## État
+- Site vitrine + audit : construits, build OK, poussés sur `main`.
+- Rebrand Levo→Luma fait (texte, domaine, `LUMA_MCP_SECRET`). Dossiers `docs/levo`, `dashboard-levo` gardés (chemins).
 
-## Décisions d'architecture prises
-- MCP hébergé sur Vercel API routes (`/app/api/mcp/{content,leads,analytics,clients}`), sécurisé `Bearer LUMA_MCP_SECRET`
-- Mémoire persistante via ce fichier (pas GBrain)
-- ORION utilise Instantly.ai ; webhook réponse → `/api/orion/notify-reply` (même Bearer)
-- Auth dashboard simple : cookie HMAC signé (`AUTH_SECRET`), vérifié en Edge middleware via Web Crypto. Pas de Clerk.
-- **Site marketing reste sur `/`** ; le dashboard vit sous `/dashboard/*` (route group dédié, layout Bankio fond #ECEEF8). Décision : ne pas rediriger `/` vers le dashboard pour préserver la landing SEO.
-- Supabase accédé côté serveur uniquement via **service role key** (bypass RLS). RLS activée sur toutes les tables, aucune policy publique → base fermée à la clé anon.
-- Claude appelé via `@anthropic-ai/sdk`, modèle `claude-opus-4-8`, **toujours côté serveur**.
-- Tables : ajout de `content_slides` (détail + feedback par slide) en plus des 9 du plan initial → 10 tables.
-- Avatars agents : SVG générés dans `/public/avatars/` (luna/orion/hermes/veille). Interface vocale via Web Speech API (fr-FR) sur chaque carte agent.
-- **DDL impossible depuis l'environnement** (MCP Supabase ne couvre pas le projet `yzaypsoonsldhmujuqjw`) → le schéma est livré en `docs/levo/schema.sql`, à exécuter manuellement.
+## Audit gratuit (site)
+- Popup 5 étapes (Nav/Hero/exit-intent) + page pleine `/audit?lead=<uuid>`.
+- Submit → `/api/audit` : insert Supabase `audits` + crée un lead ORION (`leads`) + **webhook CRM** best-effort si `lead_id` présent → `LEVO_WEBHOOK_URL?token=LEVO_WEBHOOK_TOKEN` body `{lead_id, answers}` (serveur only).
+- `lib/audit/calc.ts` : estime heures perdues + perte €/mois + `INFRA_MAP` (aperçu écosystème).
 
-## Patterns établis
-- `lib/supabase/server.ts` (admin client, `server-only`), `lib/claude.ts` (`complete` + `extractJson`)
-- `lib/agents/log.ts` → écrit dans `agent_logs` (best-effort, ne casse jamais le flux)
-- Routes agents : try/catch systématique + log succès/erreur dans `agent_logs`
-- Couche lecture dashboard `lib/dashboard/queries.ts` tolérante (renvoie vide si table absente)
-- Prompts agents dans `lib/prompts/{luna,orion,hermes}.ts`, sortie JSON stricte
+## Décisions clés
+- Vitrine `/`, dashboard `/dashboard/*` (route group). Supabase RLS ON, accès service role only.
+- Auth dashboard : cookie HMAC (`AUTH_SECRET`), vérifié Edge via `crypto.subtle`.
+- MCP dashboard : `Bearer LUMA_MCP_SECRET`.
 
-## Pièges rencontrés
-- `status: "lost"` invalide pour `content_calendar` (pas dans le CHECK) → "Écarter" supprime la ligne
-- Edge middleware ne peut pas utiliser le module Node `crypto` → HMAC via `crypto.subtle`
-- Service role key ≠ accès DDL via REST → schéma exécuté manuellement
+## Pièges
+- SQL Supabase échoue si **traduction Chrome active** → exécuter en navigation privée.
+- MCP Supabase connecté à un autre compte → **DDL impossible** ici, le user exécute les `.sql`.
+- Vercel ne promeut pas toujours en prod auto → vérifier après push.
 
-## À faire prochaine session
-1. Exécuter `docs/levo/schema.sql` dans le SQL Editor Supabase (projet Luma)
-2. **Régénérer les clés exposées** (service role Supabase + clé Anthropic) — elles ont transité en clair
-3. Renseigner `RESEND_API_KEY` pour les emails HERMES
-4. Brancher le webhook Instantly.ai sur `/api/orion/notify-reply`
-5. Tester chaque agent en prod (générer idées LUNA, enrichir un lead ORION, rapport HERMES)
-6. Cron lundi 8h (Vercel Cron ou n8n) → POST `/api/hermes/generate-report`
-
-## Notes importantes
-- Identifiants dashboard générés dans `.env.local` (DASHBOARD_PASSWORD, AUTH_SECRET, LUMA_MCP_SECRET) — non commités
-- Site existant : luma-agence.fr
-- Robin valide les décisions importantes (Confusion Protocol)
+## À FAIRE (côté user)
+1. Supabase (nav privée) : exécuter `docs/levo/schema.sql` + `docs/levo/audit_table.sql`.
+2. Vercel (site) : env `LEVO_WEBHOOK_URL`, `LEVO_WEBHOOK_TOKEN`, clés Supabase, `RESEND_API_KEY` ; domaine `luma-agence.fr` ; vérifier promotion prod.
+3. Régénérer clés Supabase + Anthropic (exposées en clair).
+4. Renommer env `LEVO_MCP_SECRET`→`LUMA_MCP_SECRET` sur le projet dashboard.
+5. Tester `/audit?lead=test` → lead dans CRM + table `audits`.
