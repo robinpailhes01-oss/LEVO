@@ -1,12 +1,11 @@
-import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 interface Site {
   name: string;
   description: string;
   accent: string;
-  url?: string;
-  display: string; // ce qu'on montre dans la barre d'adresse
+  image: string; // capture d'écran dans /public/sites/
 }
 
 const SITES: Site[] = [
@@ -14,21 +13,19 @@ const SITES: Site[] = [
     name: "Harmonie Yacht",
     description: "Dashboard de gestion : réservations, finances et agent Léa en temps réel.",
     accent: "#1A3BFF",
-    url: "https://ia-hy-infra-new.vercel.app",
-    display: "harmonie-yacht.app",
+    image: "/sites/harmonie-yacht.png",
   },
   {
     name: "Énergies Concept",
     description: "Dashboard de prospection solaire par IA et analyse satellite des toitures.",
     accent: "#F97316",
-    url: "https://nergie-concept.vercel.app",
-    display: "energies-concept.app",
+    image: "/sites/energies-concept.png",
   },
   {
     name: "Love Explorer",
     description: "Conciergerie romantique avec Kia, l'agent IA de réservation.",
     accent: "#E84393",
-    display: "love-explorer.app",
+    image: "/sites/love-explorer.png",
   },
 ];
 
@@ -47,17 +44,17 @@ export function WebsitesSection() {
         </ScrollReveal>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {SITES.map((site, i) => {
-            const inner = (
+          {SITES.map((site, i) => (
+            <ScrollReveal key={site.name} delay={i * 80} className="h-full">
               <div
-                className="group flex h-full flex-col overflow-hidden rounded-[18px] transition-all duration-300 hover:-translate-y-1"
+                className="flex h-full flex-col overflow-hidden rounded-[18px]"
                 style={{
                   background: "#ffffff",
                   border: "1px solid rgba(17,17,17,0.08)",
                   boxShadow: "0 1px 2px rgba(17,17,17,0.04)",
                 }}
               >
-                {/* Mini browser chrome */}
+                {/* Mini browser chrome (décoratif, aucun lien) */}
                 <div
                   className="flex items-center gap-2 px-4 py-3"
                   style={{ background: "#f4f3ef", borderBottom: "1px solid rgba(17,17,17,0.06)" }}
@@ -65,12 +62,20 @@ export function WebsitesSection() {
                   <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#ff5f57" }} />
                   <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#febc2e" }} />
                   <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
-                  <span
-                    className="ml-2 flex-1 truncate rounded-md px-2 py-1 font-body text-[11px]"
-                    style={{ background: "rgba(17,17,17,0.05)", color: "rgba(17,17,17,0.45)" }}
-                  >
-                    {site.display}
-                  </span>
+                </div>
+
+                {/* Capture d'écran */}
+                <div
+                  className="relative w-full overflow-hidden"
+                  style={{ aspectRatio: "16 / 10", background: "#f0ede6" }}
+                >
+                  <Image
+                    src={site.image}
+                    alt={`Aperçu du site ${site.name}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-top"
+                  />
                 </div>
 
                 {/* Bandeau accent */}
@@ -81,34 +86,15 @@ export function WebsitesSection() {
                     {site.name}
                   </h3>
                   <p
-                    className="mt-2 flex-1 font-body text-[14px] leading-relaxed"
+                    className="mt-2 font-body text-[14px] leading-relaxed"
                     style={{ color: "rgba(17,17,17,0.55)" }}
                   >
                     {site.description}
                   </p>
-                  <span
-                    className="mt-5 inline-flex items-center gap-1.5 font-body text-sm font-semibold transition-transform group-hover:translate-x-0.5"
-                    style={{ color: site.url ? site.accent : "rgba(17,17,17,0.35)" }}
-                  >
-                    {site.url ? "Voir le site" : "Sur demande"}
-                    {site.url && <ArrowUpRight size={16} />}
-                  </span>
                 </div>
               </div>
-            );
-
-            return (
-              <ScrollReveal key={site.name} delay={i * 80} className="h-full">
-                {site.url ? (
-                  <a href={site.url} target="_blank" rel="noopener noreferrer" className="block h-full">
-                    {inner}
-                  </a>
-                ) : (
-                  inner
-                )}
-              </ScrollReveal>
-            );
-          })}
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>
