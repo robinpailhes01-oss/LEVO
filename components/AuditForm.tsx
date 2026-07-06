@@ -80,7 +80,12 @@ export function AuditForm({ onDone, leadId }: { onDone?: () => void; leadId?: st
     });
   }
 
-  const step1Valid = data.email.trim() !== "" && EMAIL_RE.test(data.email);
+  const step1Valid =
+    data.prenom.trim() !== "" &&
+    data.nom.trim() !== "" &&
+    data.entreprise.trim() !== "" &&
+    data.email.trim() !== "" &&
+    EMAIL_RE.test(data.email);
 
   async function submit() {
     setStatus("loading");
@@ -158,14 +163,17 @@ export function AuditForm({ onDone, leadId }: { onDone?: () => void; leadId?: st
       {step === 1 && (
         <Step title="Faisons connaissance" subtitle="Pour vous envoyer votre audit personnalisé.">
           <div className="grid gap-3 sm:grid-cols-2">
-            <Input label="Prénom" value={data.prenom} onChange={(v) => set("prenom", v)} />
-            <Input label="Nom" value={data.nom} onChange={(v) => set("nom", v)} />
+            <Input label="Prénom *" value={data.prenom} onChange={(v) => set("prenom", v)} required />
+            <Input label="Nom *" value={data.nom} onChange={(v) => set("nom", v)} required />
           </div>
-          <Input label="Email professionnel *" type="email" value={data.email} onChange={(v) => set("email", v)} />
+          <Input label="Email professionnel *" type="email" value={data.email} onChange={(v) => set("email", v)} required />
           <div className="grid gap-3 sm:grid-cols-2">
-            <Input label="Entreprise" value={data.entreprise} onChange={(v) => set("entreprise", v)} />
+            <Input label="Entreprise *" value={data.entreprise} onChange={(v) => set("entreprise", v)} required />
             <Input label="Secteur" value={data.secteur} onChange={(v) => set("secteur", v)} />
           </div>
+          <p className="font-body text-xs" style={{ color: "rgba(17,17,17,0.4)" }}>
+            * Champs obligatoires
+          </p>
         </Step>
       )}
 
@@ -333,7 +341,19 @@ function Step({ title, subtitle, children }: { title: string; subtitle: string; 
   );
 }
 
-function Input({ label, value, onChange, type = "text" }: { label: string; value: string; onChange: (v: string) => void; type?: string }) {
+function Input({
+  label,
+  value,
+  onChange,
+  type = "text",
+  required = false,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  type?: string;
+  required?: boolean;
+}) {
   return (
     <label className="block">
       <span className="mb-1.5 block font-body text-xs font-semibold" style={{ color: "rgba(17,17,17,0.55)" }}>{label}</span>
@@ -341,6 +361,7 @@ function Input({ label, value, onChange, type = "text" }: { label: string; value
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        required={required}
         className="w-full rounded-xl border bg-white px-4 py-3 font-body text-sm outline-none transition-colors focus:border-[#1A3BFF]"
         style={{ borderColor: "rgba(17,17,17,0.14)", color: INK }}
       />
