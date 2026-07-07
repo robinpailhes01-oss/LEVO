@@ -3,6 +3,8 @@ const organizationSchema = {
   "@type": "Organization",
   "@id": "https://luma-agence.fr/#organization",
   name: "Luma",
+  legalName: "Harmonie Group",
+  alternateName: "Harmonie Group",
   url: "https://luma-agence.fr",
   logo: {
     "@type": "ImageObject",
@@ -11,12 +13,14 @@ const organizationSchema = {
     height: 60,
   },
   description:
-    "Luma est une agence IA artisanale basée à Montpellier. Elle conçoit des agents conversationnels et des automatisations sur-mesure pour les PME du Sud de la France.",
+    "Luma est une agence IA artisanale, marque de Harmonie Group. Elle conçoit des agents conversationnels et des automatisations sur-mesure pour les PME du Sud de la France.",
   email: "contact@luma-agence.fr",
-  foundingDate: "2024",
+  foundingDate: "2025-09-24",
+  taxID: "991738733",
+  vatID: "FR07991738733",
   areaServed: [
     { "@type": "City", name: "Montpellier" },
-    { "@type": "State", name: "Hérault" },
+    { "@type": "City", name: "Marseille" },
     { "@type": "AdministrativeArea", name: "Sud de la France" },
     { "@type": "Country", name: "France" },
   ],
@@ -35,6 +39,8 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "@id": "https://luma-agence.fr/#localbusiness",
   name: "Luma",
+  legalName: "Harmonie Group",
+  taxID: "991738733",
   description:
     "Agence IA sur-mesure à Montpellier — agents conversationnels, automatisation de workflows et tableaux de bord pour PME et startups.",
   url: "https://luma-agence.fr",
