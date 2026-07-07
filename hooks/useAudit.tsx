@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
 
-export type AuditVariant = "default" | "exit";
+export type AuditVariant = "default" | "exit" | "auto";
 
 interface AuditContextValue {
   isOpen: boolean;

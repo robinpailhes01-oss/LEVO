@@ -3,7 +3,7 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { WordReveal } from "@/components/ui/WordReveal";
 
-const EMAIL = "harmonieyacht@gmail.com";
+const EMAIL = "contact@luma-agence.fr";
 
 export function CTASection() {
   return (

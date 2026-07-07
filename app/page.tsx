@@ -6,7 +6,8 @@ import { HowItWorksSection } from "@/components/blocks/HowItWorksSection";
 import { PortfolioSection } from "@/components/blocks/PortfolioSection";
 import { WebsitesSection } from "@/components/blocks/WebsitesSection";
 import { AboutSection } from "@/components/blocks/AboutSection";
-import { TestimonialsSection } from "@/components/blocks/TestimonialsSection";
+// TestimonialsSection retirée temporairement (pas encore de témoignages clients réels).
+// import { TestimonialsSection } from "@/components/blocks/TestimonialsSection";
 import { CTASection } from "@/components/blocks/CTASection";
 import { Footer } from "@/components/blocks/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
@@ -42,7 +43,6 @@ export default function Home() {
         <PortfolioSection />
         <WebsitesSection />
         <AboutSection />
-        <TestimonialsSection />
         <CTASection />
       </main>
       <Footer />

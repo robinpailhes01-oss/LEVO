@@ -47,13 +47,13 @@ export function Footer() {
             © {new Date().getFullYear()} Luma · Harmonie Group SASU au capital de 100 € · RCS Marseille 991 738 733
           </p>
           <a
-            href="mailto:harmonieyacht@gmail.com"
+            href="mailto:contact@luma-agence.fr"
             className="font-body text-xs transition-colors duration-200"
             style={{ color: "rgba(255,255,255,0.25)" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.55)")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.25)")}
           >
-            harmonieyacht@gmail.com
+            contact@luma-agence.fr
           </a>
         </div>
       </div>
