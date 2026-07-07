@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { WordReveal } from "@/components/ui/WordReveal";
 
@@ -29,29 +30,6 @@ export function AboutSection() {
               Notre conviction : la meilleure technologie est celle qui se fait oublier.
               Elle vous libère du temps, sans vous compliquer la vie.
             </p>
-            {/* Fondateur */}
-            <div
-              className="mt-10 flex items-start gap-4 rounded-2xl p-5"
-              style={{ background: "#ffffff", border: "1px solid rgba(17,17,17,0.08)" }}
-            >
-              <span
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-serif text-lg font-bold text-white"
-                style={{ background: "#111111" }}
-              >
-                R
-              </span>
-              <div>
-                <p className="font-body text-sm font-semibold" style={{ color: "#111111" }}>
-                  Robin — Fondateur
-                </p>
-                <p className="mt-1.5 font-body text-[14px] leading-relaxed" style={{ color: "rgba(17,17,17,0.55)" }}>
-                  Avant de lancer Luma, Robin a implémenté l&apos;IA dans sa propre société de
-                  location de yachts, Harmonie Yacht. Il n&apos;installe rien qu&apos;il n&apos;ait
-                  d&apos;abord éprouvé chez lui.
-                </p>
-              </div>
-            </div>
-
             <div className="mt-6 inline-flex items-center gap-2">
               <span className="h-1 w-1 rounded-full" style={{ background: "rgba(17,17,17,0.40)" }} />
               <span className="font-body text-sm" style={{ color: "rgba(17,17,17,0.45)" }}>Montpellier, Sud de la France</span>
@@ -80,6 +58,45 @@ export function AboutSection() {
             ))}
           </div>
         </div>
+
+        {/* Le mot du fondateur */}
+        <ScrollReveal delay={120} className="mt-20">
+          <div
+            className="grid gap-8 rounded-[24px] p-8 sm:grid-cols-[auto,1fr] sm:items-center sm:p-10"
+            style={{ background: "#ffffff", border: "1px solid rgba(17,17,17,0.08)" }}
+          >
+            <div className="mx-auto sm:mx-0">
+              <div
+                className="relative h-24 w-24 overflow-hidden rounded-full sm:h-28 sm:w-28"
+                style={{ border: "1px solid rgba(17,17,17,0.10)" }}
+              >
+                <Image
+                  src="/team/robin.jpeg"
+                  alt="Robin, fondateur de Luma"
+                  fill
+                  sizes="112px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            <div>
+              <p className="section-label">Le mot du fondateur</p>
+              <blockquote className="mt-4 font-body text-lg italic leading-relaxed" style={{ color: "rgba(17,17,17,0.75)" }}>
+                « Avant de créer cette agence, j&apos;ai moi-même implémenté l&apos;IA dans mon
+                entreprise de location de yachts. Résultat, après un an : mon chiffre
+                d&apos;affaires a explosé, j&apos;avais plus de temps et je délivrais de
+                meilleures prestations. J&apos;ai la conviction que l&apos;IA doit être un outil
+                au service de votre entreprise, et que l&apos;objectif est que vous passiez
+                tout votre temps à faire le cœur de votre métier — pas les tâches annexes
+                trop chronophages. »
+              </blockquote>
+              <p className="mt-4 font-body text-sm font-semibold" style={{ color: "#111111" }}>
+                Robin — Fondateur de Luma
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
