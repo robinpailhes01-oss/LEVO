@@ -5,6 +5,20 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Extrait un message lisible aussi bien d'une Error JS que d'une erreur
+// Postgrest (objet simple { message, hint, code }).
+function extractErrorMessage(err: unknown): string {
+  if (err instanceof Error) return err.message;
+  if (err && typeof err === "object") {
+    const e = err as { message?: unknown; hint?: unknown; code?: unknown };
+    const parts = [e.message, e.hint, e.code].filter(
+      (p): p is string => typeof p === "string" && p.length > 0,
+    );
+    if (parts.length > 0) return parts.join(" · ");
+  }
+  return "Erreur serveur";
+}
+
 type AuditPayload = AuditData & {
   heures_perdues_semaine: number;
   perte_mensuelle_estimee: number;
@@ -130,7 +144,11 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (err) {
-    const message = err instanceof Error ? err.message : "Erreur serveur";
+    // Les erreurs Supabase/Postgrest sont des objets simples ({ message, details,
+    // hint, code }) et non des instances d'Error : on extrait le message dans tous
+    // les cas pour ne plus masquer la cause réelle derrière un « Erreur serveur ».
+    console.error("[audit] insertion échouée:", JSON.stringify(err));
+    const message = extractErrorMessage(err);
     return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
 }
