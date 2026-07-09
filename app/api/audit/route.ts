@@ -49,6 +49,58 @@ const TACHE_LABEL: Record<string, string> = Object.fromEntries(
   TACHE_OPTIONS.map((t) => [t.key, t.label]),
 );
 
+// Envoi d'email via Resend (best-effort). Renvoie false si non configuré.
+async function sendEmail(to: string, subject: string, html: string): Promise<boolean> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.EMAIL_FROM;
+  if (!apiKey || !from) return false;
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ from, to, subject, html }),
+    });
+    return res.ok;
+  } catch (err) {
+    console.error("[audit] envoi email échoué (ignoré):", err);
+    return false;
+  }
+}
+
+function esc(v: unknown): string {
+  return String(v ?? "—")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+// Notifie Robin par email à chaque audit reçu (best-effort, ne bloque jamais).
+async function notifyRobin(body: Partial<AuditPayload>, email: string): Promise<void> {
+  const to = process.env.EMAIL_TO;
+  if (!to) return;
+  const perte = Math.round(Number(body.perte_mensuelle_estimee) || 0);
+  const taches = (body.taches ?? []).map((k) => TACHE_LABEL[k] ?? k).join(", ") || "—";
+  const nom = [body.prenom, body.nom].filter(Boolean).join(" ") || "—";
+  const html = `<div style="font-family:system-ui,sans-serif;color:#111">
+    <h2 style="font-weight:700">Nouvel audit reçu</h2>
+    <ul style="line-height:1.7">
+      <li><b>Nom :</b> ${esc(nom)}</li>
+      <li><b>Email :</b> ${esc(email)}</li>
+      <li><b>Entreprise :</b> ${esc(body.entreprise)}</li>
+      <li><b>Secteur :</b> ${esc(body.secteur)}</li>
+      <li><b>Tâches :</b> ${esc(taches)}</li>
+      <li><b>Perte estimée :</b> ${perte.toLocaleString("fr-FR")} €/mois</li>
+      <li><b>Heures perdues :</b> ${esc(body.heures_perdues_semaine)} h/sem</li>
+      <li><b>Horizon :</b> ${esc(body.horizon)}</li>
+    </ul>
+    <p style="color:#666;font-size:14px">Lead enregistré dans le pipeline (ORION).</p>
+  </div>`;
+  await sendEmail(to, `Nouvel audit — ${nom} (${perte.toLocaleString("fr-FR")} €/mois)`, html);
+}
+
 // Crée aussi un lead dans le pipeline ORION (best-effort — ne bloque jamais l'audit).
 async function upsertLead(
   supabase: SupabaseClient,
@@ -141,6 +193,9 @@ export async function POST(req: Request) {
 
     // Miroir dans le pipeline ORION (n'affecte pas le succès de l'audit).
     await upsertLead(supabase, body, email);
+
+    // Notification email à Robin (best-effort, n'affecte pas le succès de l'audit).
+    await notifyRobin(body, email);
 
     return NextResponse.json({ success: true });
   } catch (err) {
