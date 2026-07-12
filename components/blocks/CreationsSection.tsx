@@ -100,7 +100,7 @@ export function CreationsSection() {
                 {/* Capture d'écran */}
                 <div
                   className="relative w-full overflow-hidden"
-                  style={{ aspectRatio: "16 / 10", background: "#f0ede6" }}
+                  style={{ aspectRatio: "3 / 4", background: "#f0ede6" }}
                 >
                   <Image
                     src={c.image}
