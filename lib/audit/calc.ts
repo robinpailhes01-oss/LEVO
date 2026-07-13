@@ -5,6 +5,7 @@ export interface AuditData {
   prenom: string;
   nom: string;
   email: string;
+  telephone: string;
   entreprise: string;
   secteur: string;
   taches: string[];

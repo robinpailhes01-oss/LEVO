@@ -20,6 +20,7 @@ const emptyData: AuditData = {
   prenom: "",
   nom: "",
   email: "",
+  telephone: "",
   entreprise: "",
   secteur: "",
   taches: [],
@@ -166,7 +167,10 @@ export function AuditForm({ onDone, leadId }: { onDone?: () => void; leadId?: st
             <Input label="Prénom *" value={data.prenom} onChange={(v) => set("prenom", v)} required />
             <Input label="Nom *" value={data.nom} onChange={(v) => set("nom", v)} required />
           </div>
-          <Input label="Email professionnel *" type="email" value={data.email} onChange={(v) => set("email", v)} required />
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Input label="Email professionnel *" type="email" value={data.email} onChange={(v) => set("email", v)} required />
+            <Input label="Téléphone" type="tel" value={data.telephone} onChange={(v) => set("telephone", v)} />
+          </div>
           <div className="grid gap-3 sm:grid-cols-2">
             <Input label="Entreprise *" value={data.entreprise} onChange={(v) => set("entreprise", v)} required />
             <Input label="Secteur" value={data.secteur} onChange={(v) => set("secteur", v)} />
