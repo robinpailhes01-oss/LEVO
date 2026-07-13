@@ -48,7 +48,7 @@ export const PROJECTS: Project[] = [
     flow: ["Demandes", "Devis & contrats", "Relances", "Pilotage"],
     quote: {
       text: "Moins de demandes oubliées, plus de temps pour nos clients.",
-      author: "Camille R., Direction Harmonie Yacht",
+      author: "Ludivine Cadot, Direction Harmonie Yacht",
     },
   },
   {

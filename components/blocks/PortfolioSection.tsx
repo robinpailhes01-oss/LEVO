@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Check, X } from "lucide-react";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { DemoForm } from "@/components/blocks/DemoForm";
 import { PROJECTS, type Project } from "@/lib/projects";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -287,10 +286,6 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               </footer>
             </blockquote>
           )}
-
-          <div className="mt-8">
-            <DemoForm project={project.client} accent={project.accent} />
-          </div>
         </div>
       </motion.div>
     </motion.div>
