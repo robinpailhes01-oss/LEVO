@@ -44,7 +44,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 pt-8 sm:flex-row sm:items-center" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
           <p className="font-body text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
-            © {new Date().getFullYear()} Luma · Harmonie Group SASU au capital de 100 € · RCS Marseille 991 738 733
+            © {new Date().getFullYear()} Luma · Harmonie Group SASU au capital de 100 € · RCS Marseille 991 738 733 · Nexos Digital LLC
           </p>
           <a
             href="mailto:contact@luma-agence.fr"
