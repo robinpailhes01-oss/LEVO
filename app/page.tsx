@@ -4,7 +4,6 @@ import { TrustBar } from "@/components/blocks/TrustBar";
 import { ServicesSection } from "@/components/blocks/ServicesSection";
 import { HowItWorksSection } from "@/components/blocks/HowItWorksSection";
 import { PortfolioSection } from "@/components/blocks/PortfolioSection";
-import { WebsitesSection } from "@/components/blocks/WebsitesSection";
 import { CreationsSection } from "@/components/blocks/CreationsSection";
 import { AboutSection } from "@/components/blocks/AboutSection";
 // TestimonialsSection retirée temporairement (pas encore de témoignages clients réels).
@@ -42,7 +41,6 @@ export default function Home() {
         <ServicesSection />
         <HowItWorksSection />
         <PortfolioSection />
-        <WebsitesSection />
         <CreationsSection />
         <AboutSection />
         <CTASection />
