@@ -25,17 +25,25 @@ export function Nav() {
   }, []);
 
   return (
-    <header
-      className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-      style={{
-        background: scrolled ? "rgba(244,243,239,0.92)" : "transparent",
-        backdropFilter: scrolled ? "blur(16px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(17,17,17,0.08)" : "1px solid transparent",
-      }}
-    >
-      <nav aria-label="Navigation principale" className="mx-auto flex h-16 max-w-container items-center justify-between px-5 lg:px-12">
-        <Link href="#top" className="font-serif text-xl font-bold tracking-[-0.02em]" style={{ color: "#111111" }} aria-label="Luma — retour en haut de page">
-          Luma
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5">
+      <nav
+        aria-label="Navigation principale"
+        className="mx-auto flex h-16 max-w-container items-center justify-between rounded-full px-4 transition-all duration-300 sm:px-5 lg:px-6"
+        style={{
+          background: "#ffffff",
+          border: "1px solid rgba(17,17,17,0.07)",
+          boxShadow: scrolled
+            ? "0 12px 32px rgba(17,17,17,0.12)"
+            : "0 4px 16px rgba(17,17,17,0.05)",
+        }}
+      >
+        <Link
+          href="#top"
+          className="font-body text-xl font-black tracking-[-0.03em]"
+          style={{ color: "#111111" }}
+          aria-label="Luma — retour en haut de page"
+        >
+          luma<span style={{ color: "#1A3BFF" }}>.</span>
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -84,7 +92,9 @@ export function Nav() {
         style={{ background: "#f4f3ef" }}
       >
         <div className="flex h-16 items-center justify-between px-5" style={{ borderBottom: "1px solid rgba(17,17,17,0.08)" }}>
-          <span className="font-serif text-xl font-bold" style={{ color: "#111111" }}>Luma</span>
+          <span className="font-body text-xl font-black tracking-[-0.03em]" style={{ color: "#111111" }}>
+            luma<span style={{ color: "#1A3BFF" }}>.</span>
+          </span>
           <button
             type="button"
             onClick={() => setOpen(false)}

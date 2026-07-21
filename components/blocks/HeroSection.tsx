@@ -18,6 +18,8 @@ import {
   PenLine,
   Search,
   Check,
+  Clock,
+  TrendingUp,
 } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { useAudit } from "@/hooks/useAudit";
@@ -85,13 +87,18 @@ export function HeroSection() {
 
           {/* Massive staggered headline */}
           <motion.h1
-            className="font-display font-bold leading-[1.0] tracking-[-0.035em]"
+            className="font-display leading-[1.0] tracking-[-0.035em]"
             style={{ fontSize: "clamp(3.2rem, 8vw, 6rem)", color: "#111111" }}
           >
-            {["Des", "solutions", "IA,"].map((word, i) => (
+            {[
+              { word: "Des", bold: false },
+              { word: "solutions", bold: true },
+              { word: "IA,", bold: true },
+            ].map(({ word, bold }, i) => (
               <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] mr-[0.25em]">
                 <motion.span
                   className="inline-block"
+                  style={{ fontWeight: bold ? 700 : 400 }}
                   initial={{ y: "110%" }}
                   animate={{ y: "0%" }}
                   transition={{ duration: 0.75, ease: EASE, delay: 0.05 + i * 0.07 }}
@@ -101,10 +108,14 @@ export function HeroSection() {
               </span>
             ))}
             <br />
-            {["qui", "vous"].map((word, i) => (
+            {[
+              { word: "qui", bold: false },
+              { word: "vous", bold: false },
+            ].map(({ word, bold }, i) => (
               <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] mr-[0.25em]">
                 <motion.span
                   className="inline-block"
+                  style={{ fontWeight: bold ? 700 : 400 }}
                   initial={{ y: "110%" }}
                   animate={{ y: "0%" }}
                   transition={{ duration: 0.75, ease: EASE, delay: 0.26 + i * 0.07 }}
@@ -178,8 +189,52 @@ export function HeroSection() {
         {/* Parallax product mockup */}
         <motion.div
           style={{ y: mockupY, opacity: mockupOpacity }}
-          className="mx-auto mt-20 max-w-2xl"
+          className="relative mx-auto mt-20 max-w-2xl"
         >
+          {/* Badges flottants — chiffres clés en pilule */}
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, ease: EASE, delay: 1.6 }}
+            className="absolute -left-4 top-10 z-20 hidden items-center gap-2 rounded-full py-2.5 pl-2.5 pr-4 sm:-left-10 sm:flex"
+            style={{
+              background: "#ffffff",
+              boxShadow: "0 12px 32px rgba(17,17,17,0.14)",
+              border: "1px solid rgba(17,17,17,0.06)",
+            }}
+          >
+            <span
+              className="flex h-7 w-7 items-center justify-center rounded-full"
+              style={{ background: "rgba(26,59,255,0.12)" }}
+            >
+              <Clock size={14} strokeWidth={2.2} style={{ color: "#1A3BFF" }} />
+            </span>
+            <span className="font-body text-[13px] font-bold" style={{ color: "#111111" }}>
+              12h / sem. gagnées
+            </span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, ease: EASE, delay: 1.8 }}
+            className="absolute -right-4 bottom-16 z-20 hidden items-center gap-2 rounded-full py-2.5 pl-2.5 pr-4 sm:-right-8 sm:flex"
+            style={{
+              background: "#111111",
+              boxShadow: "0 12px 32px rgba(17,17,17,0.22)",
+            }}
+          >
+            <span
+              className="flex h-7 w-7 items-center justify-center rounded-full"
+              style={{ background: "rgba(255,255,255,0.12)" }}
+            >
+              <TrendingUp size={14} strokeWidth={2.2} className="text-white" />
+            </span>
+            <span className="font-body text-[13px] font-bold text-white">
+              +24% de conversion
+            </span>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}

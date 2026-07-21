@@ -16,7 +16,9 @@ export function Footer() {
       <div className="mx-auto max-w-container px-5 py-14 lg:px-12">
         <div className="flex flex-col items-start justify-between gap-10 sm:flex-row sm:items-center">
           <div>
-            <span className="font-display text-2xl font-bold" style={{ color: "#ffffff" }}>Luma</span>
+            <span className="font-body text-2xl font-black tracking-[-0.03em]" style={{ color: "#ffffff" }}>
+              luma<span style={{ color: "#4D8FFF" }}>.</span>
+            </span>
             <p className="mt-2 font-body text-sm" style={{ color: "rgba(255,255,255,0.35)" }}>
               Agence IA sur-mesure · Montpellier
             </p>
