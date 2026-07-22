@@ -35,30 +35,30 @@ export function PortfolioSection() {
         <div className="grid gap-6 lg:grid-cols-2">
           {PROJECTS.map((p, i) => (
             <ScrollReveal key={p.id} delay={i * 70}>
-              <TiltCard intensity={4} glare sweep gyro className="h-full" style={{ borderRadius: 24 }}>
+              <TiltCard intensity={4} glare sweep gyro className="h-full" style={{ borderRadius: 28 }}>
                 <button
                   type="button"
                   onClick={() => setActive(p)}
-                  className="group relative flex h-full w-full flex-col items-start overflow-hidden text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(17,17,17,0.12)] active:scale-[0.98]"
+                  className="group relative flex h-full w-full flex-col items-start overflow-hidden text-left transition-all duration-300 hover:-translate-y-1 active:scale-[0.98]"
                   style={{
-                    background: "#ffffff",
-                    border: "1px solid rgba(17,17,17,0.08)",
-                    borderRadius: 24,
-                    boxShadow: "0 1px 2px rgba(17,17,17,0.04)",
+                    background: "#111111",
+                    borderRadius: 28,
+                    boxShadow: "0 1px 2px rgba(17,17,17,0.20)",
                   }}
                 >
-                  {/* Liseré accent en haut */}
+                  {/* Lueur d'accent en fond, façon glow de carte sombre */}
                   <span
-                    className="absolute inset-x-0 top-0 h-1 origin-left scale-x-100"
+                    aria-hidden
+                    className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-25 blur-3xl transition-opacity duration-500 group-hover:opacity-40"
                     style={{ background: p.accent }}
                   />
 
-                  <div className="flex w-full flex-col p-7 sm:p-8">
-                    {/* Top : secteur + badge */}
+                  <div className="relative flex w-full flex-col p-7 sm:p-8">
+                    {/* Tag en pilule flottant + statut */}
                     <div className="flex w-full items-center justify-between">
                       <span
-                        className="inline-flex items-center gap-2 font-body text-[11px] font-semibold uppercase tracking-[0.12em]"
-                        style={{ color: "rgba(17,17,17,0.45)" }}
+                        className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 font-body text-[11px] font-semibold uppercase tracking-[0.10em]"
+                        style={{ background: "rgba(255,255,255,0.08)", color: "#ffffff" }}
                       >
                         <span className="h-1.5 w-1.5 rounded-full" style={{ background: p.accent }} />
                         {p.sector}
@@ -66,14 +66,14 @@ export function PortfolioSection() {
                       {p.example ? (
                         <span
                           className="rounded-full px-2.5 py-1 font-body text-[10px] font-semibold uppercase tracking-wider"
-                          style={{ background: "rgba(17,17,17,0.05)", color: "rgba(17,17,17,0.45)" }}
+                          style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.5)" }}
                         >
                           Exemple
                         </span>
                       ) : (
                         <span
                           className="rounded-full px-2.5 py-1 font-body text-[10px] font-semibold uppercase tracking-wider"
-                          style={{ background: "rgba(26,127,55,0.10)", color: "#1A7F37" }}
+                          style={{ background: "rgba(255,255,255,0.10)", color: "#ffffff" }}
                         >
                           Cas réel
                         </span>
@@ -82,20 +82,20 @@ export function PortfolioSection() {
 
                     {/* Titre + tagline */}
                     <h3
-                      className="mt-6 font-body text-[1.7rem] font-bold leading-tight tracking-[-0.02em]"
-                      style={{ color: "#111111" }}
+                      className="mt-7 font-body text-[1.9rem] font-black leading-[1.05] tracking-[-0.025em]"
+                      style={{ color: "#ffffff" }}
                     >
                       {p.client}
                     </h3>
                     <p
                       className="mt-2.5 font-body text-[15px] leading-relaxed"
-                      style={{ color: "rgba(17,17,17,0.55)" }}
+                      style={{ color: "rgba(255,255,255,0.55)" }}
                     >
                       {p.tagline}
                     </p>
 
                     {/* Mini-schéma de flux de l'écosystème */}
-                    <div className="mt-6 flex items-center">
+                    <div className="mt-7 flex items-center">
                       {p.flow.map((step, idx) => (
                         <div key={step} className="flex flex-1 items-center last:flex-none">
                           <div className="flex flex-col items-center gap-1.5">
@@ -103,12 +103,12 @@ export function PortfolioSection() {
                               className="h-2.5 w-2.5 rounded-full"
                               style={{
                                 background: p.accent,
-                                boxShadow: `0 0 0 3px ${p.accent}1f`,
+                                boxShadow: `0 0 0 3px ${p.accent}33`,
                               }}
                             />
                             <span
                               className="whitespace-nowrap font-body text-[10px] font-medium"
-                              style={{ color: "rgba(17,17,17,0.50)" }}
+                              style={{ color: "rgba(255,255,255,0.45)" }}
                             >
                               {step}
                             </span>
@@ -117,7 +117,7 @@ export function PortfolioSection() {
                             <span
                               className="mx-1 -mt-4 h-px flex-1"
                               style={{
-                                background: `linear-gradient(90deg, ${p.accent}55, ${p.accent}22)`,
+                                background: `linear-gradient(90deg, ${p.accent}66, ${p.accent}22)`,
                               }}
                             />
                           )}
@@ -125,29 +125,23 @@ export function PortfolioSection() {
                       ))}
                     </div>
 
-                    {/* KPIs — sans tabulaire */}
-                    <div
-                      className="mt-7 grid grid-cols-3 gap-2 rounded-2xl py-4"
-                      style={{ background: "#f7f6f2" }}
-                    >
-                      {p.kpis.slice(0, 3).map((k, idx) => (
+                    {/* KPIs en pilules */}
+                    <div className="mt-7 flex flex-wrap gap-2">
+                      {p.kpis.slice(0, 3).map((k) => (
                         <div
                           key={k.label}
-                          className="px-4"
-                          style={{
-                            borderLeft:
-                              idx > 0 ? "1px solid rgba(17,17,17,0.08)" : undefined,
-                          }}
+                          className="rounded-2xl px-4 py-3"
+                          style={{ background: "rgba(255,255,255,0.06)" }}
                         >
                           <p
-                            className="font-body text-xl font-extrabold tabular-nums tracking-[-0.02em]"
+                            className="font-body text-lg font-extrabold tabular-nums tracking-[-0.02em]"
                             style={{ color: p.accent }}
                           >
                             {k.value}
                           </p>
                           <p
                             className="mt-0.5 font-body text-[11px] leading-tight"
-                            style={{ color: "rgba(17,17,17,0.45)" }}
+                            style={{ color: "rgba(255,255,255,0.45)" }}
                           >
                             {k.label}
                           </p>
@@ -158,7 +152,7 @@ export function PortfolioSection() {
                     {/* CTA */}
                     <span
                       className="mt-7 inline-flex items-center gap-1.5 font-body text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1"
-                      style={{ color: "#111111" }}
+                      style={{ color: "#ffffff" }}
                     >
                       Voir le projet
                       <ArrowUpRight size={16} strokeWidth={2.2} />
