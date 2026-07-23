@@ -1,6 +1,7 @@
 import { Nav } from "@/components/blocks/Nav";
 import { HeroSection } from "@/components/blocks/HeroSection";
 import { TrustBar } from "@/components/blocks/TrustBar";
+import { ClientsMarquee } from "@/components/blocks/ClientsMarquee";
 import { ServicesSection } from "@/components/blocks/ServicesSection";
 import { HowItWorksSection } from "@/components/blocks/HowItWorksSection";
 import { PortfolioSection } from "@/components/blocks/PortfolioSection";
@@ -38,6 +39,7 @@ export default function Home() {
           style={{ borderColor: "rgba(17,17,17,0.10)", background: "#f4f3ef" }}
         />
         <TrustBar />
+        <ClientsMarquee />
         <ServicesSection />
         <HowItWorksSection />
         <PortfolioSection />
