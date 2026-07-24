@@ -101,4 +101,29 @@ export const PROJECTS: Project[] = [
     stack: ["Agent conversationnel", "Voix", "Recommandation", "Réservation"],
     flow: ["Conversation", "Critères", "Meilleur logement", "Réservation"],
   },
+  {
+    id: "june-content-studio",
+    client: "June Content Studio",
+    sector: "Créatrice de contenu",
+    example: false,
+    accent: "#8B6F47",
+    tagline: "Veille automatisée, dashboard clients et prospection ciblée pour une créatrice de contenu.",
+    summary:
+      "Pour une créatrice de contenu, nous avons construit tout son écosystème business : de la veille concurrentielle automatisée à un dashboard client complet, jusqu'à la prospection ciblée par email.",
+    context:
+      "Entre la veille concurrentielle à la main, le suivi des clients par tableur et l'absence de vitrine pour démarcher de nouvelles marques, il n'y avait ni temps ni outils pour développer l'activité sereinement.",
+    ecosystem: [
+      "Un agent de veille concurrentielle qui surveille en continu les tendances et les comptes du secteur",
+      "Un dashboard client avec suivi des tâches, des contenus livrés et des échéances",
+      "Des statistiques détaillées par client : vues, revenus générés, performance des contenus",
+      "Un site portfolio pour présenter le travail, couplé à une prospection ciblée par email",
+    ],
+    kpis: [
+      { value: "Auto", label: "veille concurrentielle" },
+      { value: "Par client", label: "stats vues & revenus" },
+      { value: "Ciblée", label: "prospection par email" },
+    ],
+    stack: ["Veille IA", "Dashboard client", "Site portfolio", "Prospection email"],
+    flow: ["Veille", "Suivi clients", "Stats & revenus", "Prospection"],
+  },
 ];

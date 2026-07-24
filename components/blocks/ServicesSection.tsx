@@ -9,6 +9,7 @@ const services = [
     title: "Agents conversationnels",
     description: "Des assistants IA qui pré-qualifient vos demandes, répondent à vos clients et préparent le travail — dans votre ton, avec vos règles.",
     tag: "Répond à votre place",
+    accent: "#1A3BFF",
   },
   {
     num: "02",
@@ -16,6 +17,7 @@ const services = [
     title: "Automatisation de workflows",
     description: "Devis, relances, synthèses, onboarding : on connecte vos outils pour que les tâches répétitives se fassent toutes seules.",
     tag: "Zéro tâche manuelle",
+    accent: "#1A7F37",
   },
   {
     num: "03",
@@ -23,6 +25,7 @@ const services = [
     title: "Tableaux de bord",
     description: "Un dashboard clair pour suivre vos demandes et vos résultats en temps réel, construit sur-mesure autour de votre activité.",
     tag: "Suivi en temps réel",
+    accent: "#B8860B",
   },
 ];
 
@@ -56,29 +59,49 @@ export function ServicesSection() {
           Quelques briques que l&apos;on assemble
         </p>
 
-        <ul aria-label="Exemples de briques de l'écosystème" className="grid gap-px md:grid-cols-3 list-none" style={{ background: "rgba(17,17,17,0.10)" }}>
+        <ul aria-label="Exemples de briques de l'écosystème" className="grid list-none gap-5 md:grid-cols-3">
           {services.map((s, i) => (
-            <ScrollReveal key={s.title} delay={i * 80} as="li">
-              <article className="group relative h-full overflow-hidden p-10 transition-colors duration-300 hover:bg-white" style={{ background: "#f4f3ef" }}>
-                {/* Number */}
-                <span className="font-body text-xs font-semibold tracking-[0.12em]" style={{ color: "rgba(17,17,17,0.30)" }}>
-                  0{i + 1}
-                </span>
+            <ScrollReveal key={s.title} delay={i * 80} as="li" className="h-full">
+              <article
+                className="group relative flex h-full flex-col overflow-hidden rounded-[24px] p-8 transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid rgba(17,17,17,0.08)",
+                  boxShadow: "0 1px 2px rgba(17,17,17,0.04)",
+                }}
+              >
+                {/* Lueur d'accent en fond */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-14 -top-14 h-44 w-44 rounded-full opacity-[0.10] blur-3xl transition-opacity duration-500 group-hover:opacity-20"
+                  style={{ background: s.accent }}
+                />
 
-                {/* Icon */}
-                <div className="mt-8 flex h-11 w-11 items-center justify-center rounded-[10px]" style={{ border: "1px solid rgba(17,17,17,0.12)", background: "#ffffff" }}>
-                  <s.icon size={20} strokeWidth={1.5} style={{ color: "#111111" }} aria-hidden />
+                <div className="relative flex items-center justify-between">
+                  <div
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl"
+                    style={{ background: `${s.accent}14` }}
+                  >
+                    <s.icon size={22} strokeWidth={1.8} style={{ color: s.accent }} aria-hidden />
+                  </div>
+                  <span className="font-body text-xs font-bold tracking-[0.12em]" style={{ color: "rgba(17,17,17,0.20)" }}>
+                    {s.num}
+                  </span>
                 </div>
 
-                <h3 className="mt-6 font-display text-xl font-semibold leading-snug" style={{ color: "#111111" }}>
+                <h3 className="relative mt-7 font-body text-xl font-bold leading-snug tracking-[-0.01em]" style={{ color: "#111111" }}>
                   {s.title}
                 </h3>
-                <p className="mt-3 font-body text-[15px] leading-relaxed" style={{ color: "rgba(17,17,17,0.60)" }}>
+                <p className="relative mt-3 font-body text-[15px] leading-relaxed" style={{ color: "rgba(17,17,17,0.60)" }}>
                   {s.description}
                 </p>
 
                 {/* Tag */}
-                <span className="mt-8 inline-block rounded-full px-3 py-1 font-body text-[11px]" style={{ background: "rgba(17,17,17,0.07)", color: "rgba(17,17,17,0.50)" }}>
+                <span
+                  className="relative mt-7 inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1.5 font-body text-[11px] font-semibold"
+                  style={{ background: `${s.accent}14`, color: s.accent }}
+                >
+                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: s.accent }} />
                   {s.tag}
                 </span>
               </article>
