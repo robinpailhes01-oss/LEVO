@@ -32,9 +32,9 @@ const PIPELINE = [
 ];
 
 const INBOX = [
-  { name: "Émilie Rousseau", message: "Disponibilités 15 août — famille 6 personnes", channel: "WhatsApp", status: "En attente", statusColor: "#B8860B", agent: "Léa", time: "hier" },
-  { name: "Karim Haddad", message: "Retard à l'embarquement — demande de geste", channel: "WhatsApp", status: "Escaladée", statusColor: "#CC3333", agent: "Marc", time: "il y a 2j" },
-  { name: "Eva Fischer", message: "Demi-journée en semaine — tarifs", channel: "WhatsApp", status: "Résolue", statusColor: "#1A7F37", agent: "Léa", time: "il y a 3j" },
+  { name: "Camille D.", message: "Disponibilités 15 août — famille 6 personnes", channel: "WhatsApp", status: "En attente", statusColor: "#B8860B", agent: "Léa", time: "hier" },
+  { name: "Julien M.", message: "Retard à l'embarquement — demande de geste", channel: "WhatsApp", status: "Escaladée", statusColor: "#CC3333", agent: "Marc", time: "il y a 2j" },
+  { name: "Sarah L.", message: "Demi-journée en semaine — tarifs", channel: "WhatsApp", status: "Résolue", statusColor: "#1A7F37", agent: "Léa", time: "il y a 3j" },
 ];
 
 export function OfferSection() {
@@ -214,7 +214,7 @@ export function OfferSection() {
                           <span className="flex h-6 w-6 items-center justify-center rounded-full" style={{ background: "rgba(37,211,102,0.14)" }}>
                             <MessageCircle size={12} strokeWidth={2.4} style={{ color: "#25D366" }} />
                           </span>
-                          Émilie Rousseau
+                          Camille D.
                         </span>
                         <span className="font-body text-[10px]" style={{ color: "rgba(17,17,17,0.35)" }}>il y a 2 min</span>
                       </div>

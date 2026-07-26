@@ -3,11 +3,12 @@
 import Link from "next/link";
 
 const nav = [
-  { href: "#services", label: "Services" },
-  { href: "#process", label: "Méthode" },
-  { href: "#cas", label: "Réalisations" },
-  { href: "#apropos", label: "À propos" },
-  { href: "#contact", label: "Contact" },
+  { href: "/services", label: "Nos services" },
+  { href: "/#process", label: "Méthode" },
+  { href: "/#cas", label: "Réalisations" },
+  { href: "/#formations", label: "Formations" },
+  { href: "/#apropos", label: "À propos" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Footer() {
