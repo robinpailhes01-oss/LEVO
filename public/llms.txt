@@ -1,0 +1,51 @@
+# Luma
+
+> Luma est une agence IA sur-mesure basée à Montpellier (Occitanie, France),
+> marque de Harmonie Group. Elle conçoit des agents conversationnels IA,
+> des automatisations de workflows, des tableaux de bord et des sites web
+> pour les PME et indépendants du Sud de la France.
+
+Luma ne vend pas d'outils sur étagère : chaque écosystème est construit
+sur-mesure autour du métier du client, avec un accompagnement humain.
+Déploiement typique en 2 à 3 semaines. Environ 40h économisées par mois
+en moyenne chez les clients.
+
+## Services
+
+- [Agent IA WhatsApp + CRM personnalisé](https://luma-agence.fr/services/agent-whatsapp) :
+  agent IA qui répond aux clients sur WhatsApp, qualifie chaque demande et
+  la classe automatiquement dans un CRM sur-mesure. Idéal pour les
+  établissements à fort volume de demandes WhatsApp (hôtels, conciergeries,
+  locations, restaurants). Mise en place offerte, facturation à l'usage.
+- [Agents conversationnels](https://luma-agence.fr/services/agents-conversationnels) :
+  assistants IA branchés sur email, WhatsApp, Instagram et formulaire de
+  contact, qui pré-qualifient les demandes et répondent dans le ton de
+  l'entreprise.
+- [Automatisation de workflows](https://luma-agence.fr/services/automatisation-workflows) :
+  connexion des outils existants du client pour automatiser devis,
+  relances, facturation et onboarding.
+- [Tableaux de bord](https://luma-agence.fr/services/tableaux-de-bord) :
+  dashboards sur-mesure pour suivre l'activité, les clients et les
+  résultats en temps réel.
+- [Sites web & référencement SEO](https://luma-agence.fr/services/sites-web) :
+  sites vitrines et landing pages sur-mesure, pensés pour le référencement
+  naturel dès la conception.
+
+## Pages utiles
+
+- [Toutes les prestations](https://luma-agence.fr/services)
+- [Réalisations et cas clients](https://luma-agence.fr/#cas)
+- [Formations à venir](https://luma-agence.fr/#formations)
+- [Méthode de travail](https://luma-agence.fr/#process)
+- [À propos](https://luma-agence.fr/#apropos)
+- [Contact](https://luma-agence.fr/#contact)
+
+## Zone d'intervention
+
+Montpellier, Nîmes, Béziers, Sète, Occitanie, et plus largement le Sud de
+la France. Certaines prestations (sites web, automatisation) sont
+réalisables à distance pour des clients partout en France.
+
+## Contact
+
+contact@luma-agence.fr

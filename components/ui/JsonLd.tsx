@@ -21,6 +21,10 @@ const organizationSchema = {
   areaServed: [
     { "@type": "City", name: "Montpellier" },
     { "@type": "City", name: "Marseille" },
+    { "@type": "City", name: "Nîmes" },
+    { "@type": "City", name: "Béziers" },
+    { "@type": "City", name: "Sète" },
+    { "@type": "AdministrativeArea", name: "Occitanie" },
     { "@type": "AdministrativeArea", name: "Sud de la France" },
     { "@type": "Country", name: "France" },
   ],
@@ -28,9 +32,14 @@ const organizationSchema = {
     "Intelligence artificielle",
     "Automatisation de workflows",
     "Agents conversationnels",
+    "Agent IA WhatsApp",
+    "CRM sur-mesure",
     "n8n",
     "Next.js",
+    "Référencement SEO",
   ],
+  // À compléter dès que les profils existent : Google Business Profile, LinkedIn, Instagram…
+  // Chaque lien renforce la confirmation d'identité de l'entreprise auprès de Google.
   sameAs: [],
 };
 
@@ -57,6 +66,14 @@ const localBusinessSchema = {
     latitude: 43.6108,
     longitude: 3.8767,
   },
+  areaServed: [
+    { "@type": "City", name: "Montpellier" },
+    { "@type": "City", name: "Nîmes" },
+    { "@type": "City", name: "Béziers" },
+    { "@type": "City", name: "Sète" },
+    { "@type": "AdministrativeArea", name: "Occitanie" },
+  ],
+  hasMap: "https://www.google.com/maps/search/?api=1&query=Luma+Montpellier",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -98,6 +115,24 @@ const localBusinessSchema = {
           name: "Tableaux de bord sur-mesure",
           description:
             "Dashboards clairs pour suivre vos demandes et résultats en temps réel, construits autour de votre activité.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Agent IA WhatsApp + CRM personnalisé",
+          description:
+            "Agent IA qui répond aux clients sur WhatsApp, qualifie chaque demande et la range automatiquement dans un CRM sur-mesure.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Sites web & référencement SEO",
+          description:
+            "Sites vitrines et landing pages sur-mesure, pensés pour convertir et bien référencés dès la conception.",
         },
       },
     ],

@@ -86,6 +86,12 @@ export const metadata: Metadata = {
     creator: "@luma_ia",
   },
   category: "technology",
+  // Ajoute NEXT_PUBLIC_GSC_VERIFICATION dans Vercel (code fourni par
+  // Google Search Console → Paramètres → Vérification de la propriété →
+  // méthode "balise HTML") pour activer la vérification automatiquement.
+  verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({
