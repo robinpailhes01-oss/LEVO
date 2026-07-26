@@ -28,7 +28,7 @@ async function sendEmail(to: string, subject: string, html: string): Promise<boo
 }
 
 export async function POST(req: Request) {
-  let body: { email?: string; project?: string; company?: string };
+  let body: { email?: string; project?: string; company?: string; full_name?: string; phone?: string };
   try {
     body = await req.json();
   } catch {
@@ -37,6 +37,8 @@ export async function POST(req: Request) {
 
   const email = (body.email ?? "").trim().toLowerCase();
   const project = body.project ?? "Projet Luma";
+  const fullName = (body.full_name ?? "").trim();
+  const phone = (body.phone ?? "").trim();
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json({ ok: false, error: "Email invalide" }, { status: 400 });
   }
@@ -48,12 +50,12 @@ export async function POST(req: Request) {
   if (supabase) {
     try {
       await supabase.from("leads").insert({
-        full_name: null,
+        full_name: fullName || null,
         company: body.company ?? null,
         email,
         source: "website",
         status: "new",
-        notes: `Demande de démo — ${project}`,
+        notes: `Demande de démo — ${project}${phone ? ` · Tél. ${phone}` : ""}`,
         assigned_agent: "ORION",
       });
     } catch (err) {
@@ -64,8 +66,8 @@ export async function POST(req: Request) {
   // 2. Email au visiteur avec le lien de démo
   const visitorHtml = `<div style="font-family:system-ui,sans-serif;color:#111">
     <h2 style="font-weight:700">Votre démo Luma</h2>
-    <p>Merci pour votre intérêt — voici votre accès à la démo :</p>
-    <p><a href="${demoUrl}" style="display:inline-block;background:#1A3BFF;color:#fff;padding:12px 20px;border-radius:9999px;text-decoration:none">Découvrir la démo →</a></p>
+    <p>Merci pour votre intérêt${fullName ? `, ${fullName}` : ""} — on vous recontacte sous 24h pour vous présenter votre démo personnalisée.</p>
+    <p><a href="${demoUrl}" style="display:inline-block;background:#1A3BFF;color:#fff;padding:12px 20px;border-radius:9999px;text-decoration:none">Découvrir Luma →</a></p>
     <p style="color:#666;font-size:14px">L'équipe Luma · Montpellier</p>
   </div>`;
   const visitorSent = await sendEmail(email, "Votre démo Luma", visitorHtml);
@@ -78,7 +80,9 @@ export async function POST(req: Request) {
       `Nouvelle demande de démo — ${project}`,
       `<p>Nouvelle demande de démo.</p>
        <ul>
+         ${fullName ? `<li><b>Nom :</b> ${fullName}</li>` : ""}
          <li><b>Email :</b> ${email}</li>
+         ${phone ? `<li><b>Téléphone :</b> ${phone}</li>` : ""}
          <li><b>Projet :</b> ${project}</li>
          ${body.company ? `<li><b>Entreprise :</b> ${body.company}</li>` : ""}
        </ul>

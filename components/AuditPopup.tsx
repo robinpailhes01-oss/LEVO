@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { useAudit } from "@/hooks/useAudit";
 import { AuditForm } from "@/components/AuditForm";
+import { QuickDemoForm } from "@/components/QuickDemoForm";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -96,7 +97,11 @@ export function AuditPopup() {
             )}
 
             <div className={variant === "exit" || variant === "auto" || variant === "demo" ? "" : "mt-4"}>
-              <AuditForm onDone={closeAudit} />
+              {variant === "demo" ? (
+                <QuickDemoForm project="Agent IA WhatsApp + CRM" onDone={closeAudit} />
+              ) : (
+                <AuditForm onDone={closeAudit} />
+              )}
             </div>
           </motion.div>
         </motion.div>
