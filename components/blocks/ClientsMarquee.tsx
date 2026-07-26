@@ -12,8 +12,10 @@ interface ClientLogo {
 // Logos clients — bande déroulante horizontale infinie.
 // Pour ajouter un logo : dépose l'image dans public/clients/ et ajoute une entrée ici.
 const CLIENTS: ClientLogo[] = [
+  { name: "Harmonie Yacht", src: "/clients/harmonie-yacht.png" },
   { name: "LS Consulting", src: "/clients/ls-consulting.jpg" },
   { name: "Champagne Perla", src: "/clients/champagne-perla.jpg" },
+  { name: "JeanBa Jardin", src: "/clients/jeanba-jardin.png" },
 ];
 
 export function ClientsMarquee() {
