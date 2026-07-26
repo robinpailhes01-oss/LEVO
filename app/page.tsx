@@ -2,6 +2,7 @@ import { Nav } from "@/components/blocks/Nav";
 import { HeroSection } from "@/components/blocks/HeroSection";
 import { TrustBar } from "@/components/blocks/TrustBar";
 import { ClientsMarquee } from "@/components/blocks/ClientsMarquee";
+import { OfferSection } from "@/components/blocks/OfferSection";
 import { ServicesSection } from "@/components/blocks/ServicesSection";
 import { HowItWorksSection } from "@/components/blocks/HowItWorksSection";
 import { PortfolioSection } from "@/components/blocks/PortfolioSection";
@@ -41,6 +42,7 @@ export default function Home() {
         />
         <TrustBar />
         <ClientsMarquee />
+        <OfferSection />
         <ServicesSection />
         <HowItWorksSection />
         <PortfolioSection />
