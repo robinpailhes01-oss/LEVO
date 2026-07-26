@@ -6,6 +6,7 @@ import { ServicesSection } from "@/components/blocks/ServicesSection";
 import { HowItWorksSection } from "@/components/blocks/HowItWorksSection";
 import { PortfolioSection } from "@/components/blocks/PortfolioSection";
 import { CreationsSection } from "@/components/blocks/CreationsSection";
+import { FormationsSection } from "@/components/blocks/FormationsSection";
 import { AboutSection } from "@/components/blocks/AboutSection";
 // TestimonialsSection retirée temporairement (pas encore de témoignages clients réels).
 // import { TestimonialsSection } from "@/components/blocks/TestimonialsSection";
@@ -44,6 +45,7 @@ export default function Home() {
         <HowItWorksSection />
         <PortfolioSection />
         <CreationsSection />
+        <FormationsSection />
         <AboutSection />
         <CTASection />
       </main>
