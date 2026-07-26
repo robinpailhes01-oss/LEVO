@@ -5,6 +5,7 @@ import { Nav } from "@/components/blocks/Nav";
 import { Footer } from "@/components/blocks/Footer";
 import { ServiceCTA } from "@/components/blocks/ServiceCTA";
 import { ServiceJsonLd } from "@/components/ui/ServiceJsonLd";
+import { ServiceFaq } from "@/components/blocks/ServiceFaq";
 import { SERVICES, getService } from "@/lib/services";
 
 // La page Agent IA WhatsApp a sa propre route dédiée (plus complète) ;
@@ -118,6 +119,8 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             </div>
           </div>
         </section>
+
+        <ServiceFaq items={service.faq} accent={service.accent} />
 
         {/* CTA — premier contact simple */}
         <section className="py-24 sm:py-28" style={{ background: "#f4f3ef" }}>

@@ -4,6 +4,8 @@ import { Footer } from "@/components/blocks/Footer";
 import { OfferSection } from "@/components/blocks/OfferSection";
 import { AgentWhatsappHero } from "@/components/blocks/AgentWhatsappHero";
 import { ServiceJsonLd } from "@/components/ui/ServiceJsonLd";
+import { ServiceFaq } from "@/components/blocks/ServiceFaq";
+import { getService } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "Agent IA WhatsApp + CRM sur-mesure — Luma",
@@ -19,6 +21,8 @@ export const metadata: Metadata = {
 };
 
 export default function AgentWhatsappPage() {
+  const service = getService("agent-whatsapp");
+
   return (
     <>
       <ServiceJsonLd
@@ -30,6 +34,7 @@ export default function AgentWhatsappPage() {
       <main>
         <AgentWhatsappHero />
         <OfferSection />
+        <ServiceFaq items={service?.faq ?? []} accent="#1A3BFF" />
       </main>
       <Footer />
     </>

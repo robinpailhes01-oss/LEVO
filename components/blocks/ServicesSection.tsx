@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Bot, Workflow, LineChart } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { WordReveal } from "@/components/ui/WordReveal";
@@ -10,6 +11,7 @@ const services = [
     description: "Des assistants IA qui pré-qualifient vos demandes, répondent à vos clients et préparent le travail — dans votre ton, avec vos règles.",
     tag: "Répond à votre place",
     accent: "#1A3BFF",
+    href: "/services/agents-conversationnels",
   },
   {
     num: "02",
@@ -18,6 +20,7 @@ const services = [
     description: "Devis, relances, synthèses, onboarding : on connecte vos outils pour que les tâches répétitives se fassent toutes seules.",
     tag: "Zéro tâche manuelle",
     accent: "#1A7F37",
+    href: "/services/automatisation-workflows",
   },
   {
     num: "03",
@@ -26,6 +29,7 @@ const services = [
     description: "Un dashboard clair pour suivre vos demandes et vos résultats en temps réel, construit sur-mesure autour de votre activité.",
     tag: "Suivi en temps réel",
     accent: "#B8860B",
+    href: "/services/tableaux-de-bord",
   },
 ];
 
@@ -62,7 +66,8 @@ export function ServicesSection() {
         <ul aria-label="Exemples de briques de l'écosystème" className="grid list-none gap-5 md:grid-cols-3">
           {services.map((s, i) => (
             <ScrollReveal key={s.title} delay={i * 80} as="li" className="h-full">
-              <article
+              <Link
+                href={s.href}
                 className="group relative flex h-full flex-col overflow-hidden rounded-[24px] p-8 transition-all duration-300 hover:-translate-y-1"
                 style={{
                   background: "#ffffff",
@@ -104,7 +109,14 @@ export function ServicesSection() {
                   <span className="h-1.5 w-1.5 rounded-full" style={{ background: s.accent }} />
                   {s.tag}
                 </span>
-              </article>
+
+                <span
+                  className="relative mt-5 inline-flex items-center gap-1.5 font-body text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1"
+                  style={{ color: "#111111" }}
+                >
+                  En savoir plus →
+                </span>
+              </Link>
             </ScrollReveal>
           ))}
         </ul>
