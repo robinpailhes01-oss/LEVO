@@ -86,16 +86,19 @@ export function HeroSection() {
           </motion.p>
 
           {/* Massive staggered headline */}
+          {/* aria-label + espaces réels : le titre reste lisible par Google et les
+              lecteurs d'écran malgré l'animation mot par mot. */}
           <motion.h1
             className="font-display leading-[1.0] tracking-[-0.035em]"
             style={{ fontSize: "clamp(3.2rem, 8vw, 6rem)", color: "#111111" }}
+            aria-label="Des solutions IA, qui vous ressemblent."
           >
             {[
               { word: "Des", bold: false },
               { word: "solutions", bold: true },
               { word: "IA,", bold: true },
             ].map(({ word, bold }, i) => (
-              <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] mr-[0.25em]">
+              <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em]">
                 <motion.span
                   className="inline-block"
                   style={{ fontWeight: bold ? 700 : 400 }}
@@ -105,6 +108,7 @@ export function HeroSection() {
                 >
                   {word}
                 </motion.span>
+                {" "}
               </span>
             ))}
             <br />
@@ -112,7 +116,7 @@ export function HeroSection() {
               { word: "qui", bold: false },
               { word: "vous", bold: false },
             ].map(({ word, bold }, i) => (
-              <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] mr-[0.25em]">
+              <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em]">
                 <motion.span
                   className="inline-block"
                   style={{ fontWeight: bold ? 700 : 400 }}
@@ -122,6 +126,7 @@ export function HeroSection() {
                 >
                   {word}
                 </motion.span>
+                {" "}
               </span>
             ))}
             <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em]">

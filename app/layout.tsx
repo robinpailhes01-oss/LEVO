@@ -58,10 +58,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: BASE_URL,
-    languages: { "fr-FR": BASE_URL },
-  },
+  // Pas de canonical global : il est défini page par page.
+  // Un canonical hérité pointerait toutes les pages vers l'accueil et bloquerait leur indexation.
   openGraph: {
     type: "website",
     locale: "fr_FR",

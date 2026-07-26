@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Nav } from "@/components/blocks/Nav";
 import { HeroSection } from "@/components/blocks/HeroSection";
 import { TrustBar } from "@/components/blocks/TrustBar";
@@ -15,6 +16,10 @@ import { CTASection } from "@/components/blocks/CTASection";
 import { Footer } from "@/components/blocks/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { Marquee } from "@/components/ui/Marquee";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const marqueeItems = [
   "Agents IA sur-mesure",

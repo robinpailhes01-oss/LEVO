@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Conditions Générales de Vente",
   description: "Conditions Générales de Vente de Luma — Harmonie Group SASU.",
+  alternates: { canonical: "/cgv" },
 };
 
 const UPDATED = "15 juillet 2026";

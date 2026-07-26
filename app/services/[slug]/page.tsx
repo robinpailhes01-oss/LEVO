@@ -4,6 +4,7 @@ import { Check } from "lucide-react";
 import { Nav } from "@/components/blocks/Nav";
 import { Footer } from "@/components/blocks/Footer";
 import { ServiceCTA } from "@/components/blocks/ServiceCTA";
+import { ServiceJsonLd } from "@/components/ui/ServiceJsonLd";
 import { SERVICES, getService } from "@/lib/services";
 
 // La page Agent IA WhatsApp a sa propre route dédiée (plus complète) ;
@@ -18,6 +19,12 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return {
     title: `${service.title} — Luma`,
     description: service.description,
+    alternates: { canonical: `/services/${service.slug}` },
+    openGraph: {
+      title: `${service.title} — Luma`,
+      description: service.description,
+      url: `/services/${service.slug}`,
+    },
   };
 }
 
@@ -27,6 +34,11 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
   return (
     <>
+      <ServiceJsonLd
+        name={service.title}
+        description={service.description}
+        slug={service.slug}
+      />
       <Nav />
       <main>
         <section className="pt-40 pb-16 sm:pt-48 sm:pb-20" style={{ background: "#f4f3ef" }}>

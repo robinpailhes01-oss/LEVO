@@ -10,6 +10,13 @@ export const metadata: Metadata = {
   title: "Nos services — Luma",
   description:
     "Agents IA, automatisation, tableaux de bord, agent WhatsApp + CRM sur-mesure, sites web : découvrez tous les services de Luma.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Nos services — Luma",
+    description:
+      "Agents IA, automatisation, tableaux de bord, agent WhatsApp + CRM sur-mesure, sites web : découvrez tous les services de Luma.",
+    url: "/services",
+  },
 };
 
 export default function ServicesPage() {
