@@ -1,6 +1,7 @@
 "use client";
 
-import { MessageCircle, LayoutGrid, Gauge, Check } from "lucide-react";
+import { useState } from "react";
+import { MessageCircle, LayoutGrid, Gauge, Check, Inbox } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { useAudit } from "@/hooks/useAudit";
@@ -30,8 +31,15 @@ const PIPELINE = [
   { label: "Réservé", count: 2, color: "#1A7F37" },
 ];
 
+const INBOX = [
+  { name: "Émilie Rousseau", message: "Disponibilités 15 août — famille 6 personnes", channel: "WhatsApp", status: "En attente", statusColor: "#B8860B", agent: "Léa", time: "hier" },
+  { name: "Karim Haddad", message: "Retard à l'embarquement — demande de geste", channel: "WhatsApp", status: "Escaladée", statusColor: "#CC3333", agent: "Marc", time: "il y a 2j" },
+  { name: "Eva Fischer", message: "Demi-journée en semaine — tarifs", channel: "WhatsApp", status: "Résolue", statusColor: "#1A7F37", agent: "Léa", time: "il y a 3j" },
+];
+
 export function OfferSection() {
   const { openAudit } = useAudit();
+  const [tab, setTab] = useState<"crm" | "inbox">("crm");
 
   return (
     <section className="py-28 sm:py-36" style={{ background: "#111111" }}>
@@ -107,15 +115,18 @@ export function OfferSection() {
               ))}
             </div>
 
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <MagneticButton
-                onClick={() => openAudit()}
+                onClick={() => openAudit("demo")}
                 className="inline-flex items-center rounded-full px-8 py-4 font-body text-sm font-semibold transition-all duration-200 hover:-translate-y-px hover:opacity-90"
                 style={{ background: "#ffffff", color: "#111111" }}
                 strength={0.25}
               >
-                Profiter de l&apos;offre →
+                Demander ma démo personnalisée →
               </MagneticButton>
+              <span className="font-body text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>
+                Réponse sous 24h · Sans engagement
+              </span>
             </div>
           </ScrollReveal>
 
@@ -147,50 +158,105 @@ export function OfferSection() {
                 </div>
               </div>
 
-              {/* Mini CRM — pipeline kanban */}
+              {/* Deux exemples de tableau de bord : CRM et Boîte de réception */}
               <div className="p-6">
-                <p className="mb-4 font-body text-[11px] font-semibold uppercase tracking-[0.10em]" style={{ color: "rgba(17,17,17,0.40)" }}>
-                  Suivi commercial · CRM
-                </p>
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-                  {PIPELINE.map((col) => (
-                    <div
-                      key={col.label}
-                      className="rounded-2xl p-3.5"
-                      style={{ background: "#ffffff", border: "1px solid rgba(17,17,17,0.08)" }}
-                    >
-                      <span className="flex items-center gap-1.5 font-body text-[10px] font-semibold uppercase tracking-wider" style={{ color: "rgba(17,17,17,0.50)" }}>
-                        <span className="h-1.5 w-1.5 rounded-full" style={{ background: col.color }} />
-                        {col.label}
-                      </span>
-                      <p className="mt-2 font-body text-xl font-extrabold tracking-[-0.02em]" style={{ color: "#111111" }}>
-                        {col.count}
-                      </p>
-                    </div>
-                  ))}
+                <div className="mb-4 flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setTab("crm")}
+                    className="flex items-center gap-1.5 rounded-full px-3 py-1.5 font-body text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors"
+                    style={{
+                      background: tab === "crm" ? "#111111" : "rgba(17,17,17,0.06)",
+                      color: tab === "crm" ? "#ffffff" : "rgba(17,17,17,0.55)",
+                    }}
+                  >
+                    <LayoutGrid size={12} strokeWidth={2.2} />
+                    Suivi commercial · CRM
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTab("inbox")}
+                    className="flex items-center gap-1.5 rounded-full px-3 py-1.5 font-body text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors"
+                    style={{
+                      background: tab === "inbox" ? "#111111" : "rgba(17,17,17,0.06)",
+                      color: tab === "inbox" ? "#ffffff" : "rgba(17,17,17,0.55)",
+                    }}
+                  >
+                    <Inbox size={12} strokeWidth={2.2} />
+                    Boîte de réception
+                  </button>
                 </div>
 
-                {/* Aperçu conversation WhatsApp */}
-                <div className="mt-4 rounded-2xl p-4" style={{ background: "#ffffff", border: "1px solid rgba(17,17,17,0.08)" }}>
-                  <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 font-body text-xs font-semibold" style={{ color: "#111111" }}>
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full" style={{ background: "rgba(37,211,102,0.14)" }}>
-                        <MessageCircle size={12} strokeWidth={2.4} style={{ color: "#25D366" }} />
+                {tab === "crm" ? (
+                  <>
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                      {PIPELINE.map((col) => (
+                        <div
+                          key={col.label}
+                          className="rounded-2xl p-3.5"
+                          style={{ background: "#ffffff", border: "1px solid rgba(17,17,17,0.08)" }}
+                        >
+                          <span className="flex items-center gap-1.5 font-body text-[10px] font-semibold uppercase tracking-wider" style={{ color: "rgba(17,17,17,0.50)" }}>
+                            <span className="h-1.5 w-1.5 rounded-full" style={{ background: col.color }} />
+                            {col.label}
+                          </span>
+                          <p className="mt-2 font-body text-xl font-extrabold tracking-[-0.02em]" style={{ color: "#111111" }}>
+                            {col.count}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Aperçu conversation WhatsApp */}
+                    <div className="mt-4 rounded-2xl p-4" style={{ background: "#ffffff", border: "1px solid rgba(17,17,17,0.08)" }}>
+                      <div className="flex items-center justify-between">
+                        <span className="flex items-center gap-2 font-body text-xs font-semibold" style={{ color: "#111111" }}>
+                          <span className="flex h-6 w-6 items-center justify-center rounded-full" style={{ background: "rgba(37,211,102,0.14)" }}>
+                            <MessageCircle size={12} strokeWidth={2.4} style={{ color: "#25D366" }} />
+                          </span>
+                          Émilie Rousseau
+                        </span>
+                        <span className="font-body text-[10px]" style={{ color: "rgba(17,17,17,0.35)" }}>il y a 2 min</span>
+                      </div>
+                      <p className="mt-2.5 font-body text-[13px] leading-relaxed" style={{ color: "rgba(17,17,17,0.60)" }}>
+                        « Bonjour, avez-vous des disponibilités le 15 août pour 6 personnes ? »
+                      </p>
+                      <span
+                        className="mt-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-body text-[10px] font-semibold"
+                        style={{ background: "rgba(26,59,255,0.10)", color: "#1A3BFF" }}
+                      >
+                        Qualifié automatiquement
                       </span>
-                      Émilie Rousseau
-                    </span>
-                    <span className="font-body text-[10px]" style={{ color: "rgba(17,17,17,0.35)" }}>il y a 2 min</span>
+                    </div>
+                  </>
+                ) : (
+                  <div className="space-y-2">
+                    {INBOX.map((row) => (
+                      <div
+                        key={row.name}
+                        className="flex items-center justify-between gap-3 rounded-2xl p-3.5"
+                        style={{ background: "#ffffff", border: "1px solid rgba(17,17,17,0.08)" }}
+                      >
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="font-body text-[13px] font-semibold" style={{ color: "#111111" }}>{row.name}</span>
+                            <span className="font-body text-[10px]" style={{ color: "rgba(17,17,17,0.35)" }}>{row.channel}</span>
+                          </div>
+                          <p className="mt-0.5 truncate font-body text-xs" style={{ color: "rgba(17,17,17,0.55)" }}>{row.message}</p>
+                        </div>
+                        <div className="flex shrink-0 flex-col items-end gap-1">
+                          <span
+                            className="rounded-full px-2 py-0.5 font-body text-[10px] font-semibold"
+                            style={{ background: `${row.statusColor}18`, color: row.statusColor }}
+                          >
+                            {row.status}
+                          </span>
+                          <span className="font-body text-[10px]" style={{ color: "rgba(17,17,17,0.35)" }}>{row.agent} · {row.time}</span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <p className="mt-2.5 font-body text-[13px] leading-relaxed" style={{ color: "rgba(17,17,17,0.60)" }}>
-                    « Bonjour, avez-vous des disponibilités le 15 août pour 6 personnes ? »
-                  </p>
-                  <span
-                    className="mt-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-body text-[10px] font-semibold"
-                    style={{ background: "rgba(26,59,255,0.10)", color: "#1A3BFF" }}
-                  >
-                    Qualifié automatiquement
-                  </span>
-                </div>
+                )}
               </div>
             </div>
           </ScrollReveal>

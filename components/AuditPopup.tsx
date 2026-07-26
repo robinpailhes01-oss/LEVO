@@ -82,8 +82,20 @@ export function AuditPopup() {
                 </p>
               </div>
             )}
+            {variant === "demo" && (
+              <div className="mb-6 mt-2 border-b pb-6" style={{ borderColor: "rgba(26,26,26,0.08)" }}>
+                <p className="section-label" style={{ color: "#1A3BFF" }}>Démo personnalisée</p>
+                <h2 className="mt-3 font-body text-2xl font-bold leading-tight tracking-[-0.02em]" style={{ color: "#111111" }}>
+                  Voyez l&apos;agent WhatsApp + CRM adapté à votre activité
+                </h2>
+                <p className="mt-2 font-body text-sm leading-relaxed" style={{ color: "rgba(17,17,17,0.6)" }}>
+                  Quelques questions rapides, et on vous recontacte sous 24h avec une
+                  démo personnalisée — sans engagement.
+                </p>
+              </div>
+            )}
 
-            <div className={variant === "exit" || variant === "auto" ? "" : "mt-4"}>
+            <div className={variant === "exit" || variant === "auto" || variant === "demo" ? "" : "mt-4"}>
               <AuditForm onDone={closeAudit} />
             </div>
           </motion.div>
