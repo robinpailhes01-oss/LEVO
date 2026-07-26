@@ -6,11 +6,11 @@ import { Menu, X } from "lucide-react";
 import { useAudit } from "@/hooks/useAudit";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#process", label: "Méthode" },
-  { href: "#cas", label: "Réalisations" },
-  { href: "#formations", label: "Formations" },
-  { href: "#apropos", label: "À propos" },
+  { href: "/services", label: "Nos services" },
+  { href: "/#process", label: "Méthode" },
+  { href: "/#cas", label: "Réalisations" },
+  { href: "/#formations", label: "Formations" },
+  { href: "/#apropos", label: "À propos" },
 ];
 
 export function Nav() {
@@ -39,7 +39,7 @@ export function Nav() {
         }}
       >
         <Link
-          href="#top"
+          href="/#top"
           className="font-body text-xl font-black tracking-[-0.03em]"
           style={{ color: "#111111" }}
           aria-label="Luma — retour en haut de page"
@@ -72,7 +72,7 @@ export function Nav() {
           >
             Audit gratuit →
           </button>
-          <Link href="#contact" className="btn-primary hidden text-sm md:inline-flex" style={{ padding: "0.6rem 1.25rem", fontSize: "0.82rem" }}>
+          <Link href="/#contact" className="btn-primary hidden text-sm md:inline-flex" style={{ padding: "0.6rem 1.25rem", fontSize: "0.82rem" }}>
             Discutons →
           </Link>
           <button
@@ -134,7 +134,7 @@ export function Nav() {
           </li>
           <li className="mt-3">
             <Link
-              href="#contact"
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="btn-primary w-full justify-center"
             >
