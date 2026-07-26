@@ -1,10 +1,19 @@
 import type { MetadataRoute } from "next";
+import { SERVICES } from "@/lib/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://luma-agence.fr";
   const now = new Date();
 
+  const servicePages = SERVICES.filter((s) => s.slug !== "agent-whatsapp").map((s) => ({
+    url: `${base}${s.href}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
   return [
+    ...servicePages,
     {
       url: base,
       lastModified: now,

@@ -10,7 +10,7 @@ import { QuickDemoForm } from "@/components/QuickDemoForm";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function AuditPopup() {
-  const { isOpen, variant, closeAudit } = useAudit();
+  const { isOpen, variant, demoProject, closeAudit } = useAudit();
 
   // Fermeture avec Escape + verrouillage du scroll.
   useEffect(() => {
@@ -98,7 +98,7 @@ export function AuditPopup() {
 
             <div className={variant === "exit" || variant === "auto" || variant === "demo" ? "" : "mt-4"}>
               {variant === "demo" ? (
-                <QuickDemoForm project="Agent IA WhatsApp + CRM" onDone={closeAudit} />
+                <QuickDemoForm project={demoProject} onDone={closeAudit} />
               ) : (
                 <AuditForm onDone={closeAudit} />
               )}

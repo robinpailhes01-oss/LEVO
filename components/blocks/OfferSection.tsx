@@ -117,7 +117,7 @@ export function OfferSection() {
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <MagneticButton
-                onClick={() => openAudit("demo")}
+                onClick={() => openAudit("demo", "Agent IA WhatsApp + CRM")}
                 className="inline-flex items-center rounded-full px-8 py-4 font-body text-sm font-semibold transition-all duration-200 hover:-translate-y-px hover:opacity-90"
                 style={{ background: "#ffffff", color: "#111111" }}
                 strength={0.25}
