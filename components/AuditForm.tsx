@@ -282,7 +282,7 @@ export function AuditForm({ onDone, leadId }: { onDone?: () => void; leadId?: st
               <div className="mt-4 flex items-center gap-2 border-t pt-4" style={{ borderColor: "rgba(17,17,17,0.10)" }}>
                 <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#1A7F37" }} />
                 <span className="font-body text-xs" style={{ color: "rgba(17,17,17,0.55)" }}>
-                  Le tout connecté dans un dashboard unique, opérationnel en ~3 semaines.
+                  Le tout connecté dans un dashboard unique, opérationnel en ~1 semaine.
                 </span>
               </div>
             </div>

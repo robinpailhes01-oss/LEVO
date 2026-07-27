@@ -28,7 +28,7 @@ const marqueeItems = [
   "40h économisées/mois",
   "Montpellier · Sud de la France",
   "Accompagnement humain",
-  "Déployé en 3 semaines",
+  "Déployé en 1 semaine",
   "Dashboard temps réel",
 ];
 

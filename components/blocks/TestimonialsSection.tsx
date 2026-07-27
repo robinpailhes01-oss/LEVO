@@ -21,7 +21,7 @@ const testimonials = [
     name: "Sarah M.",
     role: "Fondatrice, startup montpelliéraine",
     initials: "SM",
-    result: "Déployé en 3 semaines",
+    result: "Déployé en 1 semaine",
   },
 ];
 

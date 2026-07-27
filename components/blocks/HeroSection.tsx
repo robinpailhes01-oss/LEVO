@@ -93,52 +93,55 @@ export function HeroSection() {
             style={{ fontSize: "clamp(3.2rem, 8vw, 6rem)", color: "#111111" }}
             aria-label="Des solutions IA, qui vous ressemblent."
           >
-            {[
-              { word: "Des", bold: false },
-              { word: "solutions", bold: true },
-              { word: "IA,", bold: true },
-            ].map(({ word, bold }, i) => (
-              <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em]">
-                <motion.span
-                  className="inline-block"
-                  style={{ fontWeight: bold ? 700 : 400 }}
+            {/* aria-hidden : le texte lu par Google/lecteurs d'écran vient du
+                aria-label ci-dessus, pas de ces mots animés (espacés par une
+                marge, plus fiable qu'un espace texte dans une boîte overflow-hidden). */}
+            <span aria-hidden="true">
+              {[
+                { word: "Des", bold: false },
+                { word: "solutions", bold: true },
+                { word: "IA,", bold: true },
+              ].map(({ word, bold }, i) => (
+                <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] mr-[0.25em]">
+                  <motion.span
+                    className="inline-block"
+                    style={{ fontWeight: bold ? 700 : 400 }}
+                    initial={{ y: "110%" }}
+                    animate={{ y: "0%" }}
+                    transition={{ duration: 0.75, ease: EASE, delay: 0.05 + i * 0.07 }}
+                  >
+                    {word}
+                  </motion.span>
+                </span>
+              ))}
+              <br />
+              {[
+                { word: "qui", bold: false },
+                { word: "vous", bold: false },
+              ].map(({ word, bold }, i) => (
+                <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] mr-[0.25em]">
+                  <motion.span
+                    className="inline-block"
+                    style={{ fontWeight: bold ? 700 : 400 }}
+                    initial={{ y: "110%" }}
+                    animate={{ y: "0%" }}
+                    transition={{ duration: 0.75, ease: EASE, delay: 0.26 + i * 0.07 }}
+                  >
+                    {word}
+                  </motion.span>
+                </span>
+              ))}
+              <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em]">
+                <motion.em
+                  className="inline-block font-serif"
+                  style={{ color: "#005fff", fontStyle: "italic" }}
                   initial={{ y: "110%" }}
                   animate={{ y: "0%" }}
-                  transition={{ duration: 0.75, ease: EASE, delay: 0.05 + i * 0.07 }}
+                  transition={{ duration: 0.75, ease: EASE, delay: 0.42 }}
                 >
-                  {word}
-                </motion.span>
-                {" "}
+                  ressemblent.
+                </motion.em>
               </span>
-            ))}
-            <br />
-            {[
-              { word: "qui", bold: false },
-              { word: "vous", bold: false },
-            ].map(({ word, bold }, i) => (
-              <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em]">
-                <motion.span
-                  className="inline-block"
-                  style={{ fontWeight: bold ? 700 : 400 }}
-                  initial={{ y: "110%" }}
-                  animate={{ y: "0%" }}
-                  transition={{ duration: 0.75, ease: EASE, delay: 0.26 + i * 0.07 }}
-                >
-                  {word}
-                </motion.span>
-                {" "}
-              </span>
-            ))}
-            <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em]">
-              <motion.em
-                className="inline-block font-serif"
-                style={{ color: "#005fff", fontStyle: "italic" }}
-                initial={{ y: "110%" }}
-                animate={{ y: "0%" }}
-                transition={{ duration: 0.75, ease: EASE, delay: 0.42 }}
-              >
-                ressemblent.
-              </motion.em>
             </span>
           </motion.h1>
 

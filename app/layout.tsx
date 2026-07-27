@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Luma",
   },
   description:
-    "Luma conçoit des agents IA et des automatisations sur-mesure pour les PME du Sud de la France. Accompagnement humain, déployé en 3 semaines, 40h économisées par mois.",
+    "Luma conçoit des agents IA et des automatisations sur-mesure pour les PME du Sud de la France. Accompagnement humain, déployé en 1 semaine, 40h économisées par mois.",
   keywords: [
     "agence IA Montpellier",
     "automatisation IA PME",

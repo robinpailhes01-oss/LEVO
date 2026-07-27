@@ -42,7 +42,7 @@ export const SERVICES: ServiceEntry[] = [
       {
         question: "Combien de temps prend la mise en place d'un agent IA WhatsApp ?",
         answer:
-          "Comptez généralement une à deux semaines entre le premier échange et la mise en service. Nous connectons votre numéro WhatsApp Business, paramétrons l'agent avec vos règles métier et votre ton, puis testons avec vous avant l'ouverture aux clients. Votre activité n'est jamais interrompue pendant l'installation.",
+          "Sous une semaine dans la plupart des cas, entre le premier échange et la mise en service. Nous connectons votre numéro WhatsApp Business, paramétrons l'agent avec vos règles métier et votre ton, puis testons avec vous avant l'ouverture aux clients. Votre activité n'est jamais interrompue pendant l'installation.",
       },
       {
         question: "Et si je n'ai pas encore de CRM ?",
@@ -72,13 +72,13 @@ export const SERVICES: ServiceEntry[] = [
     description:
       "Des assistants IA qui pré-qualifient vos demandes, répondent à vos clients et préparent le travail — dans votre ton, avec vos règles.",
     intro:
-      "Un agent IA branché sur vos canaux (email, WhatsApp, Instagram, formulaire du site) qui comprend chaque demande, y répond dans votre ton et prépare le travail avant même que vous n'ouvriez la conversation.",
+      "Un agent IA branché sur vos canaux (email, WhatsApp, formulaire du site) qui comprend chaque demande, y répond dans votre ton et prépare le travail avant même que vous n'ouvriez la conversation.",
     tag: "Répond à votre place",
     accent: "#1A7F37",
     href: "/services/agents-conversationnels",
     features: [
       "Compréhension du langage naturel, dans votre ton et votre vocabulaire métier",
-      "Connexion à vos canaux existants — email, WhatsApp, Instagram, formulaire",
+      "Connexion à vos canaux existants — email, WhatsApp, formulaire",
       "Qualification automatique de chaque demande (besoin, budget, urgence)",
       "Escalade vers un humain dès que la situation le demande",
     ],
@@ -98,7 +98,7 @@ export const SERVICES: ServiceEntry[] = [
       {
         question: "Qu'est-ce qu'un agent conversationnel IA pour une entreprise ?",
         answer:
-          "C'est un assistant intelligent branché sur vos canaux de contact (email, WhatsApp, Instagram, formulaire de votre site). Il comprend les demandes rédigées en langage naturel, y répond avec votre ton et votre vocabulaire métier, qualifie le besoin du client et prépare le dossier avant votre intervention.",
+          "C'est un assistant intelligent branché sur vos canaux de contact (email, WhatsApp, formulaire de votre site). Il comprend les demandes rédigées en langage naturel, y répond avec votre ton et votre vocabulaire métier, qualifie le besoin du client et prépare le dossier avant votre intervention.",
       },
       {
         question: "L'agent répond-il vraiment comme nous, ou avec un ton robotique ?",
@@ -113,7 +113,7 @@ export const SERVICES: ServiceEntry[] = [
       {
         question: "Sur quels canaux l'agent peut-il être installé ?",
         answer:
-          "Sur ceux que vous utilisez déjà : WhatsApp, email, messages Instagram, formulaire de contact de votre site. Nous nous connectons à vos outils existants — vous n'avez ni plateforme à changer, ni nouveau numéro à communiquer à vos clients.",
+          "Sur ceux que vous utilisez déjà : WhatsApp, email, formulaire de contact de votre site. Nous nous connectons à vos outils existants — vous n'avez ni plateforme à changer, ni nouveau numéro à communiquer à vos clients.",
       },
     ],
   },
@@ -159,7 +159,7 @@ export const SERVICES: ServiceEntry[] = [
       {
         question: "Combien de temps faut-il pour automatiser un processus ?",
         answer:
-          "Un premier automatisme utile est généralement en production en trois semaines. Nous commençons par le processus qui vous coûte le plus de temps, nous le mettons en service, puis nous étendons progressivement au reste de votre activité.",
+          "Un premier automatisme utile est généralement en production sous une semaine. Nous commençons par le processus qui vous coûte le plus de temps, nous le mettons en service, puis nous étendons progressivement au reste de votre activité.",
       },
       {
         question: "Que se passe-t-il si une automatisation tombe en panne ?",
