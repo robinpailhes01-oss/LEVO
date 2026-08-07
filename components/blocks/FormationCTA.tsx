@@ -4,13 +4,11 @@ import { ArrowRight } from "lucide-react";
 import { useAudit } from "@/hooks/useAudit";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
-// ── À CONFIRMER AVEC ROBIN avant mise en ligne ──────────────────────
-// Prix, format exact (vidéo à la demande / cohorte live / 1:1) et
-// durée d'accès. Modifier les valeurs ci-dessous suffit à mettre à
-// jour toute la page.
-const PRICE = "497 €";
-const PRICE_NOTE = "Paiement unique · Accès à vie";
-const FORMAT_NOTE = "Formation en ligne, à votre rythme";
+// Formation pas encore ouverte — prix annoncé, inscriptions à venir.
+// Format exact (vidéo à la demande / cohorte live) encore à préciser.
+const PRICE = "200 €";
+const PRICE_NOTE = "Prix de lancement · Places limitées à l'ouverture";
+const FORMAT_NOTE = "Formation à venir";
 
 export function FormationCTA() {
   const { openAudit } = useAudit();
@@ -44,12 +42,12 @@ export function FormationCTA() {
             </div>
 
             <MagneticButton
-              onClick={() => openAudit("demo", "Formation Agent IA WhatsApp")}
+              onClick={() => openAudit("waitlist", "Liste d'attente — Formation Agent IA WhatsApp")}
               className="inline-flex shrink-0 items-center gap-2 rounded-full px-8 py-4 font-body text-sm font-semibold transition-all duration-200 hover:-translate-y-px hover:opacity-90"
               style={{ background: "#ffffff", color: "#111111" }}
               strength={0.2}
             >
-              Je m&apos;inscris <ArrowRight size={16} />
+              Être prévenu du lancement <ArrowRight size={16} />
             </MagneticButton>
           </div>
         </div>

@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/formations/agent-whatsapp" },
 };
 
-// À finaliser avec Robin : prix, format exact, durée d'accès.
-// Voir FormationCTA.tsx pour le bloc tarif.
+// Formation à venir — prix 200 € confirmé. Format exact et durée
+// d'accès encore à préciser. Voir FormationCTA.tsx pour le bloc tarif.
 const MODULES = [
   {
     icon: MessageCircle,
@@ -63,18 +63,18 @@ export default function FormationAgentWhatsappPage() {
               style={{ background: "rgba(26,59,255,0.12)", color: "#1A3BFF" }}
             >
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#1A3BFF" }} />
-              Formation · Inscriptions ouvertes
+              Formation · Bientôt disponible
             </span>
             <h1
               className="mt-6 max-w-2xl font-body text-4xl font-black leading-[1.05] tracking-[-0.025em] sm:text-5xl"
               style={{ color: "#111111" }}
             >
-              Créez votre agent IA WhatsApp et personnalisez-le à votre entreprise
+              Mettez vous-même en place votre propre agent IA WhatsApp personnalisé
             </h1>
             <p className="mt-6 max-w-xl font-body text-lg leading-relaxed" style={{ color: "rgba(17,17,17,0.60)" }}>
-              La méthode complète pour construire, de vos propres mains, l&apos;agent
+              Grâce à cette formation, vous construisez de vos propres mains l&apos;agent
               qui répond à vos clients sur WhatsApp et le CRM qui va avec — sans
-              dépendre d&apos;un outil ou d&apos;un abonnement tiers.
+              dépendre d&apos;une agence, d&apos;un outil ou d&apos;un abonnement tiers.
             </p>
           </div>
         </section>

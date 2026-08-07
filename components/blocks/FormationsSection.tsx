@@ -8,11 +8,10 @@ const formations = [
     num: "01",
     title: "Créer son agent IA WhatsApp et personnaliser son entreprise",
     description:
-      "Construisez votre agent IA connecté à WhatsApp, capable de répondre à vos clients et de tout centraliser dans votre propre CRM — de A à Z, sans dépendre d'un outil tiers.",
+      "Grâce à cette formation, vous mettez vous-même en place votre propre agent IA WhatsApp personnalisé — sans dépendre d'une agence ni d'un outil tiers, avec votre CRM à vous.",
     format: "Formation guidée",
     duration: "À votre rythme",
     accent: "#1A3BFF",
-    status: "open" as const,
     href: "/formations/agent-whatsapp",
   },
   {
@@ -23,7 +22,6 @@ const formations = [
     format: "Formation guidée",
     duration: "À votre rythme",
     accent: "#7B2FBE",
-    status: "soon" as const,
   },
   {
     num: "03",
@@ -33,7 +31,6 @@ const formations = [
     format: "Accompagnement 1:1",
     duration: "Sur-mesure",
     accent: "#B8860B",
-    status: "soon" as const,
   },
 ];
 
@@ -61,13 +58,13 @@ export function FormationsSection() {
 
         <ul aria-label="Nos formations" className="grid list-none gap-6 lg:grid-cols-3">
           {formations.map((f, i) => {
-            const isOpen = f.status === "open";
+            const hasPage = Boolean(f.href);
             const Card = (
               <article
                 className="group relative flex h-full flex-col overflow-hidden rounded-[28px] p-8 transition-all duration-300"
                 style={{
                   background: "#181818",
-                  border: isOpen ? `1px solid ${f.accent}40` : "1px solid rgba(255,255,255,0.08)",
+                  border: hasPage ? `1px solid ${f.accent}40` : "1px solid rgba(255,255,255,0.08)",
                 }}
               >
                 {/* Grand numéro fantôme en fond — signature éditoriale */}
@@ -88,13 +85,13 @@ export function FormationsSection() {
                   <span
                     className="rounded-full px-3 py-1.5 font-body text-[10px] font-semibold uppercase tracking-wider"
                     style={{
-                      background: isOpen ? `${f.accent}22` : "rgba(255,255,255,0.06)",
-                      color: isOpen ? f.accent : "rgba(255,255,255,0.45)",
+                      background: hasPage ? `${f.accent}22` : "rgba(255,255,255,0.06)",
+                      color: hasPage ? f.accent : "rgba(255,255,255,0.45)",
                     }}
                   >
-                    {isOpen ? "Inscriptions ouvertes" : "Bientôt"}
+                    Bientôt
                   </span>
-                  {isOpen && (
+                  {hasPage && (
                     <ArrowUpRight
                       size={20}
                       strokeWidth={2.2}
@@ -126,12 +123,12 @@ export function FormationsSection() {
                   <span>{f.duration}</span>
                 </div>
 
-                {isOpen && (
+                {hasPage && (
                   <span
                     className="relative mt-6 inline-flex items-center gap-1.5 font-body text-sm font-semibold"
                     style={{ color: "#ffffff" }}
                   >
-                    Découvrir la formation →
+                    En savoir plus →
                   </span>
                 )}
               </article>
@@ -139,7 +136,7 @@ export function FormationsSection() {
 
             return (
               <ScrollReveal key={f.title} delay={i * 80} as="li" className="h-full">
-                {isOpen && f.href ? (
+                {hasPage && f.href ? (
                   <Link href={f.href} className="block h-full">
                     {Card}
                   </Link>

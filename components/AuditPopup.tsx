@@ -95,10 +95,22 @@ export function AuditPopup() {
                 </p>
               </div>
             )}
+            {variant === "waitlist" && (
+              <div className="mb-6 mt-2 border-b pb-6" style={{ borderColor: "rgba(26,26,26,0.08)" }}>
+                <p className="section-label" style={{ color: "#1A3BFF" }}>Liste d&apos;attente</p>
+                <h2 className="mt-3 font-body text-2xl font-bold leading-tight tracking-[-0.02em]" style={{ color: "#111111" }}>
+                  Soyez prévenu dès l&apos;ouverture de la formation
+                </h2>
+                <p className="mt-2 font-body text-sm leading-relaxed" style={{ color: "rgba(17,17,17,0.6)" }}>
+                  Laissez vos coordonnées : vous serez averti en priorité dès que les
+                  inscriptions ouvrent, sans engagement de votre part.
+                </p>
+              </div>
+            )}
 
-            <div className={variant === "exit" || variant === "auto" || variant === "demo" ? "" : "mt-4"}>
-              {variant === "demo" ? (
-                <QuickDemoForm project={demoProject} onDone={closeAudit} />
+            <div className={variant === "exit" || variant === "auto" || variant === "demo" || variant === "waitlist" ? "" : "mt-4"}>
+              {variant === "demo" || variant === "waitlist" ? (
+                <QuickDemoForm project={demoProject} onDone={closeAudit} mode={variant} />
               ) : (
                 <AuditForm onDone={closeAudit} />
               )}

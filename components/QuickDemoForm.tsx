@@ -14,7 +14,13 @@ interface FormData {
   phone: string;
 }
 
-export function QuickDemoForm({ project, onDone }: { project: string; onDone?: () => void }) {
+interface Props {
+  project: string;
+  onDone?: () => void;
+  mode?: "demo" | "waitlist";
+}
+
+export function QuickDemoForm({ project, onDone, mode = "demo" }: Props) {
   const [data, setData] = useState<FormData>({ full_name: "", company: "", email: "", phone: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [error, setError] = useState("");
@@ -60,7 +66,9 @@ export function QuickDemoForm({ project, onDone }: { project: string; onDone?: (
           C&apos;est envoyé, {data.full_name.split(" ")[0] || "merci"} !
         </h3>
         <p className="mx-auto mt-3 max-w-sm font-body text-sm leading-relaxed" style={{ color: "rgba(17,17,17,0.6)" }}>
-          On vous recontacte sous 24h pour organiser votre démo personnalisée.
+          {mode === "waitlist"
+            ? "Vous serez averti dès l'ouverture des inscriptions, en priorité."
+            : "On vous recontacte sous 24h pour organiser votre démo personnalisée."}
         </p>
         {onDone && (
           <button
@@ -98,7 +106,7 @@ export function QuickDemoForm({ project, onDone }: { project: string; onDone?: (
         style={{ background: BLUE }}
       >
         {status === "loading" && <Loader2 size={16} className="animate-spin" />}
-        Demander ma démo <ArrowRight size={16} />
+        {mode === "waitlist" ? "Rejoindre la liste d'attente" : "Demander ma démo"} <ArrowRight size={16} />
       </button>
     </div>
   );
