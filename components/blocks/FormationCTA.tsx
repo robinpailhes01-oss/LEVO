@@ -5,9 +5,13 @@ import { useAudit } from "@/hooks/useAudit";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
 // Formation pas encore ouverte — prix annoncé, inscriptions à venir.
-// Format exact (vidéo à la demande / cohorte live) encore à préciser.
-const PRICE = "200 €";
-const PRICE_NOTE = "Prix de lancement · Places limitées à l'ouverture";
+// Tarif fondateur pour les 10 premiers inscrits : à gérer manuellement
+// (pas de compteur en temps réel — Robin arrête l'offre après le 10e
+// contact reçu sur la liste d'attente). Format exact (vidéo à la
+// demande / cohorte live) encore à préciser.
+const PRICE = "150 €";
+const PRICE_ORIGINAL = "200 €";
+const PRICE_NOTE = "Tarif fondateur · Réservé aux 10 premiers inscrits";
 const FORMAT_NOTE = "Formation à venir";
 
 export function FormationCTA() {
@@ -30,12 +34,20 @@ export function FormationCTA() {
               <p className="font-body text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: "rgba(255,255,255,0.45)" }}>
                 {FORMAT_NOTE}
               </p>
-              <p
-                className="mt-3 font-body text-5xl font-black tracking-[-0.02em] sm:text-6xl"
-                style={{ color: "#ffffff" }}
-              >
-                {PRICE}
-              </p>
+              <div className="mt-3 flex items-baseline gap-3">
+                <p
+                  className="font-body text-5xl font-black tracking-[-0.02em] sm:text-6xl"
+                  style={{ color: "#ffffff" }}
+                >
+                  {PRICE}
+                </p>
+                <p
+                  className="font-body text-xl font-semibold line-through"
+                  style={{ color: "rgba(255,255,255,0.35)" }}
+                >
+                  {PRICE_ORIGINAL}
+                </p>
+              </div>
               <p className="mt-2 font-body text-sm" style={{ color: "rgba(255,255,255,0.50)" }}>
                 {PRICE_NOTE}
               </p>
