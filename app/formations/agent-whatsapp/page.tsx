@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Check, MessageCircle, Database, Settings2, Rocket } from "lucide-react";
+import { Check, MessageCircle, Database, Settings2, Rocket, Sparkles, ShieldCheck, Wallet } from "lucide-react";
 import { Nav } from "@/components/blocks/Nav";
 import { Footer } from "@/components/blocks/Footer";
 import { FormationCTA } from "@/components/blocks/FormationCTA";
@@ -17,9 +17,9 @@ const MODULES = [
   {
     icon: MessageCircle,
     num: "01",
-    title: "Connecter WhatsApp Business",
+    title: "Connecter votre compte WhatsApp",
     description:
-      "Configurez l'API WhatsApp Business et branchez-la à votre agent — sans dépendre d'un numéro tiers ni d'un abonnement imposé.",
+      "Connectez votre agent à votre compte WhatsApp existant, sans rien perdre de votre historique de conversations. Vous pouvez le déconnecter à tout moment, en un clic.",
   },
   {
     icon: Settings2,
@@ -51,6 +51,27 @@ const INCLUDES = [
   "Accès aux mises à jour de la formation",
 ];
 
+const REASSURANCE = [
+  {
+    icon: Sparkles,
+    title: "Aucune ligne de code à écrire",
+    description:
+      "Toute la base technique est déjà préparée. Vous, vous la personnalisez à votre entreprise : votre ton, vos règles, vos champs — sans avoir besoin de savoir coder.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Faite pour les débutants",
+    description:
+      "Même si vous n'avez jamais utilisé Claude Code ou un outil de développement, la formation vous guide pas à pas. Aucune expérience technique préalable requise.",
+  },
+  {
+    icon: Wallet,
+    title: "Aucun frais caché",
+    description:
+      "Le prix de la formation est le seul coût fixe. La seule dépense supplémentaire est l'utilisation de l'API WhatsApp elle-même, qui dépend du nombre de messages envoyés — vous gardez la main dessus.",
+  },
+];
+
 export default function FormationAgentWhatsappPage() {
   return (
     <>
@@ -75,7 +96,37 @@ export default function FormationAgentWhatsappPage() {
               Grâce à cette formation, vous construisez de vos propres mains l&apos;agent
               qui répond à vos clients sur WhatsApp et le CRM qui va avec — sans
               dépendre d&apos;une agence, d&apos;un outil ou d&apos;un abonnement tiers.
+              Aucune ligne de code à écrire : la base est déjà prête, vous la
+              personnalisez à votre entreprise.
             </p>
+          </div>
+        </section>
+
+        {/* Réassurance — débutants bienvenus, zéro code, transparence prix */}
+        <section className="pb-20 sm:pb-24" style={{ background: "#f4f3ef" }}>
+          <div className="mx-auto max-w-container px-5 lg:px-12">
+            <div className="grid gap-5 sm:grid-cols-3">
+              {REASSURANCE.map((r) => (
+                <div
+                  key={r.title}
+                  className="rounded-[24px] p-7"
+                  style={{ background: "#ffffff", border: "1px solid rgba(17,17,17,0.08)" }}
+                >
+                  <div
+                    className="flex h-11 w-11 items-center justify-center rounded-2xl"
+                    style={{ background: "rgba(26,59,255,0.10)" }}
+                  >
+                    <r.icon size={20} strokeWidth={1.8} style={{ color: "#1A3BFF" }} />
+                  </div>
+                  <h3 className="mt-5 font-body text-base font-bold" style={{ color: "#111111" }}>
+                    {r.title}
+                  </h3>
+                  <p className="mt-2.5 font-body text-[14px] leading-relaxed" style={{ color: "rgba(17,17,17,0.60)" }}>
+                    {r.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
