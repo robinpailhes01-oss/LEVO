@@ -24,7 +24,7 @@ export function Footer() {
               Agence IA sur-mesure · Montpellier
             </p>
             <p className="mt-1 font-body text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
-              Luma, une marque de Harmonie Group
+              Luma, une marque de Nudes London Limited
             </p>
           </div>
 
@@ -47,7 +47,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 pt-8 sm:flex-row sm:items-center" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
           <p className="font-body text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
-            © {new Date().getFullYear()} Luma · Harmonie Group SASU au capital de 100 € · RCS Marseille 991 738 733 · Nexos Digital LLC
+            © {new Date().getFullYear()} Luma · Nudes London Limited · Company No. 16350794 · Nexos Digital LLC
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <Link

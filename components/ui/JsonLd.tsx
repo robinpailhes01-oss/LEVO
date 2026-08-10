@@ -3,8 +3,8 @@ const organizationSchema = {
   "@type": "Organization",
   "@id": "https://luma-agence.fr/#organization",
   name: "Luma",
-  legalName: "Harmonie Group",
-  alternateName: "Harmonie Group",
+  legalName: "Nudes London Limited",
+  alternateName: "Nudes London Limited",
   url: "https://luma-agence.fr",
   logo: {
     "@type": "ImageObject",
@@ -13,11 +13,10 @@ const organizationSchema = {
     height: 60,
   },
   description:
-    "Luma est une agence IA artisanale, marque de Harmonie Group. Elle conçoit des agents conversationnels et des automatisations sur-mesure pour les PME du Sud de la France.",
+    "Luma est une agence IA artisanale, marque de Nudes London Limited. Elle conçoit des agents conversationnels et des automatisations sur-mesure pour les PME du Sud de la France.",
   email: "contact@luma-agence.fr",
   foundingDate: "2025-09-24",
-  taxID: "991738733",
-  vatID: "FR07991738733",
+  taxID: "16350794",
   areaServed: [
     { "@type": "City", name: "Montpellier" },
     { "@type": "City", name: "Marseille" },
@@ -48,8 +47,8 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "@id": "https://luma-agence.fr/#localbusiness",
   name: "Luma",
-  legalName: "Harmonie Group",
-  taxID: "991738733",
+  legalName: "Nudes London Limited",
+  taxID: "16350794",
   description:
     "Agence IA sur-mesure à Montpellier — agents conversationnels, automatisation de workflows et tableaux de bord pour PME et startups.",
   url: "https://luma-agence.fr",

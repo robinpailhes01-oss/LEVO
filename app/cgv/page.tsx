@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Conditions Générales de Vente",
-  description: "Conditions Générales de Vente de Luma — Harmonie Group SASU.",
+  description: "Conditions Générales de Vente de Luma — Nudes London Limited.",
   alternates: { canonical: "/cgv" },
 };
 
@@ -35,17 +35,17 @@ export default function CgvPage() {
           <Section n="1" title="Éditeur et identité">
             <p>
               Le site luma-agence.fr et les prestations « Luma » sont édités et exploités
-              par <strong>Harmonie Group</strong>, société par actions simplifiée
-              (SASU) au capital de 100 €, immatriculée au RCS de Marseille sous le
-              numéro 991&nbsp;738&nbsp;733, dont le siège social est situé 61 rue du
-              Rouet, 13008 Marseille. « Luma » est une marque de Harmonie Group.
+              par <strong>Nudes London Limited</strong>, private limited company de droit
+              anglais, immatriculée auprès du Companies House sous le numéro
+              16&nbsp;350&nbsp;794, dont le siège social est situé PO Box 4385, Companies
+              House Default Address, Cardiff, CF14&nbsp;8LH, Royaume-Uni. « Luma » est une
+              marque de Nudes London Limited.
             </p>
             <p>
               Certaines prestations peuvent être opérées en partenariat avec{" "}
               <strong>Nexos Digital LLC</strong>.
             </p>
             <p>
-              Numéro de TVA intracommunautaire : FR07&nbsp;991&nbsp;738&nbsp;733.
               Contact : contact@luma-agence.fr.
             </p>
           </Section>
@@ -53,7 +53,7 @@ export default function CgvPage() {
           <Section n="2" title="Objet">
             <p>
               Les présentes Conditions Générales de Vente (les « CGV ») régissent les
-              relations contractuelles entre Harmonie Group (le « Prestataire ») et
+              relations contractuelles entre Nudes London Limited (le « Prestataire ») et
               tout client professionnel (le « Client ») souscrivant à une prestation
               de conception, d&apos;automatisation, d&apos;intégration d&apos;agents IA,
               de développement de sites internet ou de tout autre service proposé par
