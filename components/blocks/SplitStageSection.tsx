@@ -73,7 +73,7 @@ export function SplitStageSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="split-act relative" aria-labelledby="split-heading">
+    <section ref={sectionRef} data-thread-hide className="split-act relative" aria-labelledby="split-heading">
       <h2 id="split-heading" className="sr-only">
         Votre journée sans Luma, et votre journée avec Luma
       </h2>

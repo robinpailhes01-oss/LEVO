@@ -28,7 +28,7 @@ changes only grammar and world will fail it.
 
 | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
 |---|---|---|---|---|---|---|---|---|
-| luma-agence | Split stage (§2.7), appliqué au pic d'un site multi-pages existant | Pilule flottante conservée — déviation assumée, le site est en production et porte le SEO | Inchangé : parallax + spotlight + kinetic (existant) | flow → pan → **pin/split (pic, 4.2vh)** → pin → flow ×5 → tilt → magnet ; 13 sections | CTA plein écran sur fond noir, précédé du retrait en fondu du fil de conversation pour libérer l'action | La conversation WhatsApp qui se répond toute seule au fil du scroll | Premium-minimal crème/noir/bleu ; zéro imagerie générée (pas de clé API, pas de ffmpeg) | Next.js 14 + Framer Motion ; moteur scrollcraft non monté (conflit de transform) |
+| luma-agence | Split stage (§2.7), appliqué au pic d'un site multi-pages existant | Pilule flottante conservée — déviation assumée, le site est en production et porte le SEO | Inchangé : parallax + spotlight + kinetic (existant) | flow → pan(marquee) → **pin/split (pic, 4.2vh)** → pin → flow ×3 → tilt → **pan/rail mesure** → flow ×2 → magnet ; 13 sections | CTA plein écran sur fond noir, précédé du retrait en fondu du fil de conversation pour libérer l'action | La conversation WhatsApp qui se répond toute seule au fil du scroll | Premium-minimal crème/noir/bleu ; zéro imagerie générée (pas de clé API, pas de ffmpeg) | Next.js 14 + Framer Motion ; moteur scrollcraft non monté (conflit de transform) |
 
 *(empty: your first build has nothing to clear, so build whatever the interview
 points at. From the second onwards, this table is the constraint.)*

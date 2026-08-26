@@ -35,7 +35,29 @@ export function LiveThread() {
   const [step, setStep] = useState(0);
   const [dismissed, setDismissed] = useState(false);
   const [past, setPast] = useState(false); // sorti de scène en fin de page
+  const [blocked, setBlocked] = useState(false); // section plein cadre à l'écran
   const raf = useRef(0);
+
+  // Sur les actes plein cadre (le pic, le rail des créations), un panneau
+  // flottant ne fait que recouvrir le contenu : il s'efface le temps qu'ils
+  // passent, et revient ensuite.
+  useEffect(() => {
+    const targets = document.querySelectorAll("[data-thread-hide]");
+    if (!targets.length) return;
+    const active = new Set<Element>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) active.add(e.target);
+          else active.delete(e.target);
+        }
+        setBlocked(active.size > 0);
+      },
+      { threshold: 0.1 },
+    );
+    targets.forEach((t) => io.observe(t));
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const update = () => {
@@ -74,7 +96,7 @@ export function LiveThread() {
 
   return (
     <aside
-      className={`wa-rail ${idle || past ? "wa-rail--away" : ""}`}
+      className={`wa-rail ${idle || past || blocked ? "wa-rail--away" : ""}`}
       aria-label="Démonstration : l'agent WhatsApp de Luma en action"
     >
       <div className="wa-rail__head">
