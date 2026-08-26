@@ -3,6 +3,7 @@ import { Nav } from "@/components/blocks/Nav";
 import { HeroSection } from "@/components/blocks/HeroSection";
 import { TrustBar } from "@/components/blocks/TrustBar";
 import { ClientsMarquee } from "@/components/blocks/ClientsMarquee";
+import { SplitStageSection } from "@/components/blocks/SplitStageSection";
 import { OfferSection } from "@/components/blocks/OfferSection";
 import { ServicesSection } from "@/components/blocks/ServicesSection";
 import { HowItWorksSection } from "@/components/blocks/HowItWorksSection";
@@ -15,6 +16,7 @@ import { AboutSection } from "@/components/blocks/AboutSection";
 import { CTASection } from "@/components/blocks/CTASection";
 import { Footer } from "@/components/blocks/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { LiveThread } from "@/components/blocks/LiveThread";
 import { Marquee } from "@/components/ui/Marquee";
 
 export const metadata: Metadata = {
@@ -47,6 +49,7 @@ export default function Home() {
         />
         <TrustBar />
         <ClientsMarquee />
+        <SplitStageSection />
         <OfferSection />
         <ServicesSection />
         <HowItWorksSection />
@@ -56,6 +59,7 @@ export default function Home() {
         <AboutSection />
         <CTASection />
       </main>
+      <LiveThread />
       <Footer />
     </>
   );

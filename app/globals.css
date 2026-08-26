@@ -154,10 +154,295 @@
   }
 }
 
+/* ── Split stage : le pic de la page d'accueil ──────────────────────
+   La position du séparateur arrive du scroll via --split (posée en inline
+   par SplitStageSection). Toute la géométrie est ici, ce qui permet un
+   split horizontal sur desktop et vertical sur mobile avec une seule
+   logique JS. La valeur par défaut assure un rendu correct sans JS. */
+.split-stage {
+  /* --p (0 à 1) est la seule chose que le JS écrit. Tout le reste en dérive. */
+  --p: 0;
+  /* --k : progression de la résolution, quand « Avec » avale « Sans ». */
+  --k: clamp(0, calc((var(--p) - 0.58) / 0.3), 1);
+  --split: calc((1 - var(--k)) * 50%);
+}
+
+.split-panel--sans {
+  background: #151311;
+  clip-path: inset(0 calc(100% - var(--split)) 0 0);
+  opacity: calc(1 - var(--k) * 0.68);
+}
+
+.split-panel--avec {
+  background: #0b1b4d;
+  clip-path: inset(0 0 0 var(--split));
+}
+
+.split-content {
+  inset-block: 0;
+  /* Sur mobile chaque bande est autonome : on centre dedans. */
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  /* En comparaison côte à côte, l'alignement EST le propos : les deux
+     colonnes partent de la même ligne, sinon le décalage se lit comme un
+     défaut. Le bloc de résolution occupe le layout dès le départ (opacité 0),
+     donc un simple centrage désaxerait les deux titres. */
+  .split-content {
+    justify-content: flex-start;
+    padding-top: 21vh;
+  }
+}
+
+.split-content--sans { left: 0; width: 50vw; }
+.split-content--avec {
+  right: 0;
+  width: 50vw;
+  /* Pendant la résolution, le contenu gagnant glisse vers le centre. */
+  transform: translateX(calc(var(--k) * -50%));
+}
+
+.split-item {
+  --i: clamp(0, calc((var(--p) - var(--from)) / 0.09), 1);
+  opacity: var(--i);
+  transform: translateY(calc((1 - var(--i)) * 14px));
+}
+
+.split-resolve {
+  --r: clamp(0, calc((var(--p) - 0.82) / 0.12), 1);
+  opacity: var(--r);
+  transform: translateY(calc((1 - var(--r)) * 18px));
+}
+
+.split-divider {
+  top: 0;
+  bottom: 0;
+  left: var(--split);
+  width: 1px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+@media (max-width: 767px) {
+  /* Sur un écran étroit, deux colonnes de 195px sont illisibles :
+     le split bascule sur l'axe vertical. */
+  .split-panel--sans { clip-path: inset(0 0 calc(100% - var(--split)) 0); }
+  .split-panel--avec { clip-path: inset(var(--split) 0 0 0); }
+
+  .split-content { inset-block: auto; inset-inline: 0; width: auto; }
+  .split-content--sans { top: 0; height: 50%; }
+  .split-content--avec {
+    bottom: 0;
+    height: 50%;
+    transform: translateY(calc(var(--k) * -50%));
+  }
+
+  .split-divider {
+    top: var(--split);
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 1px;
+  }
+
+  /* Une demi-hauteur d'écran ne tient pas quatre entrées sur un petit
+     téléphone : la dernière tombe, les trois premières portent l'idée. */
+  .split-item:nth-child(n + 4) { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
   html { scroll-behavior: auto; }
+
+  /* Le split devient deux blocs qui se lisent l'un après l'autre :
+     plus d'épinglage, plus de découpe, mais tout le sens conservé. */
+  .split-stage {
+    position: static !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .split-spacer,
+  .split-divider { display: none !important; }
+
+  .split-panel {
+    position: static !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+    padding-block: 3.5rem;
+  }
+  .split-content {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    inset: auto !important;
+    transform: none !important;
+  }
+  .split-item,
+  .split-resolve {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .split-item:nth-child(n + 4) { display: flex !important; }
+}
+
+/* ── Mouvement signature : la conversation qui se répond toute seule ──
+   Un panneau fixe qui ne décrit pas l'agent mais le fait tourner pendant
+   la lecture. Masqué sous 1024px : sur un téléphone il mangerait le
+   contenu et nuirait à la conversion. */
+.wa-rail {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 30;
+  display: none;
+  width: 19rem;
+  border-radius: 20px;
+  background: var(--white);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 18px 48px rgba(17, 17, 17, 0.16);
+  overflow: hidden;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (min-width: 1024px) {
+  .wa-rail { display: block; }
+}
+
+.wa-rail--away {
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+}
+
+.wa-rail__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.07);
+}
+
+.wa-rail__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #25d366;
+  flex: none;
+}
+
+.wa-rail__title {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.wa-rail__tag {
+  margin-left: auto;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.45);
+  background: rgba(17, 17, 17, 0.05);
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+}
+
+.wa-rail__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  color: rgba(17, 17, 17, 0.4);
+  flex: none;
+}
+
+.wa-rail__close:hover { background: rgba(17, 17, 17, 0.06); color: var(--ink); }
+
+.wa-rail__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.85rem;
+  min-height: 4rem;
+}
+
+.wa-msg {
+  max-width: 88%;
+  padding: 0.5rem 0.7rem 0.45rem;
+  border-radius: 14px;
+  animation: wa-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.wa-msg--client {
+  align-self: flex-start;
+  background: #f1efea;
+  border-bottom-left-radius: 5px;
+}
+
+.wa-msg--agent {
+  align-self: flex-end;
+  background: #1a3bff;
+  border-bottom-right-radius: 5px;
+}
+
+.wa-msg__text {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.wa-msg--agent .wa-msg__text { color: #ffffff; }
+
+.wa-msg__time {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.55rem;
+  color: rgba(17, 17, 17, 0.4);
+}
+
+.wa-msg--agent .wa-msg__time { color: rgba(255, 255, 255, 0.65); }
+
+.wa-rail__status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.85rem;
+  border-top: 1px solid rgba(17, 17, 17, 0.07);
+  background: #faf9f6;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1a7f37;
+  animation: wa-in 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.wa-rail__statusDot {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: #1a7f37;
+}
+
+@keyframes wa-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-msg,
+  .wa-rail__status { animation: none !important; }
+  .wa-rail { transition: none !important; }
 }

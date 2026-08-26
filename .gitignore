@@ -30,3 +30,6 @@ next-env.d.ts
 
 # vercel
 .vercel
+
+# Captures de vérification scrollcraft (régénérables)
+scrollcraft/builds/*/lab/
