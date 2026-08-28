@@ -82,7 +82,7 @@ export function HeroSection() {
         {/* Centered hero copy */}
         <div className="mx-auto max-w-4xl text-center">
           <motion.p {...fadeUp(0)} className="section-label mx-auto mb-8 justify-center">
-            Agence IA · Écosystèmes sur-mesure
+            Agence IA sur-mesure · Montpellier
           </motion.p>
 
           {/* Massive staggered headline */}
@@ -91,7 +91,7 @@ export function HeroSection() {
           <motion.h1
             className="font-display leading-[1.0] tracking-[-0.035em]"
             style={{ fontSize: "clamp(3.2rem, 8vw, 6rem)", color: "#111111" }}
-            aria-label="Des solutions IA, qui vous ressemblent."
+            aria-label="Des outils IA qui vous appartiennent."
           >
             {/* aria-hidden : le texte lu par Google/lecteurs d'écran vient du
                 aria-label ci-dessus, pas de ces mots animés (espacés par une
@@ -99,8 +99,8 @@ export function HeroSection() {
             <span aria-hidden="true">
               {[
                 { word: "Des", bold: false },
-                { word: "solutions", bold: true },
-                { word: "IA,", bold: true },
+                { word: "outils", bold: true },
+                { word: "IA", bold: true },
               ].map(({ word, bold }, i) => (
                 <span key={i} className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] mr-[0.25em]">
                   <motion.span
@@ -139,7 +139,7 @@ export function HeroSection() {
                   animate={{ y: "0%" }}
                   transition={{ duration: 0.75, ease: EASE, delay: 0.42 }}
                 >
-                  ressemblent.
+                  appartiennent.
                 </motion.em>
               </span>
             </span>
@@ -150,18 +150,21 @@ export function HeroSection() {
             className="mx-auto mt-8 max-w-lg font-body text-lg leading-relaxed"
             style={{ color: "rgba(17,17,17,0.60)" }}
           >
-            On automatise vos tâches répétitives <em className="font-serif not-italic" style={{ fontStyle: "italic", color: "#111111" }}>et</em> on décuple votre
-            efficacité. Un écosystème IA qui travaille pendant que vous vous concentrez
-            sur l&apos;essentiel.
+            On ne vous loue pas un logiciel. On construit vos agents, vos
+            automatisations et votre tableau de bord autour de votre métier. Et
+            ils restent{" "}
+            <em className="font-serif not-italic" style={{ fontStyle: "italic", color: "#111111" }}>
+              à vous
+            </em>
+            .
           </motion.p>
 
           {/* Pill CTAs */}
           <motion.div {...fadeUp(0.6)} className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            {/* Un seul CTA principal. « Voir nos réalisations » doublait la nav
+                et diluait l'action ; l'audit reste en second, plus bas. */}
             <MagneticButton href="#contact" className="btn-primary btn-sheen-auto" strength={0.25}>
-              Discutons de votre projet →
-            </MagneticButton>
-            <MagneticButton href="#cas" className="btn-secondary" strength={0.25}>
-              Voir nos réalisations
+              Construire mes outils →
             </MagneticButton>
           </motion.div>
 
@@ -181,7 +184,7 @@ export function HeroSection() {
             {...fadeUp(0.7)}
             className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
           >
-            {["TÂCHES AUTOMATISÉES", "PLUS D'EFFICACITÉ", "SUR-MESURE", "SANS ENGAGEMENT"].map((item) => (
+            {["VOS PROPRES OUTILS", "DÉPLOYÉ EN 1 SEMAINE", "40H ÉCONOMISÉES/MOIS", "MONTPELLIER"].map((item) => (
               <span
                 key={item}
                 className="flex items-center gap-2 font-body text-[11px] font-semibold tracking-[0.12em]"

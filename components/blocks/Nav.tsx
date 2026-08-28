@@ -29,13 +29,16 @@ export function Nav() {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5">
       <nav
         aria-label="Navigation principale"
-        className="mx-auto flex h-16 max-w-container items-center justify-between rounded-full px-4 transition-all duration-300 sm:px-5 lg:px-6"
+        className="nav-material mx-auto flex h-16 max-w-container items-center justify-between rounded-full px-4 transition-all duration-300 sm:px-5 lg:px-6"
         style={{
-          background: "#ffffff",
-          border: "1px solid rgba(17,17,17,0.07)",
+          // La matière (fond translucide + flou) vit dans .nav-material, pour
+          // qu'elle puisse se solidifier sous prefers-reduced-transparency.
+          // Ici seule l'ombre dépend du scroll : une surface qui flotte plus
+          // haut se lit comme plus épaisse. Le liseré clair en haut, c'est la
+          // lumière qui accroche le matériau.
           boxShadow: scrolled
-            ? "0 12px 32px rgba(17,17,17,0.12)"
-            : "0 4px 16px rgba(17,17,17,0.05)",
+            ? "inset 0 1px 0 rgba(255,255,255,0.9), 0 14px 38px rgba(17,17,17,0.14)"
+            : "inset 0 1px 0 rgba(255,255,255,0.75), 0 4px 16px rgba(17,17,17,0.05)",
         }}
       >
         <Link

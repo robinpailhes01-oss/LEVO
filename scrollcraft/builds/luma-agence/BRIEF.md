@@ -181,3 +181,48 @@ du scroll volé aux autres sections.
 - **Nav pilule conservée** malgré Split stage (voir plus haut).
 - **Signature move masqué sous 1024px.** Sur un écran de 390px, un panneau fixe
   mange le contenu et nuirait à la conversion. Le pic, lui, fonctionne sur mobile.
+
+---
+
+## Décision de copywriting (boucle-créative, passe du 2e jour)
+
+Divergence sur 4 angles de promesse, notés sur la grille copywriting :
+
+| Critère | A · temps rendu | B · douleur | **C · possession** | D · proximité |
+|---|---|---|---|---|
+| Clarté en 3 s | 5 | 4 | 4 | 4 |
+| Différenciation | 2 | 3 | **5** | 4 |
+| Alignement premium | 3 | 2 | **5** | 4 |
+| CTA évident et unique | 4 | 4 | 4 | 3 |
+| Preuve concrète | 5 | 4 | 4 | 3 |
+| **Total** | 19 | 17 | **22** | 18 |
+
+**Retenu : C — la possession.** « On ne loue pas de logiciels, on construit les
+vôtres. » C'est la seule chose qu'un concurrent ne peut pas copier : chez Luma
+l'outil reste au client. A est vrai mais interchangeable, B enferme la marque
+dans la peur, D est juste mais mou sur l'action.
+
+**Ce que le raffinement a corrigé sur l'option gagnante :**
+
+- Le hero portait **trois** appels à l'action (projet, réalisations, audit), ce
+  qui échouait au critère « CTA évident et unique ». « Voir nos réalisations »
+  doublait la nav : retiré. Reste un CTA principal + l'audit en second.
+- Le « et » en serif tombait au milieu d'une phrase. Déplacé sur « à vous »,
+  la formule qui porte réellement le positionnement.
+
+**Conséquence sur le pic.** Le Sans/Avec était écrit sur l'angle B (journée
+subie contre journée réparée). Hors-direction sur un site qui vend de la
+possession — c'est ce qui gênait Robin, plus que le dispositif. Le mécanisme de
+bascule est conservé (il est vérifié) ; ce qu'il compare change :
+**« Un logiciel qu'on vous loue » contre « Un outil qui vous appartient »**,
+avec une structure parallèle (Les règles / Vos données / Le jour où vous partez).
+
+## Couche Apple (matière et typographie)
+
+- **Nav en matière translucide** au lieu d'une barre opaque : `backdrop-filter`
+  flou + saturation, le contenu défile dessous. Liseré clair en haut (la lumière
+  qui accroche le matériau), ombre qui se creuse au scroll — une surface qui
+  flotte plus haut se lit comme plus épaisse.
+- **`prefers-reduced-transparency`** et **`prefers-contrast: more`** solidifient
+  la matière au lieu de la flouter. C'est le pendant de `prefers-reduced-motion`
+  côté matière, et il manquait.

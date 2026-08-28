@@ -20,17 +20,17 @@ import { useAudit } from "@/hooks/useAudit";
  */
 
 const SANS = [
-  { time: "22h47", text: "« Vous avez de la place le 15 août ? »" },
-  { time: "Le lendemain", text: "Vous répondez. Il a réservé ailleurs." },
-  { time: "Cette semaine", text: "Trois devis en retard, deux relances oubliées." },
-  { time: "Ce soir", text: "Vous rattrapez l'administratif au lieu de souffler." },
+  { time: "Chaque mois", text: "Un abonnement à payer, même les mois creux." },
+  { time: "Les règles", text: "Vous vous adaptez à l'outil. Jamais l'inverse." },
+  { time: "Vos données", text: "Elles vivent chez un éditeur, sur ses conditions." },
+  { time: "Le jour où vous partez", text: "Vous repartez sans rien." },
 ];
 
 const AVEC = [
-  { time: "22h47", text: "L'agent répond en trente secondes, dans votre ton." },
-  { time: "22h48", text: "La demande est qualifiée et rangée dans votre CRM." },
-  { time: "Le lendemain", text: "Le devis est déjà parti. La relance est programmée." },
-  { time: "Ce soir", text: "Vous ne rattrapez rien. Il n'y a rien à rattraper." },
+  { time: "Une fois", text: "Vous payez la construction, puis votre usage réel." },
+  { time: "Les règles", text: "Il est taillé sur votre métier, votre ton, vos étapes." },
+  { time: "Vos données", text: "Elles restent chez vous, dans votre propre CRM." },
+  { time: "Le jour où vous partez", text: "Il n'y a nulle part où partir : il est déjà à vous." },
 ];
 
 // Les entrées se chevauchent : la précédente tient encore quand la suivante
@@ -75,7 +75,7 @@ export function SplitStageSection() {
   return (
     <section ref={sectionRef} data-thread-hide className="split-act relative" aria-labelledby="split-heading">
       <h2 id="split-heading" className="sr-only">
-        Votre journée sans Luma, et votre journée avec Luma
+        Un logiciel loué, comparé à un outil qui vous appartient
       </h2>
 
       <div ref={stageRef} className="split-stage sticky top-0 h-screen w-full overflow-hidden">
@@ -88,14 +88,14 @@ export function SplitStageSection() {
                 style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.58)" }}
               >
                 <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#8A8F98" }} />
-                Sans Luma
+                Logiciel loué
               </span>
 
               <p
                 className="mt-6 font-body text-[1.6rem] font-black leading-[1.1] tracking-[-0.02em] sm:text-4xl"
                 style={{ color: "rgba(255,255,255,0.92)" }}
               >
-                Votre journée, aujourd&apos;hui.
+                Un logiciel qu&apos;on vous loue.
               </p>
 
               <ul className="mt-7 list-none space-y-4">
@@ -122,14 +122,14 @@ export function SplitStageSection() {
                 style={{ background: "rgba(77,143,255,0.22)", color: "#B4CCFF" }}
               >
                 <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#4D8FFF" }} />
-                Avec Luma
+                Outil sur-mesure
               </span>
 
               <p
                 className="mt-6 font-body text-[1.6rem] font-black leading-[1.1] tracking-[-0.02em] sm:text-4xl"
                 style={{ color: "#ffffff" }}
               >
-                Votre journée, à partir de maintenant.
+                Un outil qui vous appartient.
               </p>
 
               <ul className="mt-7 list-none space-y-4">
@@ -144,7 +144,7 @@ export function SplitStageSection() {
                   className="font-body text-[15px] font-semibold sm:text-base"
                   style={{ color: "#ffffff" }}
                 >
-                  40h récupérées chaque mois. Zéro demande oubliée.
+                  Il est à vous. Et il vous rend 40h par mois.
                 </p>
                 <button
                   type="button"
