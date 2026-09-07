@@ -33,28 +33,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${base}/#process`,
+      url: `${base}/a-propos`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${base}/#cas`,
+      url: `${base}/realisations`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${base}/#apropos`,
+      url: `${base}/formations`,
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.6,
-    },
-    {
-      url: `${base}/#contact`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.9,
     },
   ];
 }

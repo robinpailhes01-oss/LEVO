@@ -47,7 +47,7 @@ export default function ServicesPage() {
               {SERVICES.map((s) => (
                 <li key={s.slug}>
                   <Link
-                    href={s.href ?? "/#services"}
+                    href={s.href ?? "/services"}
                     className="group relative flex h-full flex-col overflow-hidden rounded-[24px] p-8 transition-all duration-300 hover:-translate-y-1"
                     style={{
                       background: "#ffffff",

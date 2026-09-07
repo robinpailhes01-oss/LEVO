@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { AuditContextProvider, useAudit } from "@/hooks/useAudit";
 import { AuditPopup } from "@/components/AuditPopup";
 
@@ -26,20 +27,29 @@ function markShown(): void {
 
 // Ouvre automatiquement le popup 5s après l'arrivée — fonctionne sur mobile/tablette,
 // contrairement à l'exit-intent qui dépend d'un curseur de souris.
+/* Sur le parcours (accueil), aucun déclenchement automatique : la page se
+   termine sur sa propre action et un lien vers l'audit. Une popup à 5 s y
+   couperait le voyage. */
+function useAutoAllowed(): boolean {
+  const pathname = usePathname();
+  return pathname !== "/";
+}
+
 function AutoOpen() {
   const { openAudit, isOpen } = useAudit();
+  const allowed = useAutoAllowed();
   const isOpenRef = useRef(isOpen);
   isOpenRef.current = isOpen;
 
   useEffect(() => {
-    if (hasBeenShown()) return;
+    if (!allowed || hasBeenShown()) return;
     const timer = setTimeout(() => {
       if (hasBeenShown() || isOpenRef.current) return;
       markShown();
       openAudit("auto");
     }, AUTO_OPEN_DELAY_MS);
     return () => clearTimeout(timer);
-  }, [openAudit]);
+  }, [openAudit, allowed]);
 
   return null;
 }
@@ -48,13 +58,14 @@ function AutoOpen() {
 // immédiatement (dès 30s après l'arrivée) plutôt que d'attendre.
 function ExitIntent() {
   const { openAudit, isOpen } = useAudit();
+  const allowed = useAutoAllowed();
   const arrivedAt = useRef<number>(0);
   const isOpenRef = useRef(isOpen);
   isOpenRef.current = isOpen;
 
   useEffect(() => {
     arrivedAt.current = Date.now();
-    if (hasBeenShown()) return;
+    if (!allowed || hasBeenShown()) return;
 
     const onMouseOut = (e: MouseEvent) => {
       if (e.clientY > 0 || e.relatedTarget) return;
@@ -67,7 +78,7 @@ function ExitIntent() {
 
     document.addEventListener("mouseout", onMouseOut);
     return () => document.removeEventListener("mouseout", onMouseOut);
-  }, [openAudit]);
+  }, [openAudit, allowed]);
 
   return null;
 }

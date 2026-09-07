@@ -4,11 +4,11 @@ import Link from "next/link";
 
 const nav = [
   { href: "/services", label: "Nos services" },
-  { href: "/#process", label: "Méthode" },
-  { href: "/#cas", label: "Réalisations" },
-  { href: "/#formations", label: "Formations" },
-  { href: "/#apropos", label: "À propos" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/a-propos#process", label: "Méthode" },
+  { href: "/realisations", label: "Réalisations" },
+  { href: "/formations", label: "Formations" },
+  { href: "/a-propos", label: "À propos" },
+  { href: "/a-propos#contact", label: "Contact" },
 ];
 
 export function Footer() {

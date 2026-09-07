@@ -7,10 +7,10 @@ import { useAudit } from "@/hooks/useAudit";
 
 const links = [
   { href: "/services", label: "Nos services" },
-  { href: "/#process", label: "Méthode" },
-  { href: "/#cas", label: "Réalisations" },
-  { href: "/#formations", label: "Formations" },
-  { href: "/#apropos", label: "À propos" },
+  { href: "/a-propos#process", label: "Méthode" },
+  { href: "/realisations", label: "Réalisations" },
+  { href: "/formations", label: "Formations" },
+  { href: "/a-propos", label: "À propos" },
 ];
 
 export function Nav() {
@@ -75,7 +75,7 @@ export function Nav() {
           >
             Audit gratuit →
           </button>
-          <Link href="/#contact" className="btn-primary hidden text-sm md:inline-flex" style={{ padding: "0.6rem 1.25rem", fontSize: "0.82rem" }}>
+          <Link href="/a-propos#contact" className="btn-primary hidden text-sm md:inline-flex" style={{ padding: "0.6rem 1.25rem", fontSize: "0.82rem" }}>
             Discutons →
           </Link>
           <button
@@ -137,7 +137,7 @@ export function Nav() {
           </li>
           <li className="mt-3">
             <Link
-              href="/#contact"
+              href="/a-propos#contact"
               onClick={() => setOpen(false)}
               className="btn-primary w-full justify-center"
             >

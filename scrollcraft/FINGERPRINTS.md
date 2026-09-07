@@ -30,6 +30,8 @@ changes only grammar and world will fail it.
 |---|---|---|---|---|---|---|---|---|
 | luma-agence | Split stage (§2.7), appliqué au pic d'un site multi-pages existant | Pilule flottante conservée — déviation assumée, le site est en production et porte le SEO | Inchangé : parallax + spotlight + kinetic (existant) | flow → pan(marquee) → **pin/split (pic, 4.2vh)** → pin → flow ×3 → tilt → **pan/rail mesure** → flow ×2 → magnet ; 13 sections | CTA plein écran sur fond noir, précédé du retrait en fondu du fil de conversation pour libérer l'action | La conversation WhatsApp qui se répond toute seule au fil du scroll | Premium-minimal crème/noir/bleu ; zéro imagerie générée (pas de clé API, pas de ffmpeg) | Next.js 14 + Framer Motion ; moteur scrollcraft non monté (conflit de transform) |
 
+| luma-parcours | Monde continu (§2.4), en WebGL temps réel : une scène fixe, un spacer, six lieux, la caméra voyage ; worldflight réimplémenté en R3F (moteur vidéo non monté) | Carte : rail de six points de passage cliquable (droite desktop, points en bas mobile) + wordmark et 4 liens de pages en mono | Position établie dans le monde (le comptoir) + champ de saisie « votre demande » ; vrai h1, pas de titre plein écran | 0 section, 6 stations + 5 trajets, 1 vol continu, 11,4 vh ; pic = station 3 (2,4 vh) | Arrivée dans le monde : le bureau, la bulle posée, le CTA-objet « Envoyer à Luma » (mailto pré-rempli), la page s'arrête | La demande tapée par le visiteur voyage dans le monde et arrive prête à envoyer | Crème lumineux : canvas transparent sur la crème, objets bleu nuit / bleu électrique / blanc, trame de sol infinie ; zéro imagerie | Next.js 14 + R3F 8 + Framer Motion ; accueil remplacé, contenu profond migré vers /realisations, /a-propos, /formations |
+
 *(empty: your first build has nothing to clear, so build whatever the interview
 points at. From the second onwards, this table is the constraint.)*
 
@@ -42,7 +44,8 @@ reusing: a grammar, a nav treatment, a close pattern, a signature move, an
 act-count-and-length band. The shared columns are what the next build inherits
 as a constraint, so writing them down is the whole point.
 
-Nothing is taken yet.
+- **luma-agence** : grammaire split stage ; conversation WhatsApp qui se répond seule ; CTA plein écran fond noir.
+- **luma-parcours** : grammaire monde continu ; nav-carte à six points ; hero « position + champ de saisie » ; la demande du visiteur qui voyage ; fermeture « arrivée sur un bureau, CTA-objet ». Bande de longueur 11-12 vh à 6 stations.
 
 ---
 

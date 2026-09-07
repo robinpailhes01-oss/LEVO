@@ -54,6 +54,14 @@ export function SmoothScroll() {
     };
     document.addEventListener("click", onClick);
 
+    /* Défilement programmé depuis la page (carte du parcours, etc.). */
+    const onScrollTo = (e: Event) => {
+      const detail = (e as CustomEvent<{ top: number; duration?: number }>).detail;
+      if (!detail || typeof detail.top !== "number") return;
+      lenis.scrollTo(detail.top, { duration: detail.duration ?? 1.4 });
+    };
+    window.addEventListener("luma:scrollto", onScrollTo);
+
     /* Arrivée avec un hash dans l'URL : on se cale sans animation. */
     if (window.location.hash) {
       const el = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
@@ -65,6 +73,7 @@ export function SmoothScroll() {
     return () => {
       cancelAnimationFrame(raf);
       document.removeEventListener("click", onClick);
+      window.removeEventListener("luma:scrollto", onScrollTo);
       lenis.destroy();
     };
   }, []);
