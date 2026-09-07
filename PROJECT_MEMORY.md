@@ -12,7 +12,7 @@ Next.js 14 App Router · TS strict · Tailwind · Supabase (service role, serveu
 ## État
 - Site vitrine + audit : construits, build OK, poussés sur `main`.
 - **Hero refondu (branche `claude/figma-connection-ef38or`)** : composition éditoriale asymétrique — thèse à gauche (titre masqué mot par mot, signature Cormorant italique bleue, 3 faits en hairlines), preuve à droite = « Journal de bord » sombre où les actions de l'écosystème arrivent en direct (horaires client-side, pas d'hydratation), parallaxe + tilt légers, trame/grain de fond. Police mono `JetBrains_Mono` ajoutée (`--font-mono`, `font-mono`). Reduced-motion respecté (journal figé, pas de tilt/reflet).
-- Figma : MCP connecté sur le compte `Levo` mais siège **View** uniquement → lecture OK, écriture dans Figma impossible tant que le siège n'est pas passé en Edit.
+- Figma : MCP connecté (compte `Levo`, équipe « L'équipe de harmonie », siège View — l'écriture via MCP fonctionne malgré tout). Le hero a été reproduit dans un fichier Figma dédié : https://www.figma.com/design/8cAhe05mQnnWWOjmxNa7Hp (frame « Hero — Desktop 1440 », icônes Lucide remplacées par des pastilles).
 - Rebrand Levo→Luma fait (texte, domaine, `LUMA_MCP_SECRET`). Dossiers `docs/levo`, `dashboard-levo` gardés (chemins).
 
 ## Audit gratuit (site)
