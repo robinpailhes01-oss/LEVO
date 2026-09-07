@@ -169,7 +169,7 @@ function Rig({ progress, reduceMotion, children }: SceneProps & { children: Reac
   const light = useRef<THREE.PointLight>(null);
   const { camera, pointer, viewport } = useThree();
   /* Portrait : on recule la caméra pour que l'orbite tienne dans la largeur. */
-  const zoomOut = viewport.aspect < 1 ? 1.55 : viewport.aspect < 1.3 ? 1.25 : 1;
+  const zoomOut = viewport.aspect < 0.7 ? 1.9 : viewport.aspect < 1 ? 1.6 : viewport.aspect < 1.3 ? 1.25 : 1;
   const targetZ = useRef(11 * zoomOut);
 
   useFrame((state, delta) => {
