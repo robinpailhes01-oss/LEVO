@@ -25,6 +25,7 @@ const config: Config = {
         display: ["var(--font-body)", "system-ui", "sans-serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
         serif: ["var(--font-display)", "Georgia", "serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       maxWidth: {
         container: "1200px",

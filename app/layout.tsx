@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant_Garamond, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { AuditProvider } from "@/components/AuditProvider";
@@ -19,6 +19,15 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-body",
   display: "swap",
   preload: true,
+});
+
+// Mono : horaires et labels techniques du journal de bord (hero).
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+  display: "swap",
+  preload: false,
 });
 
 const BASE_URL = "https://luma-agence.fr";
@@ -100,7 +109,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${cormorant.variable} ${jakarta.variable}`}>
+    <html lang="fr" className={`${cormorant.variable} ${jakarta.variable} ${mono.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
