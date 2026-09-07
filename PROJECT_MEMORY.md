@@ -25,6 +25,10 @@ Next.js 14 App Router · TS strict · Tailwind · Supabase (service role, serveu
 - Submit → `/api/audit` : insert Supabase `audits` + crée un lead ORION (`leads`) + **webhook CRM** best-effort si `lead_id` présent → `LEVO_WEBHOOK_URL?token=LEVO_WEBHOOK_TOKEN` body `{lead_id, answers}` (serveur only).
 - `lib/audit/calc.ts` : estime heures perdues + perte €/mois + `INFRA_MAP` (aperçu écosystème).
 
+## Accueil — refonte « en actes » (scroll + 3D + motion)
+Ordre : Hero → Marquee → **ProofSection** (chiffres + logos, ligne tracée) → SplitStage (pin 1, inchangé) → OfferSection (inchangé) → **EcosystemSection** (pin 2, moment signature : scène 3D `components/scene/EcosystemScene.tsx` chargée à l'approche, 3 étapes, puis 3 cartes briques ; mobile = non épinglé, auto-assemblage ; reduced-motion = statique ; `id="services"`) → **MethodSection** (trait tracé au scroll, nœuds qui s'allument, `id="process"`) → **PortfolioSection** (cartes empilées sticky, `id="cas"`) → **CreationsSection** (grille de fenêtres avec parallaxe interne, rail épinglé supprimé, `id="creations"`) → Formations (TiltCard) → About (Parallax portrait + LineReveal citation) → CTA (halo souris + MagneticButton).
+Règle tenue : 2 pins max (split + 3D), 1 signature (3D). Primitives ajoutées : `ui/LineReveal`, `ui/Parallax`. Sections supprimées : TrustBar, ClientsMarquee, ServicesSection, HowItWorksSection. `/labs/ecosystem-3d` conservé pour tester la scène.
+
 ## Décisions clés
 - Vitrine `/`, dashboard `/dashboard/*` (route group). Supabase RLS ON, accès service role only.
 - Auth dashboard : cookie HMAC (`AUTH_SECRET`), vérifié Edge via `crypto.subtle`.

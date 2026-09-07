@@ -4,10 +4,11 @@ import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTran
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { StaticEcosystem, supportsWebGL } from "@/components/scene/EcosystemFallback";
 
 /* La scène WebGL n'est chargée que côté client, et seulement sur cette
    route : son poids n'atteint jamais la page d'accueil. */
-const EcosystemScene = dynamic(() => import("./EcosystemScene"), {
+const EcosystemScene = dynamic(() => import("@/components/scene/EcosystemScene"), {
   ssr: false,
   loading: () => (
     <div className="flex h-full w-full items-center justify-center">
@@ -38,49 +39,6 @@ const STEPS = [
     text: "Une demande devient un devis, un devis une relance, une relance un rendez-vous. Vous regardez le tableau de bord.",
   },
 ];
-
-/** WebGL absent (vieux navigateur, GPU bloqué, mode économie) → affiche
-    l'écosystème en version plate plutôt qu'une scène qui plante. */
-function supportsWebGL(): boolean {
-  try {
-    const c = document.createElement("canvas");
-    return Boolean(c.getContext("webgl2") || c.getContext("webgl"));
-  } catch {
-    return false;
-  }
-}
-
-function StaticEcosystem() {
-  const labels = ["WhatsApp", "Devis", "Relances", "CRM", "Contenu", "Rapports"];
-  return (
-    <div className="flex h-full w-full items-center justify-center" aria-hidden>
-      <div className="relative h-[52vmin] w-[52vmin]">
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{ border: "1px solid rgba(26,59,255,0.35)" }}
-        />
-        <div
-          className="absolute left-1/2 top-1/2 h-[34%] w-[34%] -translate-x-1/2 -translate-y-1/2 rounded-full"
-          style={{ background: "#0d1117", boxShadow: "0 30px 60px rgba(17,17,17,0.25)" }}
-        />
-        {labels.map((l, i) => {
-          const a = (i / labels.length) * Math.PI * 2 - Math.PI / 2;
-          const x = 50 + Math.cos(a) * 50;
-          const y = 50 + Math.sin(a) * 50;
-          return (
-            <span
-              key={l}
-              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em]"
-              style={{ left: `${x}%`, top: `${y}%`, background: "#ffffff", border: "1px solid rgba(17,17,17,0.10)", color: "#111111" }}
-            >
-              {l}
-            </span>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
 
 export function LabEcosystem() {
   const reduceMotion = useReducedMotion() ?? false;

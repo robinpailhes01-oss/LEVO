@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { WordReveal } from "@/components/ui/WordReveal";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const formations = [
   {
@@ -41,7 +42,7 @@ export function FormationsSection() {
         <ScrollReveal className="mb-16">
           <p className="section-label" style={{ color: "rgba(255,255,255,0.45)" }}>Formations</p>
           <WordReveal
-            text="Apprenez à construire votre propre IA"
+            text="Apprenez à construire votre propre IA."
             as="h2"
             className="heading mt-6 max-w-2xl text-4xl sm:text-5xl"
             style={{ color: "#ffffff" }}
@@ -136,13 +137,15 @@ export function FormationsSection() {
 
             return (
               <ScrollReveal key={f.title} delay={i * 80} as="li" className="h-full">
-                {hasPage && f.href ? (
-                  <Link href={f.href} className="block h-full">
-                    {Card}
-                  </Link>
-                ) : (
-                  Card
-                )}
+                <TiltCard intensity={5} glare sweep className="h-full" style={{ borderRadius: 28 }}>
+                  {hasPage && f.href ? (
+                    <Link href={f.href} className="block h-full">
+                      {Card}
+                    </Link>
+                  ) : (
+                    Card
+                  )}
+                </TiltCard>
               </ScrollReveal>
             );
           })}

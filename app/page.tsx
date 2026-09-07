@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/blocks/Nav";
 import { HeroSection } from "@/components/blocks/HeroSection";
-import { TrustBar } from "@/components/blocks/TrustBar";
-import { ClientsMarquee } from "@/components/blocks/ClientsMarquee";
+import { ProofSection } from "@/components/blocks/ProofSection";
 import { SplitStageSection } from "@/components/blocks/SplitStageSection";
 import { OfferSection } from "@/components/blocks/OfferSection";
-import { ServicesSection } from "@/components/blocks/ServicesSection";
-import { HowItWorksSection } from "@/components/blocks/HowItWorksSection";
+import { EcosystemSection } from "@/components/blocks/EcosystemSection";
+import { MethodSection } from "@/components/blocks/MethodSection";
 import { PortfolioSection } from "@/components/blocks/PortfolioSection";
 import { CreationsSection } from "@/components/blocks/CreationsSection";
 import { FormationsSection } from "@/components/blocks/FormationsSection";
@@ -47,12 +46,11 @@ export default function Home() {
           className="border-y py-4"
           style={{ borderColor: "rgba(17,17,17,0.10)", background: "#f4f3ef" }}
         />
-        <TrustBar />
-        <ClientsMarquee />
+        <ProofSection />
         <SplitStageSection />
         <OfferSection />
-        <ServicesSection />
-        <HowItWorksSection />
+        <EcosystemSection />
+        <MethodSection />
         <PortfolioSection />
         <CreationsSection />
         <FormationsSection />
