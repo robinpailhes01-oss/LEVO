@@ -34,6 +34,8 @@ Next.js 14 App Router · TS strict · Tailwind · Supabase (service role, serveu
 - SQL Supabase échoue si **traduction Chrome active** → exécuter en navigation privée.
 - MCP Supabase connecté à un autre compte → **DDL impossible** ici, le user exécute les `.sql`.
 - Vercel ne promeut pas toujours en prod auto → vérifier après push.
+- **Vercel installe avec pnpm (frozen-lockfile)** : toute nouvelle dépendance doit passer par `pnpm install --lockfile-only` pour mettre à jour `pnpm-lock.yaml`, sinon le déploiement échoue (`ERR_PNPM_OUTDATED_LOCKFILE`). Le `package-lock.json` seul ne suffit pas.
+- **Branche de production Vercel = `claude/busy-cori-z394rr`** (pas `main`). Une autre branche ne produit que des previews : `levo-git-<branche>-robinpailhes01-4664s-projects.vercel.app`. Deux projets Vercel pointent sur le repo (`levo` et `levo-k4mh`).
 
 ## À FAIRE (côté user)
 1. Supabase (nav privée) : exécuter `docs/levo/schema.sql` + `docs/levo/audit_table.sql`.
