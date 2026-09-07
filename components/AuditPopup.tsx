@@ -38,6 +38,7 @@ export function AuditPopup() {
           role="dialog"
           aria-modal="true"
           aria-label="Audit gratuit"
+          data-lenis-prevent
           className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto p-0 sm:items-center sm:p-6"
           style={{ background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)" }}
         >

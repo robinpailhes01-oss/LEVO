@@ -124,6 +124,12 @@ export function HeroSection() {
   const rawY = useTransform(scrollYProgress, [0, 1], [0, -60]);
   const panelY = useSpring(rawY, { stiffness: 60, damping: 20 });
   const panelOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  /* Sortie en profondeur : en défilant, l'instrument bascule légèrement
+     vers l'arrière et recule, comme un objet qu'on repose sur la table. */
+  const scrollTiltX = useTransform(scrollYProgress, [0, 1], [0, 16]);
+  const scrollScale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
+  /* La thèse recule moins vite que l'instrument : deux plans, pas un aplat. */
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, -24]);
 
   /* ── Spotlight qui suit la souris derrière le titre ── */
   const spotX = useMotionValue(35);
@@ -135,8 +141,10 @@ export function HeroSection() {
   /* ── Inclinaison légère de l'instrument (desktop uniquement) ── */
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(tiltY, [-0.5, 0.5], [3.5, -3.5]), { stiffness: 120, damping: 22 });
+  const mouseRotateX = useSpring(useTransform(tiltY, [-0.5, 0.5], [3.5, -3.5]), { stiffness: 120, damping: 22 });
   const rotateY = useSpring(useTransform(tiltX, [-0.5, 0.5], [-3.5, 3.5]), { stiffness: 120, damping: 22 });
+  /* Souris + scroll se cumulent sur le même axe. */
+  const rotateX = useTransform([mouseRotateX, scrollTiltX], ([m, s]: number[]) => m + s);
 
   function onMouseMove(e: React.MouseEvent<HTMLElement>) {
     const rect = sectionRef.current?.getBoundingClientRect();
@@ -258,7 +266,7 @@ export function HeroSection() {
 
         <div className="grid items-start gap-14 pt-12 lg:grid-cols-12 lg:gap-10 lg:pt-16">
           {/* ── Colonne thèse ── */}
-          <div className="lg:col-span-7">
+          <motion.div className="lg:col-span-7" style={{ y: copyY }}>
             {/* aria-label + texte réel : le titre reste lisible par Google et les
                 lecteurs d'écran malgré l'animation mot par mot. */}
             <h1
@@ -362,15 +370,18 @@ export function HeroSection() {
                 </div>
               ))}
             </motion.dl>
-          </div>
+          </motion.div>
 
           {/* ── Colonne preuve : l'instrument ── */}
           <div className="lg:col-span-5" style={{ perspective: "1400px" }}>
+            {/* Entrée : l'objet arrive de biais et se redresse, plutôt que
+                de glisser à plat. C'est ce qui lui donne une épaisseur. */}
             <motion.div
               ref={panelRef}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: EASE, delay: 0.6 }}
+              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 56, rotateX: 18, rotateY: -12, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, rotateX: 0, rotateY: 0, scale: 1 }}
+              transition={{ duration: 1.3, ease: EASE, delay: 0.6 }}
+              style={{ transformStyle: "preserve-3d" }}
             >
               <motion.div
                 style={{
@@ -378,6 +389,7 @@ export function HeroSection() {
                   opacity: panelOpacity,
                   rotateX,
                   rotateY,
+                  scale: scrollScale,
                   transformStyle: "preserve-3d",
                 }}
                 className="relative overflow-hidden rounded-[24px]"

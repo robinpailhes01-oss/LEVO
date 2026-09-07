@@ -3,6 +3,7 @@ import { Cormorant_Garamond, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font
 import "./globals.css";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { AuditProvider } from "@/components/AuditProvider";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -121,6 +122,7 @@ export default function RootLayout({
       </head>
       <body>
         <JsonLd />
+        <SmoothScroll />
         <AuditProvider>{children}</AuditProvider>
       </body>
     </html>

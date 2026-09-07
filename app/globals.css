@@ -631,3 +631,25 @@
     display: none;
   }
 }
+
+/* ── Scroll lissé (Lenis) ─────────────────────────────────────────────
+   Lenis pose `lenis lenis-smooth` sur <html> quand il est actif. Le
+   `scroll-behavior: smooth` natif est alors neutralisé (les ancres sont
+   prises en charge par SmoothScroll.tsx). Un élément marqué
+   `data-lenis-prevent` garde son scroll natif (modales, listes). */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
